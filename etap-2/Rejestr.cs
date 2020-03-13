@@ -5,17 +5,19 @@ using System.IO;
 
 namespace katalog_samochodowy_cs
 {
+	//KLASA REJESTR
 	class Rejestr
 	{
+		//LISTA PRZECHOWUJĄCA OBIEKTY KLASY POJAZD
 		public static List<Pojazd> lista = new List<Pojazd>();
+		//NAZWA PLIKU W KTORYM ZAPISYWANE SĄ DANE PRZECHOWYWANE W LIŚCIE OBIEKTÓW
 		static string nazwaPliku = "katalogcs.txt";
+		//METODA ZAPISUJĄCA ZAWARTOŚĆ LISTY OBIEKTÓW DO PLIKU, A NASTĘPNIE CZYSZCZĄCA LISTĘ
 		public static void ZapiszZawartoscKataloguDoPliku()
 		{
-			//FileStream plik = new FileStream(nazwaPliku, FileMode.OpenOrCreate, FileAccess.ReadWrite);
 			FileStream plik = new FileStream(nazwaPliku, FileMode.Truncate, FileAccess.Write);
 			plik.Seek(0, SeekOrigin.End);
 			StreamWriter strumienZapisu = new StreamWriter(plik);
-
 			for (int i = 0; i < Rejestr.lista.Count; i++)
 			{
 				strumienZapisu.WriteLine(Rejestr.lista[i].marka + " " + Rejestr.lista[i].model + " " + Rejestr.lista[i].rocznik + " " + Rejestr.lista[i].pojemnosc + " " + Rejestr.lista[i].przebieg + " " + Rejestr.lista[i].typSkrzyniBiegow);
@@ -26,6 +28,7 @@ namespace katalog_samochodowy_cs
 			Console.WriteLine("Zapisano!\nNaciśnij klawisz, aby kontynuować");
 			Console.ReadLine();
 		}
+		//METODA ZAPISUJĄCA ZAWARTOŚĆ PLIKU DO LISTY
 		public static void WczytajZawartoscKataloguZPliku()
 		{
 			if (File.Exists(nazwaPliku))
@@ -51,6 +54,7 @@ namespace katalog_samochodowy_cs
 			}
 			Console.ReadLine();
 		}
+		//METODA DODAJĄCA NOWY SAMOCHÓD DO LISTY
 		public static void DodajSamochodDoRejestru()
 		{
 			Console.Clear();
@@ -72,10 +76,10 @@ namespace katalog_samochodowy_cs
 			dane[5] = Console.ReadLine();
 			Pojazd nowyPojazd = new Pojazd(dane[0], dane[1], int.Parse(dane[2]), float.Parse(dane[3]), int.Parse(dane[4]), char.Parse(dane[5]));
 			Rejestr.lista.Add(nowyPojazd);
-			//Rejestr.lista.Add(new Pojazd(dane[0], dane[1], int.Parse(dane[2]), float.Parse(dane[3]), int.Parse(dane[4]), char.Parse(dane[5])));
 			Console.WriteLine("Dodano samochód do rejestru!\nNaciśnij klawisz, aby kontynuować");
 			Console.ReadLine();
 		}
+		//METODA WYPISUJĄCA NA EKRAN ZAWARTOŚĆ CAŁEJ LISTY 
 		public static void WypiszRejestr()
 		{
 			Console.Clear();
@@ -86,6 +90,7 @@ namespace katalog_samochodowy_cs
 				Rejestr.lista[i].Wypisz();
 			}
 		}
+		//METODA USUWAJĄCA WYBRANY PRZEZ UŻYTKOWNIKA SAMOCHÓD Z LISTY
 		public static void UsunSamochodZRejestru()
 		{
 			int doUsuniecia;
@@ -104,6 +109,7 @@ namespace katalog_samochodowy_cs
 			Console.WriteLine("Usunięto pojazd numer {0}\nNaciśnij klawisz, aby kontynuować", doUsuniecia);
 			Console.ReadLine();
 		}
+		//METODA POZWALAJĄCA POSORTOWAĆ ZAWARTOŚĆ ZAWARTOŚĆ LISTY WEDŁUG WYBRANEGO PARAMETRU
 		public static void SortowanieRejestru()
 		{
 			bool posortowano = false;
@@ -165,6 +171,7 @@ namespace katalog_samochodowy_cs
 				}
 			} while (!posortowano);
 		}
+		//METODA POZWALAJĄCA WYPISAĆ NA EKRAN WYBRANE SAMOCHODY SPEŁNIAJĄCE KRYTERIUM
 		public static void WarunkoweWypisanieRejestru()
 		{
 			Console.Clear();
@@ -456,6 +463,7 @@ namespace katalog_samochodowy_cs
 			Console.WriteLine("Naciśnij klawisz, aby kontynuować");
 			Console.ReadLine();
 		}
+		//METODA POZWALAJĄCA NA WYPISANIE KONKRETNEGO SAMOCHODU NA EKRAN
 		public static void WypiszKonkretnySamochód()
 		{
 			int numerPojazdu;

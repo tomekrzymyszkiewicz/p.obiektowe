@@ -6,6 +6,7 @@ namespace katalog_samochodowy_cs
     {
         static void Main(string[] args)
         {
+            //MENU UŻYTKOWNIKA
             bool on = true;
             while (on)
             {
