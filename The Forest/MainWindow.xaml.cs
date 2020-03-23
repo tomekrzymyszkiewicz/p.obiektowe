@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace the_forest_game
 {
@@ -23,6 +10,45 @@ namespace the_forest_game
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void kup(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void sprzedaj(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void poluj(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void zbieraj(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void odpoczywaj(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void low(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void jedz(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void spij(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

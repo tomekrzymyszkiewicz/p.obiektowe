@@ -12,27 +12,33 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Border Grid.Column="0" Grid.Row="0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Background="Gray" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0">Pieniądze:</TextBlock>
-                <TextBlock x:Name="pieniadze" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Column="1"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="5" Background="Gray" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0">Pieniądze:</TextBlock>
+                <TextBlock Margin="5" x:Name="pieniadze" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Column="1" Grid.ColumnSpan="2">000</TextBlock>
+                <TextBlock Margin="5" Background="Gray" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">Czas</TextBlock>
+                <TextBlock Margin="5" x:Name="godzina" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Row="1" Grid.Column="1">00:00</TextBlock>
+                <TextBlock Margin="5" x:Name="dzien" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Row="1" Grid.Column="2">123</TextBlock>
+
             </Grid>
         </Border>
-        <Border Grid.Column="0" Grid.Row="1">
+        <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
@@ -50,8 +56,101 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock Background="Gray" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center">Ekwipunek</TextBlock>
-
+                <TextBlock Margin="5" Background="Gray" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Jedzenie</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Drewno</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Kamień</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Skóra</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Metal</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="0" FontSize="24" TextAlignment="Center" >Broń</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="0" FontSize="24" TextAlignment="Center" >Zbroja</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="1" Grid.Column="2" FontSize="24" TextAlignment="Center" >1</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="2" Grid.Column="2" FontSize="24" TextAlignment="Center" >2</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="3" Grid.Column="2" FontSize="24" TextAlignment="Center" >3</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="4" Grid.Column="2" FontSize="24" TextAlignment="Center" >4</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="5" Grid.Column="2" FontSize="24" TextAlignment="Center" >5</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Nazwa</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Nazwa</TextBlock>
             </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" Background="Gray" TextAlignment="Center" Margin="5">Sklep</TextBlock>
+                <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></ListBox>
+                <Button Grid.Row="2" Grid.Column="0" FontSize="24" Click="kup">Kup</Button>
+                <Button Grid.Row="2" Grid.Column="1" FontSize="24" Click="sprzedaj">Sprzedaj</Button>
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock FontSize="24" Grid.Column="0" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5">Życie</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="zycie">100</TextBlock>
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock FontSize="24" Grid.Column="0" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5">Energia</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="energia">100</TextBlock>
+            </Grid>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="0">
+            <TextBlock FontSize="60" TextAlignment="Center" VerticalAlignment="Center">THE FOREST</TextBlock>            
+        </Border>
+        <Border Grid.Column="3" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" FontSize="24" Background="Gray" TextAlignment="Center" VerticalAlignment="Center">Las</TextBlock>
+                <Button Grid.Row="1" FontSize="24" Click="poluj">Poluj</Button>
+                <Button Grid.Row="2" FontSize="24" Click="zbieraj">Zbieraj surowce</Button>
+            </Grid>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" FontSize="24" Background="Gray" TextAlignment="Center" VerticalAlignment="Center">Jezioro</TextBlock>
+                <Button Grid.Row="1" FontSize="24" Click="odpoczywaj">Odpoczywaj</Button>
+                <Button Grid.Row="2" FontSize="24" Click="low">Łów</Button>
+            </Grid>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" FontSize="24" Background="Gray" TextAlignment="Center" VerticalAlignment="Center">Dom</TextBlock>
+                <Button Grid.Row="1" FontSize="24" Click="jedz">Jedz</Button>
+                <Button Grid.Row="2" FontSize="24" Click="spij">Śpij</Button>
+            </Grid>
+        </Border>
+        <Border Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4">
+            <Image Source="Resources/rozbitek.jpg"/>
+
         </Border>
     </Grid>
 
