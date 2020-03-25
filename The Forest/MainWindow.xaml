@@ -6,7 +6,7 @@
 		xmlns:local="clr-namespace:the_forest_game"
 		mc:Ignorable="d"
 		Title="MainWindow" Height="900" Width="1600" ResizeMode="NoResize" Background="LightSlateGray">
-    <Grid HorizontalAlignment="Right" Width="1594">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="850" Width="1590" Margin="00">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -31,7 +31,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock Margin="5" Background="Gray" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0">Pieniądze:</TextBlock>
-                <TextBlock Margin="5" x:Name="pieniadze" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Column="1" Grid.ColumnSpan="2">000</TextBlock>
+                <TextBlock Margin="5" x:Name="pieniadze" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Column="1" Grid.ColumnSpan="2"></TextBlock>
                 <TextBlock Margin="5" Background="Gray" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">Czas</TextBlock>
                 <TextBlock Margin="5" x:Name="godzina" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Row="1" Grid.Column="1">00:00</TextBlock>
                 <TextBlock Margin="5" x:Name="dzien" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Row="1" Grid.Column="2">123</TextBlock>
@@ -55,21 +55,21 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Background="Gray" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center">Ekwipunek</TextBlock>
+                <TextBlock Background="Gray" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" Margin="5" TextAlignment="Center" VerticalAlignment="Center">Ekwipunek</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Jedzenie</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Drewno</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Kamień</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Skóra</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Metal</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="0" FontSize="24" TextAlignment="Center" >Broń</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="0" FontSize="24" TextAlignment="Center" >Zbroja</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="1" Grid.Column="2" FontSize="24" TextAlignment="Center" >1</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="2" Grid.Column="2" FontSize="24" TextAlignment="Center" >2</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="3" Grid.Column="2" FontSize="24" TextAlignment="Center" >3</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="4" Grid.Column="2" FontSize="24" TextAlignment="Center" >4</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="5" Grid.Column="2" FontSize="24" TextAlignment="Center" >5</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Nazwa</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Nazwa</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Moc broni</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Moc zbroji</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="1" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="jedzenie">1</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="2" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="drewno">2</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="3" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="kamien">3</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="4" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="skora">4</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="5" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="metal">5</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="bron">6</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="zbroja">7</TextBlock>
             </Grid>
         </Border>
         <Border Grid.Column="0" Grid.Row="3">
@@ -84,7 +84,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" Background="Gray" TextAlignment="Center" Margin="5">Sklep</TextBlock>
-                <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></ListBox>
+                <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="sklep" Margin="5" SelectionMode="Single"></ListBox>
                 <Button Grid.Row="2" Grid.Column="0" FontSize="24" Click="kup">Kup</Button>
                 <Button Grid.Row="2" Grid.Column="1" FontSize="24" Click="sprzedaj">Sprzedaj</Button>
             </Grid>

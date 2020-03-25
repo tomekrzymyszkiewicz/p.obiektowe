@@ -100,7 +100,7 @@ namespace katalog_samochodowy_cs
 				Console.WriteLine("Podaj numer samochodu do usunięcia: ");
 				doUsuniecia = Convert.ToInt32(Console.ReadLine());
 				Rejestr.lista.RemoveAt(doUsuniecia - 1);
-				if (doUsuniecia > 0 && doUsuniecia < Rejestr.lista.Count())
+				if (doUsuniecia < 0 || doUsuniecia > Rejestr.lista.Count())
 				{
 					Console.WriteLine("Wybrano numer z poza zakresu\nNaciśnij klawisz, aby kontynuować");
 					Console.ReadLine();

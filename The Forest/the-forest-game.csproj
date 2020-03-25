@@ -63,10 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Jezioro.cs" />
-    <Compile Include="Las.cs" />
-    <Compile Include="Dom.cs" />
-    <Compile Include="Ekwipunek.cs" />
+    <Compile Include="Ekwpiunek.cs" />
     <Compile Include="Gracz.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
