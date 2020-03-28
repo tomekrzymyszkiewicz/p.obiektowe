@@ -8,11 +8,4 @@ using System.Windows;
 
 namespace the_forest_game
 {
-    /// <summary>
-    /// Logika interakcji dla klasy App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-        
-    }
 }

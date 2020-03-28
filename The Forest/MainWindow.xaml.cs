@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace the_forest_game
 {
@@ -9,6 +10,8 @@ namespace the_forest_game
         public MainWindow()
         {
             InitializeComponent();
+            WysrodkujOkno();
+            UruchomZegar();
             Gracz.InicjalizacjaGracza();
             ZaladujSklep();
             AktualizujWartości();
@@ -69,6 +72,10 @@ namespace the_forest_game
             zycie.Text = Convert.ToString(Gracz.Zycie());
             energia.Text = Convert.ToString(Gracz.Energia());
             Gracz.AktualizujAtakIObrone(Ekwipunek.posiadanaBron.Atak(),Ekwipunek.posiadanaZbroja.Obrona());
+            if(Gracz.CzyZyje())
+            {
+
+            }
         }
         private void ZaladujSklep()
         {
@@ -84,6 +91,33 @@ namespace the_forest_game
             sklep.Items.Add(Ekwipunek.kurtka.Nazwa() + " Obrona(" + Ekwipunek.kurtka.Obrona() + ") " + Ekwipunek.kurtka.Cena() + " $");
             sklep.Items.Add(Ekwipunek.kolczuga.Nazwa() + " Obrona(" + Ekwipunek.kolczuga.Obrona() + ") " + Ekwipunek.kolczuga.Cena() + " $");
             sklep.Items.Add(Ekwipunek.strojSamuraja.Nazwa() + " Obrona(" + Ekwipunek.strojSamuraja.Obrona() + ") " + Ekwipunek.strojSamuraja.Cena() + " $");
+        }
+        private void WysrodkujOkno()
+        {
+            double szerokoscEkranu = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double wyskokoscEkranu = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double szerokoscOkna = this.Width;
+            double wysokoscOkna = this.Height;
+            this.Left = (szerokoscEkranu / 2) - (szerokoscOkna / 2);
+            this.Top = (wyskokoscEkranu / 2) - (wysokoscOkna / 2);
+        }
+        private void UruchomZegar()
+        {
+            DispatcherTimer zegar = new DispatcherTimer();
+            zegar.Interval = TimeSpan.FromSeconds(1);
+            zegar.Tick += CyklZegara;
+            zegar.Start();
+        }
+        private void CyklZegara(object sender, EventArgs e)
+        {
+            godzina.Text = String.Format("{0:t}",Gracz.Czas());
+            dzien.Text = Convert.ToString(Gracz.Dzien());
+            if(Gracz.Czas().Hour == 23 && Gracz.Czas().Minute == 30)
+            {
+                Gracz.ZmienDzien(1);
+            }
+            Gracz.czas = Gracz.czas.AddSeconds(30);
+
         }
     }
 }
