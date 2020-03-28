@@ -19,8 +19,11 @@ namespace the_forest_game
         }
         public static void Spij()
         {
-            Gracz.ZmienEnergie(20);
-            Gracz.ZmienZycie(5);
+            if (Gracz.Czas().Hour >= 19 || Gracz.Czas().Hour <= 8)
+            {
+                Gracz.ZmienEnergie(20);
+                Gracz.ZmienZycie(5);
+            }
         }
     }
 }
