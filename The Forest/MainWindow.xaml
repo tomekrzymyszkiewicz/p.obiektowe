@@ -61,15 +61,15 @@
                 <TextBlock Margin="5" Background="Gray" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Kamień</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Skóra</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Metal</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Moc broni</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Moc zbroji</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="0" FontSize="24" TextAlignment="Center" >Broń</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="0" FontSize="24" TextAlignment="Center" >Zbroja</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="1" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="jedzenie">1</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="2" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="drewno">2</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="3" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="kamien">3</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="4" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="skora">4</TextBlock>
                 <TextBlock Margin="5" Background="Gray" Grid.Row="5" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="metal">5</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="bron">6</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="zbroja">7</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" x:Name="bron">6</TextBlock>
+                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" x:Name="zbroja">7</TextBlock>
             </Grid>
         </Border>
         <Border Grid.Column="0" Grid.Row="3">

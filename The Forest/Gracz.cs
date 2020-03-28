@@ -20,7 +20,6 @@ namespace the_forest_game
             atak = 0;
             obrona = 0;
             zyje = true;
-            MainWindow gra = new MainWindow();
 
         }
         public static int Zycie()
@@ -71,6 +70,11 @@ namespace the_forest_game
                 energia += ileZmienic;
             }
             if (energia < 0) energia = 0;
+        }
+        public static void AktualizujAtakIObrone(int mocAtaku, int mocObrony)
+        {
+            atak = mocAtaku;
+            obrona = mocObrony;
         }
     }
 }

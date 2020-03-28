@@ -4,35 +4,25 @@ using System.Windows.Controls;
 
 namespace the_forest_game
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            Window mainWindow = this;
             Gracz.InicjalizacjaGracza();
             ZaladujSklep();
             AktualizujWartości();
         }
         private void kup(object sender, RoutedEventArgs e)
         {
-            if (Ekwipunek.ekwipunek_ceny[sklep.SelectedIndex] <= Gracz.Pieniadze())
-            {
-                Ekwipunek.ekwipunek_ilosci[sklep.SelectedIndex] += 1;
-                Gracz.ZmienPieniadze(-Ekwipunek.ekwipunek_ceny[sklep.SelectedIndex]);
-            }
+            int wybranyPrzedmiotWSklepie = sklep.SelectedIndex;
+            Sklep.Kup(wybranyPrzedmiotWSklepie);
             AktualizujWartości();
         }
         private void sprzedaj(object sender, RoutedEventArgs e)
         {
-            if(Ekwipunek.ekwipunek_ilosci[sklep.SelectedIndex] > 0)
-            {
-                Ekwipunek.ekwipunek_ilosci[sklep.SelectedIndex] -= 1;
-                Gracz.ZmienPieniadze(Ekwipunek.ekwipunek_ceny[sklep.SelectedIndex]);
-            }
+            int wybranyPrzedmiotWSklepie = sklep.SelectedIndex;
+            Sklep.Sprzedaj(wybranyPrzedmiotWSklepie);
             AktualizujWartości();
         }
         private void poluj(object sender, RoutedEventArgs e)
@@ -40,7 +30,7 @@ namespace the_forest_game
             if (Gracz.Energia() > 0)
             {
                 Random los = new Random();
-                Ekwipunek.ekwipunek_ilosci[0] += los.Next(0, Ekwipunek.ekwipunek_ilosci[5] + 1);
+                Ekwipunek.ekwipunek_ilosci[0] += los.Next(0, Ekwipunek.posiadanaBron.Atak());
                 Gracz.ZmienEnergie(-los.Next(0, 10));
                 Gracz.ZmienZycie(-los.Next(0, 10));
                 AktualizujWartości();
@@ -51,10 +41,10 @@ namespace the_forest_game
             if (Gracz.Energia() > 0)
             {
                 Random los = new Random();
-                Ekwipunek.ekwipunek_ilosci[1] += los.Next(0, (Ekwipunek.ekwipunek_ilosci[5] + Ekwipunek.ekwipunek_ilosci[6]) / 2 + 1);
-                Ekwipunek.ekwipunek_ilosci[2] += los.Next(0, (Ekwipunek.ekwipunek_ilosci[5] + Ekwipunek.ekwipunek_ilosci[6]) / 2 + 1);
-                Ekwipunek.ekwipunek_ilosci[3] += los.Next(0, (Ekwipunek.ekwipunek_ilosci[5] + Ekwipunek.ekwipunek_ilosci[6]) / 2 + 1);
-                Ekwipunek.ekwipunek_ilosci[4] += los.Next(0, (Ekwipunek.ekwipunek_ilosci[5] + Ekwipunek.ekwipunek_ilosci[6]) / 2 + 1);
+                Ekwipunek.ekwipunek_ilosci[1] += los.Next(0, (Ekwipunek.posiadanaBron.Atak() + Ekwipunek.posiadanaZbroja.Obrona()) / 2);
+                Ekwipunek.ekwipunek_ilosci[2] += los.Next(0, (Ekwipunek.posiadanaBron.Atak() + Ekwipunek.posiadanaZbroja.Obrona()) / 2);
+                Ekwipunek.ekwipunek_ilosci[3] += los.Next(0, (Ekwipunek.posiadanaBron.Atak() + Ekwipunek.posiadanaZbroja.Obrona()) / 2);
+                Ekwipunek.ekwipunek_ilosci[4] += los.Next(0, (Ekwipunek.posiadanaBron.Atak() + Ekwipunek.posiadanaZbroja.Obrona()) / 2);
                 Gracz.ZmienEnergie(-los.Next(0, 10));
                 AktualizujWartości();
             }
@@ -69,11 +59,13 @@ namespace the_forest_game
         }
         private void jedz(object sender, RoutedEventArgs e)
         {
-
+            Dom.Jedz();
+            AktualizujWartości();
         }
         private void spij(object sender, RoutedEventArgs e)
         {
-
+            Dom.Spij();
+            AktualizujWartości();
         }
         public void AktualizujWartości()
         {
@@ -84,20 +76,26 @@ namespace the_forest_game
             kamien.Text = Convert.ToString(Ekwipunek.ekwipunek_ilosci[2]);
             skora.Text = Convert.ToString(Ekwipunek.ekwipunek_ilosci[3]);
             metal.Text = Convert.ToString(Ekwipunek.ekwipunek_ilosci[4]);
-            bron.Text = Convert.ToString(Ekwipunek.ekwipunek_ilosci[5]);
-            zbroja.Text = Convert.ToString(Ekwipunek.ekwipunek_ilosci[6]);
+            bron.Text = Convert.ToString(Ekwipunek.posiadanaBron.Nazwa());
+            zbroja.Text = Convert.ToString(Ekwipunek.posiadanaZbroja.Nazwa());
             zycie.Text = Convert.ToString(Gracz.Zycie());
             energia.Text = Convert.ToString(Gracz.Energia());
+            Gracz.AktualizujAtakIObrone(Ekwipunek.posiadanaBron.Atak(),Ekwipunek.posiadanaZbroja.Obrona());
         }
         private void ZaladujSklep()
         {
-            sklep.Items.Add("Jedzenie " + Ekwipunek.ekwipunek_ceny[0]);
-            sklep.Items.Add("Drewno " + Ekwipunek.ekwipunek_ceny[1]);
-            sklep.Items.Add("Kamień " + Ekwipunek.ekwipunek_ceny[2]);
-            sklep.Items.Add("Skóra " + Ekwipunek.ekwipunek_ceny[3]);
-            sklep.Items.Add("Metal " + Ekwipunek.ekwipunek_ceny[4]);
-            sklep.Items.Add("Ulepsz broń " + Ekwipunek.ekwipunek_ceny[5]);
-            sklep.Items.Add("Ulepsz zbroje " + Ekwipunek.ekwipunek_ceny[6]);
+            sklep.Items.Clear();
+            sklep.Items.Add("Jedzenie " + Ekwipunek.ekwipunek_ceny[0] + " $");
+            sklep.Items.Add("Drewno " + Ekwipunek.ekwipunek_ceny[1] + " $");
+            sklep.Items.Add("Kamień " + Ekwipunek.ekwipunek_ceny[2] + " $");
+            sklep.Items.Add("Skóra " + Ekwipunek.ekwipunek_ceny[3] + " $");
+            sklep.Items.Add("Metal " + Ekwipunek.ekwipunek_ceny[4] + " $");
+            sklep.Items.Add(Ekwipunek.noz.Nazwa() + " Atak(" + Ekwipunek.noz.Atak() + ") " + Ekwipunek.noz.Cena() + " $");
+            sklep.Items.Add(Ekwipunek.miecz.Nazwa() + " Atak(" + Ekwipunek.miecz.Atak() + ") " + Ekwipunek.miecz.Cena() + " $");
+            sklep.Items.Add(Ekwipunek.katana.Nazwa() + " Atak(" + Ekwipunek.katana.Atak() + ") " + Ekwipunek.katana.Cena() + " $");
+            sklep.Items.Add(Ekwipunek.kurtka.Nazwa() + " Obrona(" + Ekwipunek.kurtka.Obrona() + ") " + Ekwipunek.kurtka.Cena() + " $");
+            sklep.Items.Add(Ekwipunek.kolczuga.Nazwa() + " Obrona(" + Ekwipunek.kolczuga.Obrona() + ") " + Ekwipunek.kolczuga.Cena() + " $");
+            sklep.Items.Add(Ekwipunek.strojSamuraja.Nazwa() + " Obrona(" + Ekwipunek.strojSamuraja.Obrona() + ") " + Ekwipunek.strojSamuraja.Cena() + " $");
         }
     }
 }
