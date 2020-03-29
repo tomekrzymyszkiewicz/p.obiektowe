@@ -9,7 +9,7 @@ namespace the_forest_game
     class Gracz
     {
         private static bool zyje;
-        private static int dzien, zycie, energia, pieniadze, atak, obrona;
+        private static int dzien, zycie, energia, pieniadze, atak, obrona, doswiadczenie;
         public static DateTime czas = new DateTime(2020, 1, 1, 1, 12, 0);
 
         public static void InicjalizacjaGracza()
@@ -21,7 +21,7 @@ namespace the_forest_game
             atak = 0;
             obrona = 0;
             zyje = true;
-
+            doswiadczenie = 0;
         }
         public static int Zycie()
         {
@@ -38,6 +38,18 @@ namespace the_forest_game
         public static int Dzien()
         {
             return dzien;
+        }
+        public static int Atak()
+        {
+            return atak;
+        }
+        public static int Obrona()
+        {
+            return obrona;
+        }
+        public static int Doswiadczenie()
+        {
+            return doswiadczenie;
         }
         public static void ZmienPieniadze(int ileZmienic)
         {

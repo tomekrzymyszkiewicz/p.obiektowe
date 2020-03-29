@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:the_forest_game"
 		mc:Ignorable="d"
-		Title="MainWindow" Height="900" Width="1600" ResizeMode="NoResize" Background="LightSlateGray">
+		Title="The Forest" Height="900" Width="1600" ResizeMode="NoResize" Background="LightSlateGray">
     <Window.Resources>
         <BitmapImage x:Key="Rozbitek" >rozbitek.jpg</BitmapImage>
     </Window.Resources>
@@ -98,8 +98,14 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock FontSize="24" Grid.Column="0" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5">Życie</TextBlock>
-                <TextBlock FontSize="24" Grid.Column="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="zycie">100</TextBlock>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="24" Grid.Column="0" Grid.Row="0" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5">Życie</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="1" Grid.Row="0" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="zycie">100</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="0" Grid.Row="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5">Atak</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="1" Grid.Row="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="atak"></TextBlock>
             </Grid>
         </Border>
         <Border Grid.Row="0" Grid.Column="2">
@@ -108,12 +114,30 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock FontSize="24" Grid.Column="0" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5">Energia</TextBlock>
-                <TextBlock FontSize="24" Grid.Column="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="energia">100</TextBlock>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="24" Grid.Column="0" Grid.Row="0" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5">Energia</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="1" Grid.Row="0" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="energia">100</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="0" Grid.Row="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5">Obrona</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="1" Grid.Row="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="obrona"></TextBlock>
             </Grid>
         </Border>
         <Border Grid.Column="3" Grid.Row="0">
-            <TextBlock FontSize="60" TextAlignment="Center" VerticalAlignment="Center">THE FOREST</TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="60" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center">THE FOREST</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="0" Grid.Row="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5">Doświadczenie</TextBlock>
+                <TextBlock FontSize="24" Grid.Column="1" Grid.Row="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="doswiadczenie"></TextBlock>
+            </Grid>
         </Border>
         <Border Grid.Column="3" Grid.Row="1">
             <Grid>

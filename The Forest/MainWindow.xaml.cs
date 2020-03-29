@@ -70,6 +70,9 @@ namespace the_forest_game
             zbroja.Text = Convert.ToString(Ekwipunek.posiadanaZbroja.Nazwa());
             zycie.Text = Convert.ToString(Gracz.Zycie());
             energia.Text = Convert.ToString(Gracz.Energia());
+            atak.Text = Convert.ToString(Gracz.Atak());
+            obrona.Text = Convert.ToString(Gracz.Obrona());
+            doswiadczenie.Text = Convert.ToString(Gracz.Doswiadczenie());
             Gracz.AktualizujAtakIObrone(Ekwipunek.posiadanaBron.Atak(), Ekwipunek.posiadanaZbroja.Obrona());
             if (Gracz.CzyZyje())
             {
@@ -115,7 +118,7 @@ namespace the_forest_game
             {
                 Gracz.ZmienDzien(1);
             }
-            Gracz.czas = Gracz.czas.AddSeconds(30);
+            Gracz.czas = Gracz.czas.AddSeconds(10);
         }
     }
 }
