@@ -69,6 +69,12 @@ namespace the_forest_game
                 mocAtaku = _mocAtaku;
                 cena = _cena;
             }
+            public void ResetujWartosci()
+            {
+                nazwa = "Brak";
+                mocAtaku = 2;
+                cena = 0;
+            }
         }
         public class Zbroja : Przedmiot
         {
@@ -94,6 +100,12 @@ namespace the_forest_game
                 nazwa = _nazwa;
                 mocObrony = _mocObrony;
                 cena = _cena;
+            }
+            public void ResetujWartosci()
+            {
+                nazwa = "Brak";
+                mocObrony = 2;
+                cena = 0;
             }
         }
     }

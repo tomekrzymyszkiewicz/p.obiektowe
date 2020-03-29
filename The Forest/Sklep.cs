@@ -26,6 +26,11 @@ namespace the_forest_game
                 case 5:
                     if(Ekwipunek.noz.Cena() <= Gracz.Pieniadze())
                     {
+                        if(Ekwipunek.posiadanaBron.Nazwa() != "Brak")
+                        {
+                            Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
+                            Ekwipunek.posiadanaBron.ResetujWartosci();
+                        }
                         Ekwipunek.posiadanaBron.UstawWartosci(Ekwipunek.noz.Nazwa(),Ekwipunek.noz.Atak(),Ekwipunek.noz.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.noz.Cena());
                     }
@@ -33,6 +38,11 @@ namespace the_forest_game
                 case 6:
                     if (Ekwipunek.miecz.Cena() <= Gracz.Pieniadze())
                     {
+                        if (Ekwipunek.posiadanaBron.Nazwa() != "Brak")
+                        {
+                            Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
+                            Ekwipunek.posiadanaBron.ResetujWartosci();
+                        }
                         Ekwipunek.posiadanaBron.UstawWartosci(Ekwipunek.miecz.Nazwa(), Ekwipunek.miecz.Atak(), Ekwipunek.miecz.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.miecz.Cena());
                     }
@@ -40,6 +50,11 @@ namespace the_forest_game
                 case 7:
                     if (Ekwipunek.katana.Cena() <= Gracz.Pieniadze())
                     {
+                        if (Ekwipunek.posiadanaBron.Nazwa() != "Brak")
+                        {
+                            Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
+                            Ekwipunek.posiadanaBron.ResetujWartosci();
+                        }
                         Ekwipunek.posiadanaBron.UstawWartosci(Ekwipunek.katana.Nazwa(), Ekwipunek.katana.Atak(), Ekwipunek.katana.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.katana.Cena());
                     }
@@ -47,6 +62,11 @@ namespace the_forest_game
                 case 8:
                     if (Ekwipunek.kurtka.Cena() <= Gracz.Pieniadze())
                     {
+                        if (Ekwipunek.posiadanaZbroja.Nazwa() != "Brak")
+                        {
+                            Gracz.ZmienPieniadze(Ekwipunek.posiadanaZbroja.Cena());
+                            Ekwipunek.posiadanaZbroja.ResetujWartosci();
+                        }
                         Ekwipunek.posiadanaZbroja.UstawWartosci(Ekwipunek.kurtka.Nazwa(), Ekwipunek.kurtka.Obrona(), Ekwipunek.kurtka.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.kurtka.Cena());
                     }
@@ -54,6 +74,11 @@ namespace the_forest_game
                 case 9:
                     if (Ekwipunek.kolczuga.Cena() <= Gracz.Pieniadze())
                     {
+                        if (Ekwipunek.posiadanaZbroja.Nazwa() != "Brak")
+                        {
+                            Gracz.ZmienPieniadze(Ekwipunek.posiadanaZbroja.Cena());
+                            Ekwipunek.posiadanaZbroja.ResetujWartosci();
+                        }
                         Ekwipunek.posiadanaZbroja.UstawWartosci(Ekwipunek.kolczuga.Nazwa(), Ekwipunek.kolczuga.Obrona(), Ekwipunek.kolczuga.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.kolczuga.Cena());
                     }
@@ -61,6 +86,11 @@ namespace the_forest_game
                 case 10:
                     if (Ekwipunek.strojSamuraja.Cena() <= Gracz.Pieniadze())
                     {
+                        if (Ekwipunek.posiadanaZbroja.Nazwa() != "Brak")
+                        {
+                            Gracz.ZmienPieniadze(Ekwipunek.posiadanaZbroja.Cena());
+                            Ekwipunek.posiadanaZbroja.ResetujWartosci();
+                        }
                         Ekwipunek.posiadanaZbroja.UstawWartosci(Ekwipunek.strojSamuraja.Nazwa(), Ekwipunek.strojSamuraja.Obrona(), Ekwipunek.strojSamuraja.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.strojSamuraja.Cena());
                     }
