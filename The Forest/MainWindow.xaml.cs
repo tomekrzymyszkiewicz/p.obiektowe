@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace the_forest_game
@@ -60,7 +59,7 @@ namespace the_forest_game
         }
         public void AktualizujWartości()
         {
-            
+
             pieniadze.Text = Convert.ToString(Gracz.Pieniadze());
             jedzenie.Text = Convert.ToString(Ekwipunek.ekwipunek_ilosci[0]);
             drewno.Text = Convert.ToString(Ekwipunek.ekwipunek_ilosci[1]);
@@ -71,8 +70,8 @@ namespace the_forest_game
             zbroja.Text = Convert.ToString(Ekwipunek.posiadanaZbroja.Nazwa());
             zycie.Text = Convert.ToString(Gracz.Zycie());
             energia.Text = Convert.ToString(Gracz.Energia());
-            Gracz.AktualizujAtakIObrone(Ekwipunek.posiadanaBron.Atak(),Ekwipunek.posiadanaZbroja.Obrona());
-            if(Gracz.CzyZyje())
+            Gracz.AktualizujAtakIObrone(Ekwipunek.posiadanaBron.Atak(), Ekwipunek.posiadanaZbroja.Obrona());
+            if (Gracz.CzyZyje())
             {
 
             }
@@ -110,14 +109,13 @@ namespace the_forest_game
         }
         private void CyklZegara(object sender, EventArgs e)
         {
-            godzina.Text = String.Format("{0:t}",Gracz.Czas());
+            godzina.Text = String.Format("{0:t}", Gracz.Czas());
             dzien.Text = Convert.ToString(Gracz.Dzien());
-            if(Gracz.Czas().Hour == 23 && Gracz.Czas().Minute == 30)
+            if (Gracz.Czas().Hour == 23 && Gracz.Czas().Minute == 30)
             {
                 Gracz.ZmienDzien(1);
             }
             Gracz.czas = Gracz.czas.AddSeconds(30);
-
         }
     }
 }
