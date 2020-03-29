@@ -112,5 +112,9 @@ namespace the_forest_game
         {
             dzien += oIle;
         }
+        public static void ZmienDoswiadczenie(int oIle)
+        {
+            doswiadczenie += oIle;
+        }
     }
 }

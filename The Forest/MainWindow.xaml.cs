@@ -73,6 +73,8 @@ namespace the_forest_game
             atak.Text = Convert.ToString(Gracz.Atak());
             obrona.Text = Convert.ToString(Gracz.Obrona());
             doswiadczenie.Text = Convert.ToString(Gracz.Doswiadczenie());
+            godzina.Text = String.Format("{0:t}", Gracz.Czas());
+            dzien.Text = Convert.ToString(Gracz.Dzien());
             Gracz.AktualizujAtakIObrone(Ekwipunek.posiadanaBron.Atak(), Ekwipunek.posiadanaZbroja.Obrona());
             if (Gracz.CzyZyje())
             {
@@ -107,10 +109,10 @@ namespace the_forest_game
         {
             DispatcherTimer zegar = new DispatcherTimer();
             zegar.Interval = TimeSpan.FromSeconds(1);
-            zegar.Tick += CyklZegara;
+            zegar.Tick += AktualizujZegar;
             zegar.Start();
         }
-        private void CyklZegara(object sender, EventArgs e)
+        public void AktualizujZegar(object sender, EventArgs e)
         {
             godzina.Text = String.Format("{0:t}", Gracz.Czas());
             dzien.Text = Convert.ToString(Gracz.Dzien());
