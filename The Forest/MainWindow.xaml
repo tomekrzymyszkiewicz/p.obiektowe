@@ -8,8 +8,9 @@
 		Title="The Forest" Height="900" Width="1600" ResizeMode="NoResize" Background="LightSlateGray">
     <Window.Resources>
         <BitmapImage x:Key="Rozbitek" >rozbitek.jpg</BitmapImage>
+        <BitmapImage x:Key="Ognisko" >ognisko.jpg</BitmapImage>
     </Window.Resources>
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="850" Width="1590" Margin="00">
+    <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" Height="850" Width="1590">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -22,9 +23,11 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
+        <Image Source="{DynamicResource Ognisko}" Stretch="Fill" Grid.ColumnSpan="4" Grid.RowSpan="4"></Image>
         <Border Grid.Column="0" Grid.Row="0">
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -33,11 +36,15 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Margin="5" Background="Gray" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0">Pieniądze:</TextBlock>
-                <TextBlock Margin="5" x:Name="pieniadze" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Column="1" Grid.ColumnSpan="2"></TextBlock>
+                <TextBlock Margin="5" Background="Gray" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0">Pieniądze:</TextBlock>
+                <TextBlock Margin="5" x:Name="pieniadze" FontSize="20"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Column="1" Grid.ColumnSpan="1"></TextBlock>
                 <TextBlock Margin="5" Background="Gray" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">Czas</TextBlock>
                 <TextBlock Margin="5" x:Name="godzina" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Row="1" Grid.Column="1">12:00</TextBlock>
-                <TextBlock Margin="5" x:Name="dzien" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Row="1" Grid.Column="2">1</TextBlock>
+                <TextBlock Margin="5" Background="Gray" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1">Dzień</TextBlock>
+                <TextBlock Margin="5" x:Name="dzien" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Row="1" Grid.Column="3">1</TextBlock>
+                <Button Margin="5" FontSize="20" Grid.Column="2" Click="zapisz">Zapisz</Button>
+                <Button Margin="5" FontSize="20" Grid.Column="3" Click="wczytaj" >Wczytaj</Button>
+                 
 
             </Grid>
         </Border>
@@ -176,9 +183,7 @@
             </Grid>
         </Border>
         <Border Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4">
-            <Image Source="{DynamicResource Rozbitek}"/>
-
-
+            <!-- <Image Source="{DynamicResource Rozbitek}"/> -->
         </Border>
     </Grid>
 

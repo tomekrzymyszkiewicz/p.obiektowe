@@ -120,7 +120,7 @@ namespace the_forest_game
                     if(Ekwipunek.posiadanaBron.Cena() > 0)
                     {
                         Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
-                        Ekwipunek.posiadanaBron.UstawWartosci("Brak", 1, 0);
+                        Ekwipunek.posiadanaBron.ResetujWartosci();
                     }
                     break;
                 case 8:
@@ -129,7 +129,7 @@ namespace the_forest_game
                     if (Ekwipunek.posiadanaZbroja.Cena() > 0)
                     {
                         Gracz.ZmienPieniadze(Ekwipunek.posiadanaZbroja.Cena());
-                        Ekwipunek.posiadanaZbroja.UstawWartosci("Brak", 1, 0);
+                        Ekwipunek.posiadanaZbroja.ResetujWartosci();
                     }
                     break;
                 default:

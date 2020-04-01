@@ -8,16 +8,6 @@ namespace the_forest_game
 {
     public class Ekwipunek
     {
-        /// <summary>
-        /// 0jedzenie
-        /// 1drewno
-        /// 2kamien
-        /// 3skóra
-        /// 4metal
-        /// 5broń
-        /// 6zbroja
-        /// </summary>
-        //public static string[] ekwipunek_nazwy = new string[7] {"Jedzenie"};
         public static int[] ekwipunek_ilosci = new int[5] {5, 0, 0, 0, 0};
         public static int[] ekwipunek_ceny = new int[5] {10, 10, 10, 10, 10};
         public static Bron posiadanaBron = new Bron();
@@ -50,7 +40,7 @@ namespace the_forest_game
             public Bron()
             {
                 nazwa = "Brak";
-                mocAtaku = 2;
+                mocAtaku = 0;
                 cena = 0;
             }
             public Bron(string _nazwa, int _mocAtaku, int _cena)
@@ -72,7 +62,7 @@ namespace the_forest_game
             public void ResetujWartosci()
             {
                 nazwa = "Brak";
-                mocAtaku = 2;
+                mocAtaku = 0;
                 cena = 0;
             }
         }
@@ -82,7 +72,7 @@ namespace the_forest_game
             public Zbroja()
             {
                 nazwa = "Brak";
-                mocObrony = 2;
+                mocObrony = 0;
                 cena = 0;
             }
             public Zbroja(string _nazwa, int _mocObrony, int _cena)
@@ -104,7 +94,7 @@ namespace the_forest_game
             public void ResetujWartosci()
             {
                 nazwa = "Brak";
-                mocObrony = 2;
+                mocObrony = 0;
                 cena = 0;
             }
         }

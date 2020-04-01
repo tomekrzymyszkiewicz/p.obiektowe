@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -6,6 +8,7 @@ namespace the_forest_game
 {
     public partial class MainWindow : Window
     {
+        private string nazwaPliku = "save.txt";
         public MainWindow()
         {
             InitializeComponent();
@@ -59,7 +62,7 @@ namespace the_forest_game
         }
         public void AktualizujWartości()
         {
-
+            Gracz.AktualizujAtakIObrone(Ekwipunek.posiadanaBron.Atak(), Ekwipunek.posiadanaZbroja.Obrona());
             pieniadze.Text = Convert.ToString(Gracz.Pieniadze());
             jedzenie.Text = Convert.ToString(Ekwipunek.ekwipunek_ilosci[0]);
             drewno.Text = Convert.ToString(Ekwipunek.ekwipunek_ilosci[1]);
@@ -75,11 +78,7 @@ namespace the_forest_game
             doswiadczenie.Text = Convert.ToString(Gracz.Doswiadczenie());
             godzina.Text = String.Format("{0:t}", Gracz.Czas());
             dzien.Text = Convert.ToString(Gracz.Dzien());
-            Gracz.AktualizujAtakIObrone(Ekwipunek.posiadanaBron.Atak(), Ekwipunek.posiadanaZbroja.Obrona());
-            if (Gracz.CzyZyje())
-            {
-
-            }
+            if (Gracz.CzyZyje()) { }
         }
         private void ZaladujSklep()
         {
@@ -108,7 +107,7 @@ namespace the_forest_game
         private void UruchomZegar()
         {
             DispatcherTimer zegar = new DispatcherTimer();
-            zegar.Interval = TimeSpan.FromSeconds(1);
+            zegar.Interval = TimeSpan.FromMilliseconds(100);
             zegar.Tick += AktualizujZegar;
             zegar.Start();
         }
@@ -120,7 +119,68 @@ namespace the_forest_game
             {
                 Gracz.ZmienDzien(1);
             }
-            Gracz.czas = Gracz.czas.AddSeconds(10);
+            Gracz.czas = Gracz.czas.AddMinutes(1);
+        }
+        private void zapisz(object sender, RoutedEventArgs e)
+        {
+            FileStream plik = new FileStream(nazwaPliku, FileMode.Truncate, FileAccess.Write);
+            plik.Seek(0, SeekOrigin.End);
+            StreamWriter strumienZapisu = new StreamWriter(plik);
+
+            strumienZapisu.WriteLine("pieniadze=" + Convert.ToString(Gracz.Pieniadze()));                     //1
+            strumienZapisu.WriteLine("jedzenie=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[0]));          //2
+            strumienZapisu.WriteLine("drewno=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[1]));            //3
+            strumienZapisu.WriteLine("kamien=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[2]));            //4
+            strumienZapisu.WriteLine("skora=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[3]));             //5
+            strumienZapisu.WriteLine("metal=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[4]));             //6
+            strumienZapisu.WriteLine("bronNazwa=" + Convert.ToString(Ekwipunek.posiadanaBron.Nazwa()));       //7
+            strumienZapisu.WriteLine("bronAtak=" + Convert.ToString(Ekwipunek.posiadanaBron.Atak()));         //8
+            strumienZapisu.WriteLine("bronCena=" + Convert.ToString(Ekwipunek.posiadanaBron.Cena()));         //9
+            strumienZapisu.WriteLine("zbrojaNazwa=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Nazwa()));   //10
+            strumienZapisu.WriteLine("zbrojaObrona=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Obrona())); //11
+            strumienZapisu.WriteLine("zbrojaCena=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Cena()));     //12
+            strumienZapisu.WriteLine("zycie=" + Convert.ToString(Gracz.Zycie()));                             //13
+            strumienZapisu.WriteLine("energia=" + Convert.ToString(Gracz.Energia()));                         //14
+            strumienZapisu.WriteLine("atak=" + Convert.ToString(Gracz.Atak()));                               //15
+            strumienZapisu.WriteLine("obrona=" + Convert.ToString(Gracz.Obrona()));                           //16
+            strumienZapisu.WriteLine("doswiadczenie=" + Convert.ToString(Gracz.Doswiadczenie()));             //17
+            strumienZapisu.WriteLine("dzien=" + Convert.ToString(Gracz.Dzien()));                             //18
+            strumienZapisu.WriteLine("godzina=" + Convert.ToString(Gracz.Czas().Hour));                       //19
+            strumienZapisu.WriteLine("minuta=" + Convert.ToString(Gracz.Czas().Minute));                      //20
+
+            strumienZapisu.Close();
+            plik.Close();
+            MessageBox.Show("Zapisano");
+        }
+        private void wczytaj(object sender, RoutedEventArgs e)
+        {
+            if (File.Exists(nazwaPliku))
+            {
+                FileStream plik = new FileStream(nazwaPliku, FileMode.Open, FileAccess.Read);
+                StreamReader strumienOdczytu = new StreamReader(nazwaPliku);
+                string[] linijki = strumienOdczytu.ReadToEnd().ToString().Split('\n');
+                string[] dane = new string[linijki.Length];
+                for (int i = 0; i < linijki.Length - 1; i++)
+                {
+                    int znak = linijki[i].IndexOf('=');
+                    dane[i] = linijki[i].Substring(znak + 1);
+                    dane[i] = Regex.Replace(dane[i],"\r",string.Empty);
+                }
+                Gracz.UstawWartosciGracza(Convert.ToInt32(dane[17]), Convert.ToInt32(dane[12]), Convert.ToInt32(dane[13]), Convert.ToInt32(dane[0]), Convert.ToInt32(dane[14]), Convert.ToInt32(dane[15]), Convert.ToInt32(dane[16]));
+                Ekwipunek.ekwipunek_ilosci[0] = Convert.ToInt32(dane[1]);
+                Ekwipunek.ekwipunek_ilosci[1] = Convert.ToInt32(dane[2]);
+                Ekwipunek.ekwipunek_ilosci[2] = Convert.ToInt32(dane[3]);
+                Ekwipunek.ekwipunek_ilosci[3] = Convert.ToInt32(dane[4]);
+                Ekwipunek.ekwipunek_ilosci[4] = Convert.ToInt32(dane[5]);
+                Ekwipunek.posiadanaBron.UstawWartosci(dane[6],Convert.ToInt32(dane[7]),Convert.ToInt32(dane[8]));
+                Ekwipunek.posiadanaZbroja.UstawWartosci(dane[9],Convert.ToInt32(dane[10]),Convert.ToInt32(dane[11]));
+                Gracz.UstawCzas(Convert.ToInt32(dane[18]),Convert.ToInt32(dane[19]));
+
+                strumienOdczytu.Close();
+                plik.Close();
+                AktualizujWartości();
+                MessageBox.Show("Wczytano");
+            }
         }
     }
 }
