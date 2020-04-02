@@ -10,8 +10,9 @@
         <BitmapImage x:Key="Rozbitek" >rozbitek.jpg</BitmapImage>
         <BitmapImage x:Key="Ognisko" >ognisko.jpg</BitmapImage>
     </Window.Resources>
-    <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" Height="850" Width="1590">
+    <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -23,8 +24,8 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Image Source="{DynamicResource Ognisko}" Stretch="Fill" Grid.ColumnSpan="4" Grid.RowSpan="4"></Image>
-        <Border Grid.Column="0" Grid.Row="0">
+        <Image Source="{DynamicResource Ognisko}" Stretch="Fill" Grid.ColumnSpan="5" Grid.RowSpan="4"></Image>
+        <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -44,11 +45,11 @@
                 <TextBlock Margin="5" x:Name="dzien" FontSize="24"  TextAlignment="Center" VerticalAlignment="Center" Background="Gray" Grid.Row="1" Grid.Column="3">1</TextBlock>
                 <Button Margin="5" FontSize="20" Grid.Column="2" Click="zapisz">Zapisz</Button>
                 <Button Margin="5" FontSize="20" Grid.Column="3" Click="wczytaj" >Wczytaj</Button>
-                 
+
 
             </Grid>
         </Border>
-        <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
+        <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="#5f8847" CornerRadius="20" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
@@ -65,41 +66,41 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Background="Gray" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" Margin="5" TextAlignment="Center" VerticalAlignment="Center">Ekwipunek</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Jedzenie</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Drewno</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Kamień</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Skóra</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" >Metal</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="0" FontSize="24" TextAlignment="Center" >Broń</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="0" FontSize="24" TextAlignment="Center" >Zbroja</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="1" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="jedzenie">1</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="2" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="drewno">2</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="3" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="kamien">3</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="4" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="skora">4</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="5" Grid.Column="2" FontSize="24" TextAlignment="Center" x:Name="metal">5</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" x:Name="bron">6</TextBlock>
-                <TextBlock Margin="5" Background="Gray" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" x:Name="zbroja">7</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="35" FontWeight="DemiBold" VerticalAlignment="Center" TextAlignment="Center">EKWIPUNEK</TextBlock>
+                <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Jedzenie</TextBlock>
+                <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Drewno</TextBlock>
+                <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Kamień</TextBlock>
+                <TextBlock Margin="5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Skóra</TextBlock>
+                <TextBlock Margin="5" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Metal</TextBlock>
+                <TextBlock Margin="5" Grid.Row="6" Grid.Column="0" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Broń</TextBlock>
+                <TextBlock Margin="5" Grid.Row="7" Grid.Column="0" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Zbroja</TextBlock>
+                <TextBlock Margin="5" Grid.Row="1" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="jedzenie">1</TextBlock>
+                <TextBlock Margin="5" Grid.Row="2" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="drewno">2</TextBlock>
+                <TextBlock Margin="5" Grid.Row="3" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="kamien">3</TextBlock>
+                <TextBlock Margin="5" Grid.Row="4" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="skora">4</TextBlock>
+                <TextBlock Margin="5" Grid.Row="5" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="metal">5</TextBlock>
+                <TextBlock Margin="5" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="bron">6</TextBlock>
+                <TextBlock Margin="5" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="zbroja">7</TextBlock>
             </Grid>
         </Border>
-        <Border Grid.Column="0" Grid.Row="3">
+        <Border Grid.Column="0" Grid.Row="3" Background="#4682b4" CornerRadius="20" Padding="7,0,7,10" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="5*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" Background="Gray" TextAlignment="Center" Margin="5">Sklep</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="35" FontWeight="DemiBold" TextAlignment="Center" VerticalAlignment="Bottom">SKLEP</TextBlock>
                 <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="sklep" Margin="5" SelectionMode="Single"></ListBox>
-                <Button Grid.Row="2" Grid.Column="0" FontSize="24" Click="kup">Kup</Button>
-                <Button Grid.Row="2" Grid.Column="1" FontSize="24" Click="sprzedaj">Sprzedaj</Button>
+                <Button Grid.Row="2" Grid.Column="0" FontSize="20" Margin="10,0,10,0" Click="kup">Kup</Button>
+                <Button Grid.Row="2" Grid.Column="1" FontSize="20" Margin="10,0,10,0" Click="sprzedaj">Sprzedaj</Button>
             </Grid>
         </Border>
-        <Border Grid.Row="0" Grid.Column="1">
+        <Border Grid.Row="0" Grid.Column="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -115,7 +116,7 @@
                 <TextBlock FontSize="24" Grid.Column="1" Grid.Row="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="atak"></TextBlock>
             </Grid>
         </Border>
-        <Border Grid.Row="0" Grid.Column="2">
+        <Border Grid.Row="0" Grid.Column="3">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -131,7 +132,7 @@
                 <TextBlock FontSize="24" Grid.Column="1" Grid.Row="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="obrona"></TextBlock>
             </Grid>
         </Border>
-        <Border Grid.Column="3" Grid.Row="0">
+        <Border Grid.Column="4" Grid.Row="0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -146,7 +147,7 @@
                 <TextBlock FontSize="24" Grid.Column="1" Grid.Row="1" TextAlignment="Center" Background="Gray" VerticalAlignment="Center" Margin="5" x:Name="doswiadczenie"></TextBlock>
             </Grid>
         </Border>
-        <Border Grid.Column="3" Grid.Row="1">
+        <Border Grid.Column="4" Grid.Row="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -158,7 +159,7 @@
                 <Button Grid.Row="2" FontSize="24" Click="zbieraj">Zbieraj surowce</Button>
             </Grid>
         </Border>
-        <Border Grid.Column="3" Grid.Row="2">
+        <Border Grid.Column="4" Grid.Row="2">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -170,7 +171,7 @@
                 <Button Grid.Row="2" FontSize="24" Click="low">Łów</Button>
             </Grid>
         </Border>
-        <Border Grid.Column="3" Grid.Row="3">
+        <Border Grid.Column="4" Grid.Row="3">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
