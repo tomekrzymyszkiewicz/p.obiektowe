@@ -143,9 +143,66 @@
                     break;
             }
         }
+        public static string NazwaPrzedmiotuBiernik(int wybranyPrzedmiotWSklepie)
+        {
+            switch (wybranyPrzedmiotWSklepie)
+            {
+                case 0:
+                    return "jedzenie";
+                case 1:
+                    return "drewno";
+                case 2:
+                    return "kamień";
+                case 3:
+                    return "skórę";
+                case 4:
+                    return "metal";
+                case 5:
+                    return "nóż";
+                case 6:
+                    return "miecz";
+                case 7:
+                    return "katanę";
+                case 8:
+                    return "kurtkę";
+                case 9:
+                    return "kolczugę";
+                case 10:
+                    return "pancerz";
+                default:
+                    return "błąd";
+            }
+        }
         public static string NazwaPrzedmiotuDopelniacz(int wybranyPrzedmiotWSklepie)
         {
-            return "błąd";
+            switch (wybranyPrzedmiotWSklepie)
+            {
+                case 0:
+                    return "jedzenia";
+                case 1:
+                    return "drewna";
+                case 2:
+                    return "kamienia";
+                case 3:
+                    return "skóry";
+                case 4:
+                    return "metalu";
+                case 5:
+                    return "noża";
+                case 6:
+                    return "miecza";
+                case 7:
+                    return "katany";
+                case 8:
+                    return "kurtki";
+                case 9:
+                    return "kolczugi";
+                case 10:
+                    return "pancerza";
+                default:
+                    return "błąd";
+            }
         }
+
     }
 }

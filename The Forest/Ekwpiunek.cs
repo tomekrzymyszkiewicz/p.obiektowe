@@ -19,7 +19,7 @@
         public static Bron katana = new Bron("Katana",100,1000);
         public static Zbroja kurtka = new Zbroja("Kurtka", 20,100);
         public static Zbroja kolczuga = new Zbroja("Kolczuga", 60,450);
-        public static Zbroja strojSamuraja = new Zbroja("Strój samuraja", 100,900);
+        public static Zbroja strojSamuraja = new Zbroja("Pancerz", 100,900);
 
 
         public abstract class Przedmiot

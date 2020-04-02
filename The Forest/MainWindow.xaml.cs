@@ -24,7 +24,11 @@ namespace the_forest_game
             int wybranyPrzedmiotWSklepie = sklep.SelectedIndex;
             if(Sklep.Kup(wybranyPrzedmiotWSklepie))
             {
-                komunikat.Text = "Kupiłeś" + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie);
+                komunikat.Text = "Kupiłeś " + Sklep.NazwaPrzedmiotuBiernik(wybranyPrzedmiotWSklepie) + ".";
+            }
+            else
+            {
+                komunikat.Text = "Nie możesz kupić " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ". Masz za mało pieniędzy.";
             }
             
             AktualizujWartości();
