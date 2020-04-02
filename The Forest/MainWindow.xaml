@@ -297,7 +297,7 @@
                         </Grid.ColumnDefinitions>
                         <Image Margin="5" Source="{DynamicResource InfoIkona}"/>
                         <Image Margin="5" Grid.Column="2" Source="{DynamicResource InfoIkona}"/>
-                        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="komunikat"></TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="komunikat"></TextBlock>
 
                     </Grid>
                 </Border>
