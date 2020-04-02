@@ -142,5 +142,17 @@
   <ItemGroup>
     <Resource Include="Resources\windowicon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\hammer.png" />
+    <Resource Include="Resources\leather.png" />
+    <Resource Include="Resources\meat.png" />
+    <Resource Include="Resources\shield.png" />
+    <Resource Include="Resources\stone.png" />
+    <Resource Include="Resources\sword %281%29.png" />
+    <Resource Include="Resources\trunk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\info.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

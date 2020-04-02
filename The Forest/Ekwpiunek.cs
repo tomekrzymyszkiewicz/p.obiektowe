@@ -1,24 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace the_forest_game
+﻿namespace the_forest_game
 {
     public class Ekwipunek
     {
-        public static int[] ekwipunek_ilosci = new int[5] {5, 0, 0, 0, 0};
-        public static int[] ekwipunek_ceny = new int[5] {10, 10, 10, 10, 10};
+        /// <summary>
+        /// Jedzenie
+        /// Drewno
+        /// Kamień
+        /// Skóra
+        /// Metal
+        /// </summary>
+        public static int[] ekwipunek_ilosci = new int[5] {3, 0, 0, 0, 0};
+        public static int[] ekwipunek_ceny = new int[5] {10, 3, 5, 100, 50};
         public static Bron posiadanaBron = new Bron();
         public static Zbroja posiadanaZbroja = new Zbroja();
 
-        public static Bron noz = new Bron("Nóż",10,10);
-        public static Bron miecz = new Bron("Miecz",20,20);
-        public static Bron katana = new Bron("Katana",30,30);
-        public static Zbroja kurtka = new Zbroja("Kurtka", 10,10);
-        public static Zbroja kolczuga = new Zbroja("Kolczuga", 20,20);
-        public static Zbroja strojSamuraja = new Zbroja("Strój samuraja", 30,30);
+        public static Bron noz = new Bron("Nóż",15,100);
+        public static Bron miecz = new Bron("Miecz",45,500);
+        public static Bron katana = new Bron("Katana",100,1000);
+        public static Zbroja kurtka = new Zbroja("Kurtka", 20,100);
+        public static Zbroja kolczuga = new Zbroja("Kolczuga", 60,450);
+        public static Zbroja strojSamuraja = new Zbroja("Strój samuraja", 100,900);
 
 
         public abstract class Przedmiot

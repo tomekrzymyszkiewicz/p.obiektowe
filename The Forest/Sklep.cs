@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace the_forest_game
+﻿namespace the_forest_game
 {
     public class Sklep
     {
-        public static void Kup(int wybranyPrzedmiotWSklepie)
+        /// <summary>
+        /// true - zakup udany
+        /// false - nie udało się kupić przedmiotu
+        /// </summary>
+        /// <param name="wybranyPrzedmiotWSklepie"></param>
+        /// <returns></returns>
+        public static bool Kup(int wybranyPrzedmiotWSklepie)
         {
             switch (wybranyPrzedmiotWSklepie)
             {
@@ -21,8 +21,9 @@ namespace the_forest_game
                     {
                         Ekwipunek.ekwipunek_ilosci[wybranyPrzedmiotWSklepie] += 1;
                         Gracz.ZmienPieniadze(-Ekwipunek.ekwipunek_ceny[wybranyPrzedmiotWSklepie]);
+                        return true;
                     }
-                    break;
+                    return false;
                 case 5:
                     if(Ekwipunek.noz.Cena() <= Gracz.Pieniadze())
                     {
@@ -33,8 +34,9 @@ namespace the_forest_game
                         }
                         Ekwipunek.posiadanaBron.UstawWartosci(Ekwipunek.noz.Nazwa(),Ekwipunek.noz.Atak(),Ekwipunek.noz.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.noz.Cena());
+                        return true;
                     }
-                    break;
+                    return false;
                 case 6:
                     if (Ekwipunek.miecz.Cena() <= Gracz.Pieniadze())
                     {
@@ -45,8 +47,9 @@ namespace the_forest_game
                         }
                         Ekwipunek.posiadanaBron.UstawWartosci(Ekwipunek.miecz.Nazwa(), Ekwipunek.miecz.Atak(), Ekwipunek.miecz.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.miecz.Cena());
+                        return true;
                     }
-                    break;
+                    return false;
                 case 7:
                     if (Ekwipunek.katana.Cena() <= Gracz.Pieniadze())
                     {
@@ -57,8 +60,9 @@ namespace the_forest_game
                         }
                         Ekwipunek.posiadanaBron.UstawWartosci(Ekwipunek.katana.Nazwa(), Ekwipunek.katana.Atak(), Ekwipunek.katana.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.katana.Cena());
+                        return true;
                     }
-                    break;
+                    return false;
                 case 8:
                     if (Ekwipunek.kurtka.Cena() <= Gracz.Pieniadze())
                     {
@@ -69,8 +73,9 @@ namespace the_forest_game
                         }
                         Ekwipunek.posiadanaZbroja.UstawWartosci(Ekwipunek.kurtka.Nazwa(), Ekwipunek.kurtka.Obrona(), Ekwipunek.kurtka.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.kurtka.Cena());
+                        return true;
                     }
-                    break;
+                    return false;
                 case 9:
                     if (Ekwipunek.kolczuga.Cena() <= Gracz.Pieniadze())
                     {
@@ -81,8 +86,9 @@ namespace the_forest_game
                         }
                         Ekwipunek.posiadanaZbroja.UstawWartosci(Ekwipunek.kolczuga.Nazwa(), Ekwipunek.kolczuga.Obrona(), Ekwipunek.kolczuga.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.kolczuga.Cena());
+                        return true;
                     }
-                    break;
+                    return false;
                 case 10:
                     if (Ekwipunek.strojSamuraja.Cena() <= Gracz.Pieniadze())
                     {
@@ -93,10 +99,11 @@ namespace the_forest_game
                         }
                         Ekwipunek.posiadanaZbroja.UstawWartosci(Ekwipunek.strojSamuraja.Nazwa(), Ekwipunek.strojSamuraja.Obrona(), Ekwipunek.strojSamuraja.Cena());
                         Gracz.ZmienPieniadze(-Ekwipunek.strojSamuraja.Cena());
+                        return true;
                     }
-                    break;
+                    return false;
                 default:
-                    break;
+                    return false;
             }
         }
         public static void Sprzedaj(int wybranyPrzedmiotWSklepie)
@@ -135,6 +142,10 @@ namespace the_forest_game
                 default:
                     break;
             }
+        }
+        public static string NazwaPrzedmiotuDopelniacz(int wybranyPrzedmiotWSklepie)
+        {
+            return "błąd";
         }
     }
 }

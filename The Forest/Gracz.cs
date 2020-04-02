@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace the_forest_game
 {
@@ -23,7 +19,7 @@ namespace the_forest_game
             dzien = 1;
             zycie = 100;
             energia = 100;
-            pieniadze = 100;
+            pieniadze = 10;
             atak = Ekwipunek.posiadanaBron.Atak();
             obrona = Ekwipunek.posiadanaZbroja.Obrona();
             zyje = true;

@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:the_forest_game"
 		mc:Ignorable="d"
-		Title="The Forest" Height="900" Width="1600" ResizeMode="NoResize" Background="LightSlateGray"
+		Title="The Forest" Height="900" Width="1600" ResizeMode="CanMinimize" Background="LightSlateGray"
         Icon="Resources/windowicon.ico">
     <Window.Resources>
         <BitmapImage x:Key="Rozbitek" >Resources/rozbitek.jpg</BitmapImage>
@@ -19,7 +19,7 @@
         <BitmapImage x:Key="ZycieIkona">Resources/heart.png</BitmapImage>
         <BitmapImage x:Key="EnergiaIkona">Resources/energy.png</BitmapImage>
         <BitmapImage x:Key="AtakIkona">Resources/sword.png</BitmapImage>
-        <BitmapImage x:Key="ObronaIkona">Resources/knight.png</BitmapImage>
+        <BitmapImage x:Key="ObronaIkona">Resources/shield.png</BitmapImage>
         <BitmapImage x:Key="ZapiszIkona">Resources/save-file.png</BitmapImage>
         <BitmapImage x:Key="OgniskoIkona">Resources/bonfire.png</BitmapImage>
         <BitmapImage x:Key="LatarkaIkona">Resources/flashlight.png</BitmapImage>
@@ -28,6 +28,14 @@
         <BitmapImage x:Key="LasIkona">Resources/tree.png</BitmapImage>
         <BitmapImage x:Key="JezioroIkona">Resources/natural-resources.png</BitmapImage>
         <BitmapImage x:Key="DomIkona">Resources/tent.png</BitmapImage>
+        <BitmapImage x:Key="JedzenieIkona">Resources/meat.png</BitmapImage>
+        <BitmapImage x:Key="DrewnoIkona">Resources/trunk.png</BitmapImage>
+        <BitmapImage x:Key="SkoraIkona">Resources/leather.png</BitmapImage>
+        <BitmapImage x:Key="MetalIkona">Resources/hammer.png</BitmapImage>
+        <BitmapImage x:Key="KamienIkona">Resources/stone.png</BitmapImage>
+        <BitmapImage x:Key="BronIkona">Resources/sword (1).png</BitmapImage>
+        <BitmapImage x:Key="ZbrojaIkona">Resources/knight.png</BitmapImage>
+        <BitmapImage x:Key="InfoIkona">Resources\info.png</BitmapImage>
     </Window.Resources>
     <Grid Background="#FF7BA6C8">
         <Grid.ColumnDefinitions>
@@ -84,8 +92,8 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Image Margin="15" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="{DynamicResource ZapiszIkona}"/>
-                <Button Margin="15" FontSize="20" Grid.Column="2" Grid.Row="0" Click="zapisz">Zapisz</Button>
-                <Button Margin="15" FontSize="20" Grid.Column="2" Grid.Row="1" Click="wczytaj" >Wczytaj</Button>
+                <Button Margin="15" FontSize="20" Grid.Column="2" Grid.Row="0" x:Name="przycisk_zapisz" Click="zapisz">Zapisz</Button>
+                <Button Margin="15" FontSize="20" Grid.Column="2" Grid.Row="1" x:Name="przycisk_wczytaj" Click="wczytaj" >Wczytaj</Button>
 
 
             </Grid>
@@ -93,9 +101,10 @@
         <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="#5f8847" CornerRadius="20" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -107,28 +116,35 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock  Grid.Column="0" Grid.ColumnSpan="2" FontSize="35" FontWeight="DemiBold" VerticalAlignment="Center" TextAlignment="Center">EKWIPUNEK</TextBlock>
-                    <Image Grid.Column="1" Margin="10" Source="{DynamicResource EkwpiunekIkona}"/>
+                    <Image Grid.Column="3" Margin="10" Source="{DynamicResource EkwpiunekIkona}"/>
                 </Grid>
-                <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Jedzenie</TextBlock>
-                <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Drewno</TextBlock>
-                <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Kamień</TextBlock>
-                <TextBlock Margin="5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Skóra</TextBlock>
-                <TextBlock Margin="5" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Metal</TextBlock>
-                <TextBlock Margin="5" Grid.Row="6" Grid.Column="0" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Broń</TextBlock>
-                <TextBlock Margin="5" Grid.Row="7" Grid.Column="0" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Zbroja</TextBlock>
-                <TextBlock Margin="5" Grid.Row="1" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="jedzenie">1</TextBlock>
-                <TextBlock Margin="5" Grid.Row="2" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="drewno">2</TextBlock>
-                <TextBlock Margin="5" Grid.Row="3" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="kamien">3</TextBlock>
-                <TextBlock Margin="5" Grid.Row="4" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="skora">4</TextBlock>
-                <TextBlock Margin="5" Grid.Row="5" Grid.Column="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="metal">5</TextBlock>
-                <TextBlock Margin="5" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="bron">6</TextBlock>
-                <TextBlock Margin="5" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="zbroja">7</TextBlock>
+                <Image Margin="5" Grid.Column="0" Grid.Row="1" Source="{DynamicResource JedzenieIkona}"/>
+                <Image Margin="5" Grid.Column="0" Grid.Row="2" Source="{DynamicResource DrewnoIkona}"/>
+                <Image Margin="5" Grid.Column="0" Grid.Row="3" Source="{DynamicResource KamienIkona}"/>
+                <Image Margin="5" Grid.Column="0" Grid.Row="4" Source="{DynamicResource SkoraIkona}"/>
+                <Image Margin="5" Grid.Column="0" Grid.Row="5" Source="{DynamicResource MetalIkona}"/>
+                <Image Margin="5" Grid.Column="0" Grid.Row="6" Source="{DynamicResource BronIkona}"/>
+                <Image Margin="5" Grid.Column="0" Grid.Row="7" Source="{DynamicResource ZbrojaIkona}"/>
+                <TextBlock Margin="5" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Jedzenie</TextBlock>
+                <TextBlock Margin="5" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Drewno</TextBlock>
+                <TextBlock Margin="5" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Kamień</TextBlock>
+                <TextBlock Margin="5" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Skóra</TextBlock>
+                <TextBlock Margin="5" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Metal</TextBlock>
+                <TextBlock Margin="5" Grid.Row="6" Grid.Column="1" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Broń</TextBlock>
+                <TextBlock Margin="5" Grid.Row="7" Grid.Column="1" FontSize="24" TextAlignment="Center" VerticalAlignment="Center">Zbroja</TextBlock>
+                <TextBlock Margin="5" Grid.Row="1" Grid.Column="3" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="jedzenie">1</TextBlock>
+                <TextBlock Margin="5" Grid.Row="2" Grid.Column="3" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="drewno">2</TextBlock>
+                <TextBlock Margin="5" Grid.Row="3" Grid.Column="3" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="kamien">3</TextBlock>
+                <TextBlock Margin="5" Grid.Row="4" Grid.Column="3" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="skora">4</TextBlock>
+                <TextBlock Margin="5" Grid.Row="5" Grid.Column="3" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="metal">5</TextBlock>
+                <TextBlock Margin="5" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="bron">6</TextBlock>
+                <TextBlock Margin="5" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" x:Name="zbroja">7</TextBlock>
             </Grid>
         </Border>
         <Border Grid.Column="0" Grid.Row="3" Background="#4682b4" CornerRadius="20" Padding="7,0,7,10" Margin="5">
@@ -151,8 +167,8 @@
                     <Image Grid.Column="1" Margin="7" Source="{DynamicResource SklepIkona}"/>
                 </Grid>
                 <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="sklep" Margin="5" SelectionMode="Single"></ListBox>
-                <Button Grid.Row="2" Grid.Column="0" FontSize="20" Margin="10,0,10,0" Click="kup">Kup</Button>
-                <Button Grid.Row="2" Grid.Column="1" FontSize="20" Margin="10,0,10,0" Click="sprzedaj">Sprzedaj</Button>
+                <Button Grid.Row="2" Grid.Column="0" FontSize="20" Margin="10,0,10,0" x:Name="przycisk_kup" Click="kup" Height="31" VerticalAlignment="Top">Kup</Button>
+                <Button Grid.Row="2" Grid.Column="1" FontSize="20" Margin="10,0,10,0" x:Name="przycisk_sprzedaj" Click="sprzedaj">Sprzedaj</Button>
             </Grid>
         </Border>
         <Border Grid.Row="0" Grid.Column="2" Background="#a3a3a3" CornerRadius="20" Margin="5">
@@ -225,8 +241,8 @@
                 </Grid.ColumnDefinitions>
                 <Image Margin="7" Source="{DynamicResource LasIkona}"/>
                 <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="35"  TextAlignment="Center" VerticalAlignment="Center">Las</TextBlock>
-                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" Click="poluj">Poluj</Button>
-                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" Click="zbieraj">Zbieraj surowce</Button>
+                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_poluj" Click="poluj">Poluj</Button>
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_zbieraj" Click="zbieraj">Zbieraj surowce</Button>
             </Grid>
         </Border>
         <Border Grid.Column="4" Grid.Row="2" Background="#009999" CornerRadius="20" Margin="5">
@@ -242,8 +258,8 @@
                 </Grid.ColumnDefinitions>
                 <Image Margin="7" Source="{DynamicResource JezioroIkona}"/>
                 <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="35" TextAlignment="Center" VerticalAlignment="Center">Jezioro</TextBlock>
-                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" Click="odpoczywaj">Odpoczywaj</Button>
-                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" Click="low">Łów</Button>
+                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_odpoczywaj" Click="odpoczywaj">Odpoczywaj</Button>
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_low" Click="low">Łów</Button>
             </Grid>
         </Border>
         <Border Grid.Column="4" Grid.Row="3" Background="#adad32" CornerRadius="20" Margin="5">
@@ -261,12 +277,31 @@
                 <Image Grid.RowSpan="2" Margin="7" Source="{DynamicResource DomIkona}"/>
                 <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0" FontSize="35" TextAlignment="Center" VerticalAlignment="Center">Dom</TextBlock>
                 <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="13" TextAlignment="Center" VerticalAlignment="Center">Sen możliwy tylko w nocy</TextBlock>
-                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" Click="jedz">Jedz</Button>
-                <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" Click="spij">Śpij</Button>
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_jedz" Click="jedz">Jedz</Button>
+                <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_spij" Click="spij">Śpij</Button>
             </Grid>
         </Border>
-        <Border Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4">
-            
+        <Border Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Background="#cfbda3" CornerRadius="20" Margin="5">
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Margin="5" Source="{DynamicResource InfoIkona}"/>
+                        <Image Margin="5" Grid.Column="2" Source="{DynamicResource InfoIkona}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="komunikat"></TextBlock>
+
+                    </Grid>
+                </Border>
+            </Grid>
         </Border>
     </Grid>
 

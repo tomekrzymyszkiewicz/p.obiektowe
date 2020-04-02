@@ -17,12 +17,18 @@ namespace the_forest_game
             Gracz.InicjalizacjaGracza();
             ZaladujSklep();
             AktualizujWartości();
+            komunikat.Text = "Witaj w grze The Forest!";
         }
         private void kup(object sender, RoutedEventArgs e)
         {
             int wybranyPrzedmiotWSklepie = sklep.SelectedIndex;
-            Sklep.Kup(wybranyPrzedmiotWSklepie);
+            if(Sklep.Kup(wybranyPrzedmiotWSklepie))
+            {
+                komunikat.Text = "Kupiłeś" + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie);
+            }
+            
             AktualizujWartości();
+            
         }
         private void sprzedaj(object sender, RoutedEventArgs e)
         {
@@ -78,7 +84,24 @@ namespace the_forest_game
             doswiadczenie.Text = Convert.ToString(Gracz.Doswiadczenie());
             godzina.Text = String.Format("{0:t}", Gracz.Czas());
             dzien.Text = Convert.ToString(Gracz.Dzien());
-            if (Gracz.CzyZyje()) { }
+            if (!Gracz.CzyZyje()) 
+            {
+                KoniecGry();
+            }
+        }
+        private void KoniecGry()
+        {
+            przycisk_wczytaj.IsEnabled = false;
+            przycisk_zapisz.IsEnabled = false;
+            przycisk_kup.IsEnabled = false;
+            przycisk_sprzedaj.IsEnabled = false;
+            przycisk_poluj.IsEnabled = false;
+            przycisk_zbieraj.IsEnabled = false;
+            przycisk_odpoczywaj.IsEnabled = false;
+            przycisk_low.IsEnabled = false;
+            przycisk_jedz.IsEnabled = false;
+            przycisk_spij.IsEnabled = false;
+            MessageBox.Show("Przegrałeś! Koniec gry!");
         }
         private void ZaladujSklep()
         {
@@ -119,6 +142,7 @@ namespace the_forest_game
             {
                 Gracz.ZmienDzien(1);
             }
+            if(Gracz.CzyZyje())
             Gracz.czas = Gracz.czas.AddMinutes(1);
         }
         private void zapisz(object sender, RoutedEventArgs e)
