@@ -102,10 +102,45 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="rozbitek.jpg" />
+    <Resource Include="Resources\ognisko.jpg" />
+    <Resource Include="Resources\rozbitek.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ognisko.jpg" />
+    <Resource Include="Resources\money.png" />
+    <Resource Include="Resources\price.png" />
+    <Resource Include="Resources\tent.png" />
+    <Resource Include="Resources\tourist color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\backpack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\calendar.png" />
+    <Resource Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\energy.png" />
+    <Resource Include="Resources\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\knight.png" />
+    <Resource Include="Resources\sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\save-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bonfire.png" />
+    <Resource Include="Resources\flashlight.png" />
+    <Resource Include="Resources\guide.png" />
+    <Resource Include="Resources\knife.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\natural-resources.png" />
+    <Resource Include="Resources\tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\windowicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
