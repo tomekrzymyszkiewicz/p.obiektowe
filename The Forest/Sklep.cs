@@ -106,7 +106,7 @@
                     return false;
             }
         }
-        public static void Sprzedaj(int wybranyPrzedmiotWSklepie)
+        public static bool Sprzedaj(int wybranyPrzedmiotWSklepie)
         {
             switch (wybranyPrzedmiotWSklepie)
             {
@@ -119,8 +119,9 @@
                     {
                         Ekwipunek.ekwipunek_ilosci[wybranyPrzedmiotWSklepie] -= 1;
                         Gracz.ZmienPieniadze(Ekwipunek.ekwipunek_ceny[wybranyPrzedmiotWSklepie]);
+                        return true;
                     }
-                    break;
+                    return false;
                 case 5:
                 case 6:
                 case 7:
@@ -128,8 +129,9 @@
                     {
                         Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
                         Ekwipunek.posiadanaBron.ResetujWartosci();
+                        return true;
                     }
-                    break;
+                    return false;
                 case 8:
                 case 9:
                 case 10:
@@ -137,10 +139,11 @@
                     {
                         Gracz.ZmienPieniadze(Ekwipunek.posiadanaZbroja.Cena());
                         Ekwipunek.posiadanaZbroja.ResetujWartosci();
+                        return true;
                     }
-                    break;
+                    return false;
                 default:
-                    break;
+                    return false;
             }
         }
         public static string NazwaPrzedmiotuBiernik(int wybranyPrzedmiotWSklepie)
