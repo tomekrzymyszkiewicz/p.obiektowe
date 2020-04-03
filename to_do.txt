@@ -1,3 +1,5 @@
 - dodać różne rodzaje schronienia (szałas, namiot, ziemianka)
 - dodać nocne ataki wrogów na obozowisko (strata energii, życia i surowców)
 - ustalenie proporcji zdobywania surowców
+- dodać skalowanie wielkości gier
+- czas zwolnić
