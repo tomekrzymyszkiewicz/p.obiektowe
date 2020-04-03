@@ -9,6 +9,8 @@ namespace the_forest_game
 	public partial class MainWindow : Window
 	{
 		private string nazwaPliku = "save.txt";
+		int stanGry = 1; // 1 - gra trwa // 2 - gra zapauzowana // 0 - koniec gry
+		DispatcherTimer zegar = new DispatcherTimer();
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -208,7 +210,9 @@ namespace the_forest_game
 			przycisk_low.IsEnabled = false;
 			przycisk_jedz.IsEnabled = false;
 			przycisk_spij.IsEnabled = false;
+			przycisk_pauza.IsEnabled = false;
 			komunikat.Text = "Przegrałeś! Koniec gry!";
+			pole_konca_gry.Visibility = Visibility.Visible;
 		}
 		private void ZaladujSklep()
 		{
@@ -234,15 +238,15 @@ namespace the_forest_game
 			this.Left = (szerokoscEkranu / 2) - (szerokoscOkna / 2);
 			this.Top = (wyskokoscEkranu / 2) - (wysokoscOkna / 2);
 		}
-		private void UruchomZegar()
+		protected void UruchomZegar()
 		{
-			DispatcherTimer zegar = new DispatcherTimer();
 			zegar.Interval = TimeSpan.FromMilliseconds(100);
 			zegar.Tick += AktualizujZegar;
 			zegar.Start();
 		}
-		public void AktualizujZegar(object sender, EventArgs e)
+		private void AktualizujZegar(object sender, EventArgs e)
 		{
+			
 			godzina.Text = String.Format("{0:t}", Gracz.Czas());
 			dzien.Text = Convert.ToString(Gracz.Dzien());
 			if (Gracz.Czas().Hour == 23 && Gracz.Czas().Minute == 30)
@@ -312,6 +316,73 @@ namespace the_forest_game
 				AktualizujWartości();
 				komunikat.Text = "Wczytano stan gry.";
 			}
+		}
+
+		private void pauza(object sender, RoutedEventArgs e)
+		{
+			if(stanGry == 1)
+			{
+				//pauzowanie gry
+				przycisk_pauza.Content = "Wznów";
+				stanGry = 2;
+				przycisk_wczytaj.IsEnabled = false;
+				przycisk_zapisz.IsEnabled = false;
+				przycisk_kup.IsEnabled = false;
+				przycisk_sprzedaj.IsEnabled = false;
+				przycisk_poluj.IsEnabled = false;
+				przycisk_zbieraj.IsEnabled = false;
+				przycisk_odpoczywaj.IsEnabled = false;
+				przycisk_low.IsEnabled = false;
+				przycisk_jedz.IsEnabled = false;
+				przycisk_spij.IsEnabled = false;
+				komunikat.Text = "Gra zapauzowana.";
+				zegar.Stop();
+			}
+			else if(stanGry == 2)
+			{
+				//odpauzuj
+				przycisk_pauza.Content = "Pauza";
+				stanGry = 1;
+				przycisk_wczytaj.IsEnabled = true;
+				przycisk_zapisz.IsEnabled = true;
+				przycisk_kup.IsEnabled = true;
+				przycisk_sprzedaj.IsEnabled = true;
+				przycisk_poluj.IsEnabled = true;
+				przycisk_zbieraj.IsEnabled = true;
+				przycisk_odpoczywaj.IsEnabled = true;
+				przycisk_low.IsEnabled = true;
+				przycisk_jedz.IsEnabled = true;
+				przycisk_spij.IsEnabled = true;
+				komunikat.Text = "Gra wznowiona.";
+				zegar.Start();
+			}
+			AktualizujWartości();
+		}
+		private void reset(object sender, RoutedEventArgs e)
+		{
+			Ekwipunek.posiadanaBron.ResetujWartosci();
+			Ekwipunek.posiadanaZbroja.ResetujWartosci();
+			Gracz.InicjalizacjaGracza();
+			Ekwipunek.ekwipunek_ilosci[0] = 3;
+			Ekwipunek.ekwipunek_ilosci[1] = 0;
+			Ekwipunek.ekwipunek_ilosci[2] = 0;
+			Ekwipunek.ekwipunek_ilosci[3] = 0;
+			Ekwipunek.ekwipunek_ilosci[4] = 0;
+			Gracz.UstawCzas(12,00);
+			przycisk_wczytaj.IsEnabled = true;
+			przycisk_zapisz.IsEnabled = true;
+			przycisk_kup.IsEnabled = true;
+			przycisk_sprzedaj.IsEnabled = true;
+			przycisk_poluj.IsEnabled = true;
+			przycisk_zbieraj.IsEnabled = true;
+			przycisk_odpoczywaj.IsEnabled = true;
+			przycisk_low.IsEnabled = true;
+			przycisk_jedz.IsEnabled = true;
+			przycisk_spij.IsEnabled = true;
+			przycisk_pauza.IsEnabled = true;
+			komunikat.Text = "Może tym razem pójdzie ci lepiej.";
+			pole_konca_gry.Visibility = Visibility.Hidden;
+			AktualizujWartości();
 		}
 	}
 }

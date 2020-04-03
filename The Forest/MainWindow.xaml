@@ -36,6 +36,7 @@
         <BitmapImage x:Key="BronIkona">Resources/sword (1).png</BitmapImage>
         <BitmapImage x:Key="ZbrojaIkona">Resources/knight.png</BitmapImage>
         <BitmapImage x:Key="InfoIkona">Resources\info.png</BitmapImage>
+        <BitmapImage x:Key="ResetIkona">Resources\loop.png</BitmapImage>
     </Window.Resources>
     <Grid Background="#FF7BA6C8">
         <Grid.ColumnDefinitions>
@@ -52,6 +53,21 @@
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <Image Source="{DynamicResource Ognisko}" Stretch="Fill" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4"></Image>
+        <Border Grid.Row="2" Grid.Column="2" Background="#1c9a44" CornerRadius="20" Margin="5" Visibility="Hidden" x:Name="pole_konca_gry">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.ColumnSpan="2" Margin="10" Source="{DynamicResource ResetIkona}"/>
+                <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10" FontSize="30" x:Name="przycisk_odnowa" Click="reset" Content="Zacznij od nowa"/>
+            </Grid>
+           
+        </Border>
         <Border Background="#e0d03c" CornerRadius="20" Grid.Column="0" Grid.Row="0" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -84,16 +100,17 @@
         <Border Grid.Column="3" Grid.Row="0" Background="#8cd7f4" CornerRadius="20" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Margin="15" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="{DynamicResource ZapiszIkona}"/>
+                <Image Margin="15" Grid.Column="0" Grid.Row="0" Source="{DynamicResource ZapiszIkona}"/>
                 <Button Margin="15" FontSize="20" Grid.Column="2" Grid.Row="0" x:Name="przycisk_zapisz" Click="zapisz">Zapisz</Button>
                 <Button Margin="15" FontSize="20" Grid.Column="2" Grid.Row="1" x:Name="przycisk_wczytaj" Click="wczytaj" >Wczytaj</Button>
+                <Button Margin="15" Grid.Column="0" Grid.Row="1" FontSize="20" x:Name="przycisk_pauza" Click="pauza" Content="Pauza"/>
 
 
             </Grid>

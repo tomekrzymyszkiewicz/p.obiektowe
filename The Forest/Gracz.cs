@@ -13,7 +13,6 @@ namespace the_forest_game
         private static int obrona { get; set; }
         private static int doswiadczenie { get; set; }
         public static DateTime czas = new DateTime(2020, 1, 1, 12, 0, 0);
-
         public static void InicjalizacjaGracza()
         {
             dzien = 1;
