@@ -319,7 +319,6 @@ namespace the_forest_game
 				komunikat.Text = "Wczytano stan gry.";
 			}
 		}
-
 		private void pauza(object sender, RoutedEventArgs e)
 		{
 			if(stanGry == 1)

@@ -4,3 +4,4 @@
 - dodać skalowanie wielkości gier
 - czas zwolnić
 - im lepsza obrona tym mniej traci się życia
+- dodać kilka bosów
