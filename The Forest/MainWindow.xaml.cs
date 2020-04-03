@@ -258,7 +258,9 @@ namespace the_forest_game
 		}
 		private void zapisz(object sender, RoutedEventArgs e)
 		{
-			FileStream plik = new FileStream(nazwaPliku, FileMode.Truncate, FileAccess.Write);
+			FileStream plik = new FileStream(nazwaPliku, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+
+			//FileStream plik = new FileStream(nazwaPliku, FileMode.Truncate, FileAccess.Write);
 			plik.Seek(0, SeekOrigin.End);
 			StreamWriter strumienZapisu = new StreamWriter(plik);
 
