@@ -137,12 +137,40 @@ namespace the_forest_game
 		}
 		private void jedz(object sender, RoutedEventArgs e)
 		{
-			Dom.Jedz();
+			int[] dane = Dom.Jedz();
+			if(dane[0] == 0)
+			{
+				komunikat.Text = "Jesteś zdrowy i najedzony. Nie potrzebujesz jeść.";
+			}
+			else if(dane[0] == 1)
+			{
+				komunikat.Text = "Zajdłeś jedzenie. Dostałeś " + dane[1] + " punktów życia i " + dane[2] + " punktów energii. Jedzenie zajęło " + dane[3] + " min.";
+			}
+			else if(dane[0] == 2)
+			{
+				komunikat.Text = "Nie masz jedzenia. Kup je w sklepie, złów rybę lub udaj się na polowanie.";
+			}
+			else
+			{
+				komunikat.Text = "błąd jedz";
+			}
 			AktualizujWartości();
 		}
 		private void spij(object sender, RoutedEventArgs e)
 		{
-			Dom.Spij();
+			int[] dane = Dom.Spij();
+			if(dane[0] == 0)
+			{
+				komunikat.Text = "Nie możesz spać teraz. Połóż się wieczorem w godzinach 19:00 - 2:00";
+			}
+			else if(dane[0] == 1)
+			{
+				komunikat.Text = "Wyspałeś się. Spałeś " + dane[3] + " godzin i " + dane[4] + " minut. Dostałeś " + dane[1] + " punktów energii i " + dane[2] + " punktów życia.";
+			}
+			else
+			{
+				komunikat.Text = "błąd śpij";
+			}
 			AktualizujWartości();
 		}
 		public void AktualizujWartości()

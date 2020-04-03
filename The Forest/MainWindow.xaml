@@ -49,7 +49,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <Image Source="{DynamicResource Ognisko}" Stretch="Fill" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4"></Image>
         <Border Background="#e0d03c" CornerRadius="20" Grid.Column="0" Grid.Row="0" Margin="5">
@@ -228,7 +228,13 @@
                 <TextBlock  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" FontSize="50" FontWeight="DemiBold" TextAlignment="Center" VerticalAlignment="Center">THE FOREST</TextBlock>
             </Grid>
         </Border>
-        <Border Grid.Column="4" Grid.Row="1" Background="#82b446" CornerRadius="20" Margin="5">
+        <Grid Grid.Column="4" Grid.Row="1" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="#82b446" CornerRadius="20" Margin="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -245,7 +251,7 @@
                 <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_zbieraj" Click="zbieraj">Zbieraj surowce</Button>
             </Grid>
         </Border>
-        <Border Grid.Column="4" Grid.Row="2" Background="#009999" CornerRadius="20" Margin="5">
+        <Border Grid.Row="1" Background="#009999" CornerRadius="20" Margin="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -267,20 +273,19 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.RowSpan="2" Margin="7" Source="{DynamicResource DomIkona}"/>
-                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0" FontSize="35" TextAlignment="Center" VerticalAlignment="Center">Dom</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="13" TextAlignment="Center" VerticalAlignment="Center">Sen możliwy tylko w nocy</TextBlock>
-                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_jedz" Click="jedz">Jedz</Button>
-                <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_spij" Click="spij">Śpij</Button>
+                <Image Margin="7" Source="{DynamicResource DomIkona}"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,0" FontSize="35" TextAlignment="Center" VerticalAlignment="Center">Namiot</TextBlock>
+                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_jedz" Click="jedz">Jedz</Button>
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_spij" Click="spij">Śpij</Button>
             </Grid>
         </Border>
+        </Grid>
         <Border Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1">
             <Grid>
                 <Grid.RowDefinitions>
