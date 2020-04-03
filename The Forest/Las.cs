@@ -12,40 +12,60 @@ namespace the_forest_game
             // 3 - zycie
             // 4 - doswiadczenie
             // 5 - czas
-            int[] drop = new int[6];
+            int[] dane = new int[6];
             if (Gracz.Energia() > 0 && Gracz.Zycie() > 0)
             {
-                drop[0] = 1;
+                dane[0] = 1;
                 Random los = new Random();
-                drop[1] = (Gracz.Atak() + Gracz.Doswiadczenie()) / 5 + 2;
-                Ekwipunek.ekwipunek_ilosci[0] += los.Next(0, drop[1]);
-                drop[2] = los.Next(1, 10);
-                Gracz.ZmienEnergie(-drop[2]);
-                drop[3] = los.Next(1, 10);
-                Gracz.ZmienZycie(-drop[3]);
-                drop[4] = los.Next(2, 4);
-                Gracz.ZmienDoswiadczenie(drop[4]);
-                drop[5] = los.Next(10, 30);
-                Gracz.czas = Gracz.czas.AddMinutes(drop[5]);
+                dane[1] = los.Next(0, (Gracz.Atak() + Gracz.Doswiadczenie()) / 5 + 2);
+                Ekwipunek.ekwipunek_ilosci[0] += dane[1];
+                dane[2] = los.Next(1, 10);
+                Gracz.ZmienEnergie(-dane[2]);
+                dane[3] = los.Next(1, 10);
+                Gracz.ZmienZycie(-dane[3]);
+                dane[4] = los.Next(2, 4);
+                Gracz.ZmienDoswiadczenie(dane[4]);
+                dane[5] = los.Next(30, 60);
+                Gracz.czas = Gracz.czas.AddMinutes(dane[5]);
             }
             else
             {
-                drop[0] = 0;
+                dane[0] = 0;
             }
-            return drop;
+            return dane;
         }
-        public static void Zbieraj()
+        public static int[] Zbieraj()
         {
+            // 0 - czyMaEnergię  0 - nie / 1 - tak
+            // 1 - drewno
+            // 2 - kamień
+            // 3 - skóra
+            // 4 -  metal
+            // 5 - energia
+            // 6 - czas
+            int[] dane = new int[7];
             if (Gracz.Energia() > 0)
             {
+                dane[0] = 1;
                 Random los = new Random();
-                Ekwipunek.ekwipunek_ilosci[1] += los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 2) + 2);
-                Ekwipunek.ekwipunek_ilosci[2] += los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 2) + 2);
-                Ekwipunek.ekwipunek_ilosci[3] += los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 5) + 2);
-                Ekwipunek.ekwipunek_ilosci[4] += los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 3) + 2);
-                Gracz.ZmienEnergie(-los.Next(0, 10));
-                Gracz.czas = Gracz.czas.AddMinutes(los.Next(1, 12));
+                dane[1] = los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 2) + 2);
+                dane[2] = los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 2) + 2);
+                dane[3] = los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 5) + 2);
+                dane[4] = los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 3) + 2);
+                Ekwipunek.ekwipunek_ilosci[1] += dane[1];
+                Ekwipunek.ekwipunek_ilosci[2] += dane[2];
+                Ekwipunek.ekwipunek_ilosci[3] += dane[3];
+                Ekwipunek.ekwipunek_ilosci[4] += dane[4];
+                dane[5] = los.Next(0, 10);
+                Gracz.ZmienEnergie(-dane[5]);
+                dane[6] = los.Next(20, 60);
+                Gracz.czas = Gracz.czas.AddMinutes(dane[6]);
             }
+            else
+            {
+                dane[0] = 0;
+            }
+            return dane;
         }
     }
 }

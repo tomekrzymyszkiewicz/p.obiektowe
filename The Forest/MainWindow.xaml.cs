@@ -61,33 +61,78 @@ namespace the_forest_game
 		}
 		private void poluj(object sender, RoutedEventArgs e)
 		{
-			int[] drop = Las.Poluj();
-			if(drop[0] == 1)
+			int[] dane = Las.Poluj();
+			if(dane[0] == 1)
 			{
-				komunikat.Text = "Upolowane jedzenie: " + drop[1] + ". Strata energii: " + drop[2] + ". Strata życia: " + drop[3] + ". Czas polowania " + drop[5] + " min.";
-			}else if(drop[0] == 0)
+				komunikat.Text = "Upolowane jedzenie: " + dane[1] + ". Strata energii: " + dane[2] + ". Strata życia: " + dane[3] + ". Czas polowania " + dane[5] + " min.";
+			}
+			else if(dane[0] == 0)
 			{
-				komunikat.Text = "Nie masz wystarczającej energii, aby udać się na polowanie. Odpocznij nad jeziorem lub idź spać";
+				komunikat.Text = "Nie masz wystarczającej energii, aby udać się na polowanie. Odpocznij nad jeziorem lub idź spać.";
 			}
 			else
 			{
-				komunikat.Text = "błąd";
+				komunikat.Text = "błąd - polowanie";
 			}
 			AktualizujWartości();
 		}
 		private void zbieraj(object sender, RoutedEventArgs e)
 		{
-			Las.Zbieraj();
+			int[] dane = Las.Zbieraj();
+			if(dane[0] == 1)
+			{
+				komunikat.Text = "Zebrane drewno: " + dane[1] + ", kamień: " + dane[2] + ", skóra: " + dane[3] + ", metal: " + dane[4] + ". Stracona energia: " + dane[5] + ". Czas zbierania: " + dane[6] + " min."; 
+			}
+			else if(dane[0] == 0)
+			{
+				komunikat.Text = "Nie masz wystarczającej energii, aby zbierać surowce. Odpocznij nad jeziorem lub idź spać.";
+			}
+			else
+			{
+				komunikat.Text = "błąd - zbieraj";
+			}
 			AktualizujWartości();
 		}
 		private void odpoczywaj(object sender, RoutedEventArgs e)
 		{
-			Jezioro.Odpoczywaj();
+			int[] dane = Jezioro.Odpoczywaj();
+			if(dane[0] == 1)
+			{
+				komunikat.Text = "Odpoczynek udany. Zdobyłeś " + dane[1] + " punktów energii, a zajęło Ci to " + dane[2] + " min.";
+			}
+			else if(dane[0] == 0)
+			{
+				komunikat.Text = "Jesteś pełen energii. Nie musisz odpoczywać.";
+			}
+			else
+			{
+				komunikat.Text = "błąd - odpoczynek";
+			}
 			AktualizujWartości();
 		}
 		private void low(object sender, RoutedEventArgs e)
 		{
-			Jezioro.Odpoczywaj();
+			int[] dane =  Jezioro.Low();
+			if(dane[0] == 1)
+			{
+				if(dane[1] == 0)
+				{
+					komunikat.Text = "Niestey nie udało ci się złowić ryby. Stacona energia: " + dane[4] + " ,czas wędkowania: " + dane[2] + " min. Zyskane doświadczenie: " + dane[3];
+				}
+				else
+				{
+					komunikat.Text = "Brawo, wędkowanie udane. Złowione ryby: " + dane[1] + ". Stacona energia: " + dane[4] + " ,czas wędkowania: " + dane[2] + " min. Zyskane doświadczenie: " + dane[3];
+
+				}
+			}
+			else if(dane[0] == 0)
+			{
+				komunikat.Text = "Nie masz wystarczającej energii, aby łowić ryby. Odpocznij nad jeziorem lub idź spać.";
+			}
+			else
+			{
+				komunikat.Text = "błąd - lów";
+			}
 			AktualizujWartości();
 		}
 		private void jedz(object sender, RoutedEventArgs e)
@@ -135,7 +180,7 @@ namespace the_forest_game
 			przycisk_low.IsEnabled = false;
 			przycisk_jedz.IsEnabled = false;
 			przycisk_spij.IsEnabled = false;
-			MessageBox.Show("Przegrałeś! Koniec gry!");
+			komunikat.Text = "Przegrałeś! Koniec gry!";
 		}
 		private void ZaladujSklep()
 		{
@@ -208,7 +253,7 @@ namespace the_forest_game
 
 			strumienZapisu.Close();
 			plik.Close();
-			MessageBox.Show("Zapisano");
+			komunikat.Text = "Zapisano stan gry." ;
 		}
 		private void wczytaj(object sender, RoutedEventArgs e)
 		{
@@ -237,7 +282,7 @@ namespace the_forest_game
 				strumienOdczytu.Close();
 				plik.Close();
 				AktualizujWartości();
-				MessageBox.Show("Wczytano");
+				komunikat.Text = "Wczytano stan gry.";
 			}
 		}
 	}
