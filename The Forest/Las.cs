@@ -48,10 +48,10 @@ namespace the_forest_game
             {
                 dane[0] = 1;
                 Random los = new Random();
-                dane[1] = los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 20) + 2);
-                dane[2] = los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 10) + 2);
-                dane[3] = los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 1000) + 2);
-                dane[4] = los.Next(0, (Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 500) + 2);
+                dane[1] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie()) / 20) + 2);
+                dane[2] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie()) / 10) + 2);
+                dane[3] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie()) / 1000) + 2);
+                dane[4] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie() / 500)) + 2);
                 Ekwipunek.ekwipunek_ilosci[1] += dane[1];
                 Ekwipunek.ekwipunek_ilosci[2] += dane[2];
                 Ekwipunek.ekwipunek_ilosci[3] += dane[3];

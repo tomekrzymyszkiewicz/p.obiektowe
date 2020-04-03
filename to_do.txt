@@ -3,3 +3,4 @@
 - ustalenie proporcji zdobywania surowców
 - dodać skalowanie wielkości gier
 - czas zwolnić
+- im lepsza obrona tym mniej traci się życia
