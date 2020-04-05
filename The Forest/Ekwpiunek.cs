@@ -3,11 +3,11 @@
     public class Ekwipunek
     {
         /// <summary>
-        /// Jedzenie
-        /// Drewno
-        /// Kamień
-        /// Skóra
-        /// Metal
+        /// 0 Jedzenie
+        /// 1 Drewno
+        /// 2 Kamień
+        /// 3 Skóra
+        /// 4Metal
         /// </summary>
         public static int[] ekwipunek_ilosci = new int[5] {3, 0, 0, 0, 0};
         public static int[] ekwipunek_ceny = new int[5] {10, 3, 5, 100, 50};

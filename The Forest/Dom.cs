@@ -2,8 +2,10 @@
 
 namespace the_forest_game
 {
-    public class Dom
+    public class Obozowisko
     {
+
+        
         public static int[] Jedz()
         {
             int[] dane = new int[4];
@@ -76,5 +78,88 @@ namespace the_forest_game
             }
             return dane;
         }
+        public class Dom
+        {
+            private string nazwa;
+            private int wytrzymalosc;
+            private int[] koszty = new int[5]; // 0 - pieniadze // 1 - drewno // 2 - kamień // 3 - skóra // 4 - metal
+
+            public static Dom klepisko = new Dom("Klepisko", 0, 0, 0, 0, 0, 0);
+            public static Dom szalas = new Dom("Szałas", 10, 100, 50, 100, 2, 2);
+            public static Dom ziemianka = new Dom("Ziemianka", 20, 1000, 1000, 500, 20, 20);
+            public static Dom chatka = new Dom("Cchatka", 30, 10000, 5000, 2000, 100, 200);
+
+            public static Dom posiadany_dom = new Dom();
+
+            Dom()
+            {
+                nazwa = "Klepisko";
+                wytrzymalosc = 0;
+                koszty[0] = 0; //pieniadze
+                koszty[1] = 0; //drewno
+                koszty[2] = 0; //kamień
+                koszty[3] = 0; //skóra
+                koszty[4] = 0; //metal
+            }
+            Dom(string _nazwa, int _wytrzymalosc, int _cena, int _drewno, int _kamien, int _skora, int _metal)
+            {
+                nazwa = _nazwa;
+                wytrzymalosc = _wytrzymalosc;
+                koszty[0] = _cena;
+                koszty[1] = _drewno;
+                koszty[2] = _kamien;
+                koszty[3] = _skora;
+                koszty[4] = _metal;
+            }
+            public void RestetujWartosci()
+            {
+                nazwa = "Klepisko";
+                wytrzymalosc = 10;
+                koszty[0] = 0; //pieniadze
+                koszty[1] = 0; //drewno
+                koszty[2] = 0; //kamień
+                koszty[3] = 0; //skóra
+                koszty[4] = 0; //metal
+            }
+            public void UstawWartosci(string _nazwa, int _wytrzymalosc, int _cena, int _drewno, int _kamien, int _skora, int _metal)
+            {
+                nazwa = _nazwa;
+                wytrzymalosc = _wytrzymalosc;
+                koszty[0] = _cena;
+                koszty[1] = _drewno;
+                koszty[2] = _kamien;
+                koszty[3] = _skora;
+                koszty[4] = _metal;
+            }
+            public string Nazwa()
+            {
+                return nazwa;
+            }
+            public int Wytrzymalosc()
+            {
+                return wytrzymalosc;
+            }
+            public int Cena()
+            {
+                return koszty[0];
+            }
+            public int Drewno()
+            {
+                return koszty[1];
+            }
+            public int Kamien()
+            {
+                return koszty[2];
+            }
+            public int Skora()
+            {
+                return koszty[3];
+            }
+            public int Metal()
+            {
+                return koszty[4];
+            }
+        }
+
     }
 }

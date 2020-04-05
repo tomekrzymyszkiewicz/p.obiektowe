@@ -102,6 +102,84 @@
                         return true;
                     }
                     return false;
+                case 11: //klepisko
+                    if(Obozowisko.Dom.klepisko.Cena() <= Gracz.Pieniadze() && Obozowisko.Dom.klepisko.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Obozowisko.Dom.klepisko.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Obozowisko.Dom.klepisko.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Obozowisko.Dom.klepisko.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
+                    {
+                        if (Obozowisko.Dom.posiadany_dom.Nazwa() != "Klepisko")
+                        {
+                            Gracz.ZmienPieniadze(Obozowisko.Dom.posiadany_dom.Cena());
+                            Ekwipunek.ekwipunek_ilosci[1] += Obozowisko.Dom.posiadany_dom.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Obozowisko.Dom.posiadany_dom.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Obozowisko.Dom.posiadany_dom.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Obozowisko.Dom.posiadany_dom.Metal();
+                            Obozowisko.Dom.posiadany_dom = Obozowisko.Dom.klepisko;
+                        }
+                        return true;
+                    }
+                    return false;
+                case 12: //szalas
+                    if (Obozowisko.Dom.szalas.Cena() <= Gracz.Pieniadze() && Obozowisko.Dom.szalas.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Obozowisko.Dom.szalas.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Obozowisko.Dom.szalas.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Obozowisko.Dom.szalas.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
+                    {
+                        if(Obozowisko.Dom.posiadany_dom.Nazwa() != "Klepisko")
+                        {
+                            Gracz.ZmienPieniadze(Obozowisko.Dom.posiadany_dom.Cena());
+                            Ekwipunek.ekwipunek_ilosci[1] += Obozowisko.Dom.posiadany_dom.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Obozowisko.Dom.posiadany_dom.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Obozowisko.Dom.posiadany_dom.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Obozowisko.Dom.posiadany_dom.Metal();
+                            Obozowisko.Dom.posiadany_dom = Obozowisko.Dom.klepisko;
+                        }
+                        Obozowisko.Dom.posiadany_dom = Obozowisko.Dom.szalas;
+                        Gracz.ZmienPieniadze(-Obozowisko.Dom.szalas.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] -= Obozowisko.Dom.szalas.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] -= Obozowisko.Dom.szalas.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] -= Obozowisko.Dom.szalas.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] -= Obozowisko.Dom.szalas.Metal();
+                        return true;
+                    }
+                    return false;
+                case 13: //ziemianka
+                    if (Obozowisko.Dom.ziemianka.Cena() <= Gracz.Pieniadze() && Obozowisko.Dom.ziemianka.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Obozowisko.Dom.ziemianka.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Obozowisko.Dom.ziemianka.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Obozowisko.Dom.ziemianka.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
+                    {
+                        if (Obozowisko.Dom.posiadany_dom.Nazwa() != "Klepisko")
+                        {
+                            Gracz.ZmienPieniadze(Obozowisko.Dom.posiadany_dom.Cena());
+                            Ekwipunek.ekwipunek_ilosci[1] += Obozowisko.Dom.posiadany_dom.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Obozowisko.Dom.posiadany_dom.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Obozowisko.Dom.posiadany_dom.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Obozowisko.Dom.posiadany_dom.Metal();
+                            Obozowisko.Dom.posiadany_dom = Obozowisko.Dom.klepisko;
+                        }
+                        Obozowisko.Dom.posiadany_dom = Obozowisko.Dom.ziemianka;
+                        Gracz.ZmienPieniadze(-Obozowisko.Dom.ziemianka.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] -= Obozowisko.Dom.ziemianka.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] -= Obozowisko.Dom.ziemianka.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] -= Obozowisko.Dom.ziemianka.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] -= Obozowisko.Dom.ziemianka.Metal();
+                        return true;
+                    }
+                    return false;
+                case 14: //chatka
+                    if (Obozowisko.Dom.chatka.Cena() <= Gracz.Pieniadze() && Obozowisko.Dom.chatka.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Obozowisko.Dom.chatka.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Obozowisko.Dom.chatka.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Obozowisko.Dom.chatka.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
+                    {
+                        if (Obozowisko.Dom.posiadany_dom.Nazwa() != "Klepisko")
+                        {
+                            Gracz.ZmienPieniadze(Obozowisko.Dom.posiadany_dom.Cena());
+                            Ekwipunek.ekwipunek_ilosci[1] += Obozowisko.Dom.posiadany_dom.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Obozowisko.Dom.posiadany_dom.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Obozowisko.Dom.posiadany_dom.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Obozowisko.Dom.posiadany_dom.Metal();
+                            Obozowisko.Dom.posiadany_dom = Obozowisko.Dom.klepisko;
+                        }
+                        Obozowisko.Dom.posiadany_dom = Obozowisko.Dom.chatka;
+                        Gracz.ZmienPieniadze(-Obozowisko.Dom.chatka.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] -= Obozowisko.Dom.chatka.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] -= Obozowisko.Dom.chatka.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] -= Obozowisko.Dom.chatka.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] -= Obozowisko.Dom.chatka.Metal();
+                        return true;
+                    }
+                    return false;
                 default:
                     return false;
             }
@@ -142,6 +220,21 @@
                         return true;
                     }
                     return false;
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                    if(Obozowisko.Dom.posiadany_dom.Cena() > 0)
+                    {
+                        Gracz.ZmienPieniadze(Obozowisko.Dom.posiadany_dom.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] += Obozowisko.Dom.posiadany_dom.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] += Obozowisko.Dom.posiadany_dom.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] += Obozowisko.Dom.posiadany_dom.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] += Obozowisko.Dom.posiadany_dom.Metal();
+                        Obozowisko.Dom.posiadany_dom = Obozowisko.Dom.klepisko;
+                        return true;
+                    }
+                    return false;
                 default:
                     return false;
             }
@@ -172,8 +265,16 @@
                     return "kolczugę";
                 case 10:
                     return "pancerz";
+                case 11:
+                    return "klepisko";
+                case 12:
+                    return "szałas";
+                case 13:
+                    return "ziemiankę";
+                case 14:
+                    return "chatkę";
                 default:
-                    return "błąd";
+                    return "<błąd>";
             }
         }
         public static string NazwaPrzedmiotuDopelniacz(int wybranyPrzedmiotWSklepie)
@@ -202,8 +303,16 @@
                     return "kolczugi";
                 case 10:
                     return "pancerza";
+                case 11:
+                    return "klepiska";
+                case 12:
+                    return "szałasu";
+                case 13:
+                    return "ziemianki";
+                case 14:
+                    return "chatki";
                 default:
-                    return "błąd";
+                    return "<błąd>";
             }
         }
 

@@ -8,7 +8,7 @@ namespace the_forest_game
 {
 	public partial class MainWindow : Window
 	{
-		private string nazwaPliku = "save.txt";
+		private string nazwaPliku = "save.txt"; //nazwa pliku z zapisem stanu gry
 		int stanGry = 1; // 1 - gra trwa // 2 - gra zapauzowana // 0 - koniec gry
 		DispatcherTimer zegar = new DispatcherTimer();
 		public MainWindow()
@@ -23,16 +23,30 @@ namespace the_forest_game
 		}
 		private void kup(object sender, RoutedEventArgs e)
 		{
-			int wybranyPrzedmiotWSklepie = sklep.SelectedIndex; 
+			int wybranyPrzedmiotWSklepie = sklep.SelectedIndex;
 			if (wybranyPrzedmiotWSklepie != -1)
 			{
-				if (Sklep.Kup(wybranyPrzedmiotWSklepie))
+				if (wybranyPrzedmiotWSklepie <= 10)
 				{
-					komunikat.Text = "Kupiłeś " + Sklep.NazwaPrzedmiotuBiernik(wybranyPrzedmiotWSklepie) + ".";
+					if (Sklep.Kup(wybranyPrzedmiotWSklepie))
+					{
+						komunikat.Text = "Kupiłeś " + Sklep.NazwaPrzedmiotuBiernik(wybranyPrzedmiotWSklepie) + ".";
+					}
+					else
+					{
+						komunikat.Text = "Nie możesz kupić " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ". Masz za mało pieniędzy.";
+					}
 				}
-				else
+				else if (wybranyPrzedmiotWSklepie > 10)
 				{
-					komunikat.Text = "Nie możesz kupić " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ". Masz za mało pieniędzy.";
+					if (Sklep.Kup(wybranyPrzedmiotWSklepie))
+					{
+						komunikat.Text = "Zbudowałeś " + Sklep.NazwaPrzedmiotuBiernik(wybranyPrzedmiotWSklepie) + ".";
+					}
+					else
+					{
+						komunikat.Text = "Nie możesz zbudować " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ". Masz za mało materiałów.";
+					}
 				}
 			}
 			else
@@ -44,22 +58,43 @@ namespace the_forest_game
 		private void sprzedaj(object sender, RoutedEventArgs e)
 		{
 			int wybranyPrzedmiotWSklepie = sklep.SelectedIndex;
-			if(wybranyPrzedmiotWSklepie != -1)
+			if (wybranyPrzedmiotWSklepie != -1)
 			{
-				if (Sklep.Sprzedaj(wybranyPrzedmiotWSklepie))
+				if (wybranyPrzedmiotWSklepie <= 10)
 				{
-					komunikat.Text = "Sprzedałeś " + Sklep.NazwaPrzedmiotuBiernik(wybranyPrzedmiotWSklepie) + ".";
+					if (Sklep.Sprzedaj(wybranyPrzedmiotWSklepie))
+					{
+						komunikat.Text = "Sprzedałeś " + Sklep.NazwaPrzedmiotuBiernik(wybranyPrzedmiotWSklepie) + ".";
+					}
+					else
+					{
+						komunikat.Text = "Nie sprzedałeś " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ". Nie masz takiego przedmiotu w ekwipunku.";
+					}
 				}
-				else
+				else if (wybranyPrzedmiotWSklepie > 10)
 				{
-					komunikat.Text = "Nie sprzedałeś " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ". Nie masz takiego przedmiotu w ekwipunku.";
+					
+					if (Sklep.Sprzedaj(wybranyPrzedmiotWSklepie))
+					{
+						komunikat.Text = "Rozebrałeś " + Sklep.NazwaPrzedmiotuBiernik(wybranyPrzedmiotWSklepie) + ".";
+					}
+					else
+					{
+						if(wybranyPrzedmiotWSklepie == 11)
+						{
+							komunikat.Text = "Nie możesz rozebrać klepiska. Jest ono podstawowym miejscem zamieszkania.";
+						}
+						else
+							komunikat.Text = "Nie możesz rozebrać " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ", ponieważ jej/go nie posiadasz.";
+					}
 				}
 			}
 			else
 			{
 				komunikat.Text = "Wybierz przedmiot, który chcesz sprzedać.";
 			}
-			AktualizujWartości();
+				AktualizujWartości();
+			
 		}
 		private void poluj(object sender, RoutedEventArgs e)
 		{
@@ -139,7 +174,7 @@ namespace the_forest_game
 		}
 		private void jedz(object sender, RoutedEventArgs e)
 		{
-			int[] dane = Dom.Jedz();
+			int[] dane = Obozowisko.Jedz();
 			if(dane[0] == 0)
 			{
 				komunikat.Text = "Jesteś zdrowy i najedzony. Nie potrzebujesz jeść.";
@@ -160,7 +195,7 @@ namespace the_forest_game
 		}
 		private void spij(object sender, RoutedEventArgs e)
 		{
-			int[] dane = Dom.Spij();
+			int[] dane = Obozowisko.Spij();
 			if(dane[0] == 0)
 			{
 				komunikat.Text = "Nie możesz spać teraz. Połóż się wieczorem w godzinach 19:00 - 2:00";
@@ -193,6 +228,8 @@ namespace the_forest_game
 			doswiadczenie.Text = Convert.ToString(Gracz.Doswiadczenie());
 			godzina.Text = String.Format("{0:t}", Gracz.Czas());
 			dzien.Text = Convert.ToString(Gracz.Dzien());
+			nazwa_domu.Text = Obozowisko.Dom.posiadany_dom.Nazwa();
+			wytrzymalosc_domu.Text = Convert.ToString(Obozowisko.Dom.posiadany_dom.Wytrzymalosc());
 			if (!Gracz.CzyZyje()) 
 			{
 				KoniecGry();
@@ -217,17 +254,25 @@ namespace the_forest_game
 		private void ZaladujSklep()
 		{
 			sklep.Items.Clear();
-			sklep.Items.Add("Jedzenie " + Ekwipunek.ekwipunek_ceny[0] + " $");
-			sklep.Items.Add("Drewno " + Ekwipunek.ekwipunek_ceny[1] + " $");
-			sklep.Items.Add("Kamień " + Ekwipunek.ekwipunek_ceny[2] + " $");
-			sklep.Items.Add("Skóra " + Ekwipunek.ekwipunek_ceny[3] + " $");
-			sklep.Items.Add("Metal " + Ekwipunek.ekwipunek_ceny[4] + " $");
-			sklep.Items.Add(Ekwipunek.noz.Nazwa() + " Atak(" + Ekwipunek.noz.Atak() + ") " + Ekwipunek.noz.Cena() + " $");
-			sklep.Items.Add(Ekwipunek.miecz.Nazwa() + " Atak(" + Ekwipunek.miecz.Atak() + ") " + Ekwipunek.miecz.Cena() + " $");
-			sklep.Items.Add(Ekwipunek.katana.Nazwa() + " Atak(" + Ekwipunek.katana.Atak() + ") " + Ekwipunek.katana.Cena() + " $");
-			sklep.Items.Add(Ekwipunek.kurtka.Nazwa() + " Obrona(" + Ekwipunek.kurtka.Obrona() + ") " + Ekwipunek.kurtka.Cena() + " $");
-			sklep.Items.Add(Ekwipunek.kolczuga.Nazwa() + " Obrona(" + Ekwipunek.kolczuga.Obrona() + ") " + Ekwipunek.kolczuga.Cena() + " $");
-			sklep.Items.Add(Ekwipunek.strojSamuraja.Nazwa() + " Obrona(" + Ekwipunek.strojSamuraja.Obrona() + ") " + Ekwipunek.strojSamuraja.Cena() + " $");
+			System.ComponentModel.BindingList<string> listaPrzedmiotow = new System.ComponentModel.BindingList<string>();
+			
+			listaPrzedmiotow.Add("Jedzenie " + Ekwipunek.ekwipunek_ceny[0] + " $");
+			listaPrzedmiotow.Add("Drewno " + Ekwipunek.ekwipunek_ceny[1] + " $");
+			listaPrzedmiotow.Add("Kamień " + Ekwipunek.ekwipunek_ceny[2] + " $");
+			listaPrzedmiotow.Add("Skóra " + Ekwipunek.ekwipunek_ceny[3] + " $");
+			listaPrzedmiotow.Add("Metal " + Ekwipunek.ekwipunek_ceny[4] + " $");
+			listaPrzedmiotow.Add(Ekwipunek.noz.Nazwa() + " Atak(" + Ekwipunek.noz.Atak() + ") " + Ekwipunek.noz.Cena() + " $");
+			listaPrzedmiotow.Add(Ekwipunek.miecz.Nazwa() + " Atak(" + Ekwipunek.miecz.Atak() + ") " + Ekwipunek.miecz.Cena() + " $");
+			listaPrzedmiotow.Add(Ekwipunek.katana.Nazwa() + " Atak(" + Ekwipunek.katana.Atak() + ") " + Ekwipunek.katana.Cena() + " $");
+			listaPrzedmiotow.Add(Ekwipunek.kurtka.Nazwa() + " Obrona(" + Ekwipunek.kurtka.Obrona() + ") " + Ekwipunek.kurtka.Cena() + " $");
+			listaPrzedmiotow.Add(Ekwipunek.kolczuga.Nazwa() + " Obrona(" + Ekwipunek.kolczuga.Obrona() + ") " + Ekwipunek.kolczuga.Cena() + " $");
+			listaPrzedmiotow.Add(Ekwipunek.strojSamuraja.Nazwa() + " Obrona(" + Ekwipunek.strojSamuraja.Obrona() + ") " + Ekwipunek.strojSamuraja.Cena() + " $");
+			listaPrzedmiotow.Add(Obozowisko.Dom.klepisko.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.klepisko.Wytrzymalosc() + ") \n" + Obozowisko.Dom.klepisko.Cena() + " $| " + Obozowisko.Dom.klepisko.Drewno() + " drewna| " + Obozowisko.Dom.klepisko.Kamien() + " kamienia| " + Obozowisko.Dom.klepisko.Skora() + " skóry| " + Obozowisko.Dom.klepisko.Metal() + " metalu");
+			listaPrzedmiotow.Add(Obozowisko.Dom.szalas.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.szalas.Wytrzymalosc() + ") \n" + Obozowisko.Dom.szalas.Cena() + " $| " + Obozowisko.Dom.szalas.Drewno() + " drewna| " + Obozowisko.Dom.szalas.Kamien() + " kamienia| " + Obozowisko.Dom.szalas.Skora() + " skóry| " + Obozowisko.Dom.szalas.Metal() + " metalu");
+			listaPrzedmiotow.Add(Obozowisko.Dom.ziemianka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.ziemianka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.ziemianka.Cena() + " $| " + Obozowisko.Dom.ziemianka.Drewno() + " drewna| " + Obozowisko.Dom.ziemianka.Kamien() + " kamienia| " + Obozowisko.Dom.ziemianka.Skora() + " skóry| " + Obozowisko.Dom.ziemianka.Metal() + " metalu");
+			listaPrzedmiotow.Add(Obozowisko.Dom.chatka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.chatka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.chatka.Cena() + " $| " + Obozowisko.Dom.chatka.Drewno() + " drewna| " + Obozowisko.Dom.chatka.Kamien() + " kamienia| " + Obozowisko.Dom.chatka.Skora() + " skóry| " + Obozowisko.Dom.chatka.Metal() + " metalu");
+
+			sklep.ItemsSource = listaPrzedmiotow;
 		}
 		private void WysrodkujOkno()
 		{
@@ -258,9 +303,8 @@ namespace the_forest_game
 		}
 		private void zapisz(object sender, RoutedEventArgs e)
 		{
+			File.Delete(nazwaPliku);
 			FileStream plik = new FileStream(nazwaPliku, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-
-			//FileStream plik = new FileStream(nazwaPliku, FileMode.Truncate, FileAccess.Write);
 			plik.Seek(0, SeekOrigin.End);
 			StreamWriter strumienZapisu = new StreamWriter(plik);
 
@@ -387,3 +431,4 @@ namespace the_forest_game
 		}
 	}
 }
+ 
