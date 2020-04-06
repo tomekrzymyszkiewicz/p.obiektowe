@@ -3,6 +3,5 @@
 - czas zwolnić
 - im lepsza obrona tym mniej traci się życia
 - dodać kilka bosów
-- naprawić licznik dni
 - dodać surowce do tworzenia broni i zbroi
 - dodać zapytanie o zapisanie stanu przed zamknięciem gry

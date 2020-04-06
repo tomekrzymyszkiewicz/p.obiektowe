@@ -227,7 +227,6 @@ namespace the_forest_game
 			obrona.Text = Convert.ToString(Gracz.Obrona());
 			doswiadczenie.Text = Convert.ToString(Gracz.Doswiadczenie());
 			godzina.Text = String.Format("{0:t}", Gracz.Czas());
-			dzien.Text = Convert.ToString(Gracz.Dzien());
 			nazwa_domu.Text = Obozowisko.Dom.posiadany_dom.Nazwa();
 			wytrzymalosc_domu.Text = Convert.ToString(Obozowisko.Dom.posiadany_dom.Wytrzymalosc());
 			if (!Gracz.CzyZyje()) 
@@ -293,11 +292,7 @@ namespace the_forest_game
 		{
 			
 			godzina.Text = String.Format("{0:t}", Gracz.Czas());
-			dzien.Text = Convert.ToString(Gracz.Dzien());
-			if (Gracz.Czas().Hour == 23 && Gracz.Czas().Minute == 30)
-			{
-				Gracz.ZmienDzien(1);
-			}
+			dzien.Text = Convert.ToString(Convert.ToInt32((Gracz.czas - Gracz.czasPoczątkowy).TotalDays + 1));
 			if(Gracz.CzyZyje())
 			Gracz.czas = Gracz.czas.AddMinutes(1);
 		}
@@ -325,7 +320,7 @@ namespace the_forest_game
 			strumienZapisu.WriteLine("atak=" + Convert.ToString(Gracz.Atak()));                               //15
 			strumienZapisu.WriteLine("obrona=" + Convert.ToString(Gracz.Obrona()));                           //16
 			strumienZapisu.WriteLine("doswiadczenie=" + Convert.ToString(Gracz.Doswiadczenie()));             //17
-			strumienZapisu.WriteLine("dzien=" + Convert.ToString(Gracz.Dzien()));                             //18
+			strumienZapisu.WriteLine("dzien=" + Convert.ToString(Convert.ToInt32((Gracz.czas - Gracz.czasPoczątkowy).TotalDays + 1)));                             //18
 			strumienZapisu.WriteLine("godzina=" + Convert.ToString(Gracz.Czas().Hour));                       //19
 			strumienZapisu.WriteLine("minuta=" + Convert.ToString(Gracz.Czas().Minute));                      //20
 
