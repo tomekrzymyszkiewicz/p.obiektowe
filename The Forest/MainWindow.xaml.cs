@@ -227,6 +227,7 @@ namespace the_forest_game
 			obrona.Text = Convert.ToString(Gracz.Obrona());
 			doswiadczenie.Text = Convert.ToString(Gracz.Doswiadczenie());
 			godzina.Text = String.Format("{0:t}", Gracz.Czas());
+			dzien.Text = Convert.ToString(Convert.ToInt32((Gracz.czas - Gracz.czasPoczątkowy).TotalDays + 1));
 			nazwa_domu.Text = Obozowisko.Dom.posiadany_dom.Nazwa();
 			wytrzymalosc_domu.Text = Convert.ToString(Obozowisko.Dom.posiadany_dom.Wytrzymalosc());
 			if (!Gracz.CzyZyje()) 
@@ -284,7 +285,7 @@ namespace the_forest_game
 		}
 		protected void UruchomZegar()
 		{
-			zegar.Interval = TimeSpan.FromMilliseconds(100);
+			zegar.Interval = TimeSpan.FromMilliseconds(300);
 			zegar.Tick += AktualizujZegar;
 			zegar.Start();
 		}
