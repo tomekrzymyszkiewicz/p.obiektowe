@@ -364,7 +364,7 @@ namespace the_forest_game
 			if(stanGry == 1)
 			{
 				//pauzowanie gry
-				przycisk_pauza.Content = "Wznów";
+				przycisk_pauza_tekst.Text = "Wznów";
 				stanGry = 2;
 				przycisk_wczytaj.IsEnabled = false;
 				przycisk_zapisz.IsEnabled = false;
@@ -382,7 +382,7 @@ namespace the_forest_game
 			else if(stanGry == 2)
 			{
 				//odpauzuj
-				przycisk_pauza.Content = "Pauza";
+				przycisk_pauza_tekst.Text = "Pauza";
 				stanGry = 1;
 				przycisk_wczytaj.IsEnabled = true;
 				przycisk_zapisz.IsEnabled = true;
