@@ -111,9 +111,6 @@
     <Resource Include="Resources\tourist color.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\backpack.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\calendar.png" />
     <Resource Include="Resources\clock.png" />
   </ItemGroup>
