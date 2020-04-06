@@ -136,6 +136,7 @@
                 </Viewbox>
             </Grid>
         </Border>
+        <!-- STAN GRY -->
         <Border Grid.Column="0" Grid.Row="3" Background="#8cd7f4" CornerRadius="20" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -172,7 +173,6 @@
                 </Button>
             </Grid>
         </Border>
-        
         <!-- EKWIPUNEK -->
         <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="#5f8847" CornerRadius="20" Margin="5">
             <Grid Margin="0,0,0,3">
@@ -306,8 +306,14 @@
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="35" FontWeight="DemiBold" TextAlignment="Center" VerticalAlignment="Bottom">SKLEP</TextBlock>
-                    <Image Grid.Column="1" Margin="7" Source="{DynamicResource SklepIkona}"/>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                        <TextBlock FontWeight="DemiBold">
+                            SKLEP
+                        </TextBlock>
+                    </Viewbox>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="1" Margin="3">
+                        <Image Source="{DynamicResource SklepIkona}"/>
+                    </Viewbox>
                 </Grid>
                 <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="sklep" Margin="5" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListBox.ItemTemplate>
