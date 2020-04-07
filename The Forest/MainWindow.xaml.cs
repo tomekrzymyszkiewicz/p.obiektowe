@@ -254,23 +254,24 @@ namespace the_forest_game
 		private void ZaladujSklep()
 		{
 			sklep.Items.Clear();
-			System.ComponentModel.BindingList<string> listaPrzedmiotow = new System.ComponentModel.BindingList<string>();
-			
-			listaPrzedmiotow.Add("Jedzenie " + Ekwipunek.ekwipunek_ceny[0] + " $");
-			listaPrzedmiotow.Add("Drewno " + Ekwipunek.ekwipunek_ceny[1] + " $");
-			listaPrzedmiotow.Add("Kamień " + Ekwipunek.ekwipunek_ceny[2] + " $");
-			listaPrzedmiotow.Add("Skóra " + Ekwipunek.ekwipunek_ceny[3] + " $");
-			listaPrzedmiotow.Add("Metal " + Ekwipunek.ekwipunek_ceny[4] + " $");
-			listaPrzedmiotow.Add(Ekwipunek.noz.Nazwa() + " Atak(" + Ekwipunek.noz.Atak() + ") \n" + Ekwipunek.noz.Cena() + " $ | " + Ekwipunek.noz.Drewno() + " drewna | " + Ekwipunek.noz.Kamien() + " kamienia | " + Ekwipunek.noz.Skora() + " skóry | " + Ekwipunek.noz.Metal() + " metalu");
-			listaPrzedmiotow.Add(Ekwipunek.miecz.Nazwa() + " Atak(" + Ekwipunek.miecz.Atak() + ") \n" + Ekwipunek.miecz.Cena() + " $ | " + Ekwipunek.miecz.Drewno() + " drewna | " + Ekwipunek.miecz.Kamien() + " kamienia | " + Ekwipunek.miecz.Skora() + " skóry | " + Ekwipunek.miecz.Metal() + " metalu");
-			listaPrzedmiotow.Add(Ekwipunek.katana.Nazwa() + " Atak(" + Ekwipunek.katana.Atak() + ") \n" + Ekwipunek.katana.Cena() + " $ | " + Ekwipunek.katana.Drewno() + " drewna | " + Ekwipunek.katana.Kamien() + " kamienia | " + Ekwipunek.katana.Skora() + " skóry | " + Ekwipunek.katana.Metal() + " metalu");
-			listaPrzedmiotow.Add(Ekwipunek.kurtka.Nazwa() + " Obrona(" + Ekwipunek.kurtka.Obrona() + ") \n" + Ekwipunek.kurtka.Cena() + " $ | " + Ekwipunek.kurtka.Drewno() + " drewna | " + Ekwipunek.kurtka.Kamien() + " kamienia | " + Ekwipunek.kurtka.Skora() + " skóry | " + Ekwipunek.kurtka.Metal() + " metalu");
-			listaPrzedmiotow.Add(Ekwipunek.kolczuga.Nazwa() + " Obrona(" + Ekwipunek.kolczuga.Obrona() + ") \n" + Ekwipunek.kolczuga.Cena() + " $ | " + Ekwipunek.kolczuga.Drewno() + " drewna | " + Ekwipunek.kolczuga.Kamien() + " kamienia | " + Ekwipunek.kolczuga.Skora() + " skóry | " + Ekwipunek.kolczuga.Metal() + " metalu");
-			listaPrzedmiotow.Add(Ekwipunek.pancerz.Nazwa() + " Obrona(" + Ekwipunek.pancerz.Obrona() + ") \n" + Ekwipunek.pancerz.Cena() + " $ | " + Ekwipunek.pancerz.Drewno() + " drewna | " + Ekwipunek.pancerz.Kamien() + " kamienia | " + Ekwipunek.pancerz.Skora() + " skóry | " + Ekwipunek.pancerz.Metal() + " metalu");
-			listaPrzedmiotow.Add(Obozowisko.Dom.klepisko.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.klepisko.Wytrzymalosc() + ") \n" + Obozowisko.Dom.klepisko.Cena() + " $ | " + Obozowisko.Dom.klepisko.Drewno() + " drewna | " + Obozowisko.Dom.klepisko.Kamien() + " kamienia | " + Obozowisko.Dom.klepisko.Skora() + " skóry | " + Obozowisko.Dom.klepisko.Metal() + " metalu");
-			listaPrzedmiotow.Add(Obozowisko.Dom.szalas.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.szalas.Wytrzymalosc() + ") \n" + Obozowisko.Dom.szalas.Cena() + " $ | " + Obozowisko.Dom.szalas.Drewno() + " drewna | " + Obozowisko.Dom.szalas.Kamien() + " kamienia | " + Obozowisko.Dom.szalas.Skora() + " skóry | " + Obozowisko.Dom.szalas.Metal() + " metalu");
-			listaPrzedmiotow.Add(Obozowisko.Dom.ziemianka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.ziemianka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.ziemianka.Cena() + " $ | " + Obozowisko.Dom.ziemianka.Drewno() + " drewna | " + Obozowisko.Dom.ziemianka.Kamien() + " kamienia | " + Obozowisko.Dom.ziemianka.Skora() + " skóry | " + Obozowisko.Dom.ziemianka.Metal() + " metalu");
-			listaPrzedmiotow.Add(Obozowisko.Dom.chatka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.chatka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.chatka.Cena() + " $ | " + Obozowisko.Dom.chatka.Drewno() + " drewna | " + Obozowisko.Dom.chatka.Kamien() + " kamienia | " + Obozowisko.Dom.chatka.Skora() + " skóry | " + Obozowisko.Dom.chatka.Metal() + " metalu");
+			System.ComponentModel.BindingList<string> listaPrzedmiotow = new System.ComponentModel.BindingList<string>
+			{
+				"Jedzenie " + Ekwipunek.ekwipunek_ceny[0] + " $",
+				"Drewno " + Ekwipunek.ekwipunek_ceny[1] + " $",
+				"Kamień " + Ekwipunek.ekwipunek_ceny[2] + " $",
+				"Skóra " + Ekwipunek.ekwipunek_ceny[3] + " $",
+				"Metal " + Ekwipunek.ekwipunek_ceny[4] + " $",
+				Ekwipunek.noz.Nazwa() + " Atak(" + Ekwipunek.noz.Atak() + ") \n" + Ekwipunek.noz.Cena() + " $ | " + Ekwipunek.noz.Drewno() + " drewna | " + Ekwipunek.noz.Kamien() + " kamienia | " + Ekwipunek.noz.Skora() + " skóry | " + Ekwipunek.noz.Metal() + " metalu",
+				Ekwipunek.miecz.Nazwa() + " Atak(" + Ekwipunek.miecz.Atak() + ") \n" + Ekwipunek.miecz.Cena() + " $ | " + Ekwipunek.miecz.Drewno() + " drewna | " + Ekwipunek.miecz.Kamien() + " kamienia | " + Ekwipunek.miecz.Skora() + " skóry | " + Ekwipunek.miecz.Metal() + " metalu",
+				Ekwipunek.katana.Nazwa() + " Atak(" + Ekwipunek.katana.Atak() + ") \n" + Ekwipunek.katana.Cena() + " $ | " + Ekwipunek.katana.Drewno() + " drewna | " + Ekwipunek.katana.Kamien() + " kamienia | " + Ekwipunek.katana.Skora() + " skóry | " + Ekwipunek.katana.Metal() + " metalu",
+				Ekwipunek.kurtka.Nazwa() + " Obrona(" + Ekwipunek.kurtka.Obrona() + ") \n" + Ekwipunek.kurtka.Cena() + " $ | " + Ekwipunek.kurtka.Drewno() + " drewna | " + Ekwipunek.kurtka.Kamien() + " kamienia | " + Ekwipunek.kurtka.Skora() + " skóry | " + Ekwipunek.kurtka.Metal() + " metalu",
+				Ekwipunek.kolczuga.Nazwa() + " Obrona(" + Ekwipunek.kolczuga.Obrona() + ") \n" + Ekwipunek.kolczuga.Cena() + " $ | " + Ekwipunek.kolczuga.Drewno() + " drewna | " + Ekwipunek.kolczuga.Kamien() + " kamienia | " + Ekwipunek.kolczuga.Skora() + " skóry | " + Ekwipunek.kolczuga.Metal() + " metalu",
+				Ekwipunek.pancerz.Nazwa() + " Obrona(" + Ekwipunek.pancerz.Obrona() + ") \n" + Ekwipunek.pancerz.Cena() + " $ | " + Ekwipunek.pancerz.Drewno() + " drewna | " + Ekwipunek.pancerz.Kamien() + " kamienia | " + Ekwipunek.pancerz.Skora() + " skóry | " + Ekwipunek.pancerz.Metal() + " metalu",
+				Obozowisko.Dom.klepisko.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.klepisko.Wytrzymalosc() + ") \n" + Obozowisko.Dom.klepisko.Cena() + " $ | " + Obozowisko.Dom.klepisko.Drewno() + " drewna | " + Obozowisko.Dom.klepisko.Kamien() + " kamienia | " + Obozowisko.Dom.klepisko.Skora() + " skóry | " + Obozowisko.Dom.klepisko.Metal() + " metalu",
+				Obozowisko.Dom.szalas.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.szalas.Wytrzymalosc() + ") \n" + Obozowisko.Dom.szalas.Cena() + " $ | " + Obozowisko.Dom.szalas.Drewno() + " drewna | " + Obozowisko.Dom.szalas.Kamien() + " kamienia | " + Obozowisko.Dom.szalas.Skora() + " skóry | " + Obozowisko.Dom.szalas.Metal() + " metalu",
+				Obozowisko.Dom.ziemianka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.ziemianka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.ziemianka.Cena() + " $ | " + Obozowisko.Dom.ziemianka.Drewno() + " drewna | " + Obozowisko.Dom.ziemianka.Kamien() + " kamienia | " + Obozowisko.Dom.ziemianka.Skora() + " skóry | " + Obozowisko.Dom.ziemianka.Metal() + " metalu",
+				Obozowisko.Dom.chatka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.chatka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.chatka.Cena() + " $ | " + Obozowisko.Dom.chatka.Drewno() + " drewna | " + Obozowisko.Dom.chatka.Kamien() + " kamienia | " + Obozowisko.Dom.chatka.Skora() + " skóry | " + Obozowisko.Dom.chatka.Metal() + " metalu"
+			};
 
 			sklep.ItemsSource = listaPrzedmiotow;
 		}
