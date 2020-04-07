@@ -9,8 +9,8 @@
         /// 3 Skóra
         /// 4Metal
         /// </summary>
-        public static int[] ekwipunek_ilosci = new int[5] {3, 0, 0, 0, 0};
-        public static int[] ekwipunek_ceny = new int[5] {10, 3, 5, 100, 50};
+        public static int[] ekwipunek_ilosci = new int[5] { 3, 0, 0, 0, 0 };
+        public static int[] ekwipunek_ceny = new int[5] { 10, 3, 5, 100, 50 };
 
         public static Bron brakBroni = new Bron();
         public static Bron noz = new Bron("Nóż", 15, 100, 100, 100, 100, 100);
@@ -55,7 +55,7 @@
         }
         public class Bron : Przedmiot
         {
-            int mocAtaku;
+            private int mocAtaku;
             public Bron()
             {
                 nazwa = "Brak";
@@ -93,7 +93,7 @@
         }
         public class Zbroja : Przedmiot
         {
-            int mocObrony;
+            private int mocObrony;
             public Zbroja()
             {
                 nazwa = "Brak";

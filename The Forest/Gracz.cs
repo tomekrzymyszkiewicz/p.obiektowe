@@ -2,7 +2,7 @@
 
 namespace the_forest_game
 {
-    class Gracz
+    internal class Gracz
     {
         private static int zycie, energia, pieniadze, atak, obrona, doswiadczenie;
         public static DateTime czas = new DateTime(2020, 1, 1, 12, 0, 0);
@@ -55,11 +55,11 @@ namespace the_forest_game
         }
         public static void ZmienZycie(int ileZmienic)
         {
-            if(zycie + ileZmienic > 100)
+            if (zycie + ileZmienic > 100)
             {
                 zycie = 100;
             }
-            else if(zycie + ileZmienic <= 0)
+            else if (zycie + ileZmienic <= 0)
             {
                 zycie = 0;
             }
@@ -67,7 +67,10 @@ namespace the_forest_game
             {
                 zycie += ileZmienic;
             }
-            if (zycie < 0) zycie = 0;
+            if (zycie < 0)
+            {
+                zycie = 0;
+            }
         }
         public static void ZmienEnergie(int ileZmienic)
         {
@@ -83,7 +86,10 @@ namespace the_forest_game
             {
                 energia += ileZmienic;
             }
-            if (energia < 0) energia = 0;
+            if (energia < 0)
+            {
+                energia = 0;
+            }
         }
         public static void AktualizujAtakIObrone(int mocAtaku, int mocObrony)
         {
@@ -96,7 +102,10 @@ namespace the_forest_game
             {
                 return false;
             }
-            else return true;
+            else
+            {
+                return true;
+            }
         }
         public static DateTime Czas()
         {

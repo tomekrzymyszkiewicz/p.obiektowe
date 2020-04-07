@@ -21,9 +21,9 @@
                     }
                     return false;
                 case 5:
-                    if(Ekwipunek.noz.Cena() <= Gracz.Pieniadze() && Ekwipunek.noz.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Ekwipunek.noz.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Ekwipunek.noz.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Ekwipunek.noz.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
+                    if (Ekwipunek.noz.Cena() <= Gracz.Pieniadze() && Ekwipunek.noz.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Ekwipunek.noz.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Ekwipunek.noz.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Ekwipunek.noz.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
                     {
-                        if(Ekwipunek.posiadanaBron.Nazwa() != "Brak")
+                        if (Ekwipunek.posiadanaBron.Nazwa() != "Brak")
                         {
                             Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
                             Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaBron.Drewno();
@@ -147,7 +147,7 @@
                     }
                     return false;
                 case 11: //klepisko
-                    if(Obozowisko.Dom.klepisko.Cena() <= Gracz.Pieniadze() && Obozowisko.Dom.klepisko.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Obozowisko.Dom.klepisko.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Obozowisko.Dom.klepisko.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Obozowisko.Dom.klepisko.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
+                    if (Obozowisko.Dom.klepisko.Cena() <= Gracz.Pieniadze() && Obozowisko.Dom.klepisko.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Obozowisko.Dom.klepisko.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Obozowisko.Dom.klepisko.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Obozowisko.Dom.klepisko.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
                     {
                         if (Obozowisko.Dom.posiadany_dom.Nazwa() != "Klepisko")
                         {
@@ -164,7 +164,7 @@
                 case 12: //szalas
                     if (Obozowisko.Dom.szalas.Cena() <= Gracz.Pieniadze() && Obozowisko.Dom.szalas.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Obozowisko.Dom.szalas.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Obozowisko.Dom.szalas.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Obozowisko.Dom.szalas.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
                     {
-                        if(Obozowisko.Dom.posiadany_dom.Nazwa() != "Klepisko")
+                        if (Obozowisko.Dom.posiadany_dom.Nazwa() != "Klepisko")
                         {
                             Gracz.ZmienPieniadze(Obozowisko.Dom.posiadany_dom.Cena());
                             Ekwipunek.ekwipunek_ilosci[1] += Obozowisko.Dom.posiadany_dom.Drewno();
@@ -247,7 +247,7 @@
                 case 5:
                 case 6:
                 case 7:
-                    if(Ekwipunek.posiadanaBron.Cena() > 0)
+                    if (Ekwipunek.posiadanaBron.Cena() > 0)
                     {
                         Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
                         Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaBron.Drewno();
@@ -276,7 +276,7 @@
                 case 12:
                 case 13:
                 case 14:
-                    if(Obozowisko.Dom.posiadany_dom.Cena() > 0)
+                    if (Obozowisko.Dom.posiadany_dom.Cena() > 0)
                     {
                         Gracz.ZmienPieniadze(Obozowisko.Dom.posiadany_dom.Cena());
                         Ekwipunek.ekwipunek_ilosci[1] += Obozowisko.Dom.posiadany_dom.Drewno();

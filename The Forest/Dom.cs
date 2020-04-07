@@ -5,7 +5,7 @@ namespace the_forest_game
     public class Obozowisko
     {
 
-        
+
         public static int[] Jedz()
         {
             int[] dane = new int[4];
@@ -13,23 +13,23 @@ namespace the_forest_game
             // 1 - ile dodno życia
             // 2 - ile dodano energii
             // 3 - ile minęło czasu
-            if(Gracz.Zycie() == 100 && Gracz.Energia() == 100)
+            if (Gracz.Zycie() == 100 && Gracz.Energia() == 100)
             {
                 dane[0] = 0;
             }
-            else if(Ekwipunek.ekwipunek_ilosci[0] > 0)
+            else if (Ekwipunek.ekwipunek_ilosci[0] > 0)
             {
                 dane[0] = 1;
                 Random los = new Random();
                 Ekwipunek.ekwipunek_ilosci[0] = Ekwipunek.ekwipunek_ilosci[0] - 1;
                 dane[1] = 10; // Ile dodać życia
-                if(dane[1] + Gracz.Zycie() > 100)
+                if (dane[1] + Gracz.Zycie() > 100)
                 {
                     dane[1] -= dane[1] + Gracz.Zycie() - 100;
                 }
                 Gracz.ZmienZycie(dane[1]);
                 dane[2] = 10; // Ile dodać energii
-                if(dane[2] + Gracz.Energia() > 100)
+                if (dane[2] + Gracz.Energia() > 100)
                 {
                     dane[2] -= dane[2] + Gracz.Energia() - 100;
                 }
@@ -56,13 +56,13 @@ namespace the_forest_game
                 dane[0] = 1;
                 Random los = new Random();
                 dane[1] = los.Next(50, 80);
-                if(dane[1] + Gracz.Energia() > 100)
+                if (dane[1] + Gracz.Energia() > 100)
                 {
                     dane[1] -= dane[1] + Gracz.Energia() - 100;
                 }
                 Gracz.ZmienEnergie(dane[1]);
                 dane[2] = los.Next(3, 7);
-                if(dane[2] + Gracz.Zycie() > 100)
+                if (dane[2] + Gracz.Zycie() > 100)
                 {
                     dane[2] -= dane[2] + Gracz.Zycie() - 100;
                 }
@@ -70,7 +70,7 @@ namespace the_forest_game
                 dane[3] = los.Next(40, 49) * 10 + los.Next(0, 10);
                 Gracz.czas = Gracz.czas.AddMinutes(dane[3]);
                 dane[4] = dane[3] % 60;
-                dane[3] = (dane[3]-dane[4])/60; 
+                dane[3] = (dane[3] - dane[4]) / 60;
             }
             else
             {

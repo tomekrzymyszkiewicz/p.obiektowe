@@ -9,8 +9,8 @@ namespace the_forest_game
 	public partial class MainWindow : Window
 	{
 		private readonly string nazwaPliku = "save.txt"; //nazwa pliku z zapisem stanu gry
-		int stanGry = 1; // 1 - gra trwa // 2 - gra zapauzowana // 0 - koniec gry
-		readonly DispatcherTimer zegar = new DispatcherTimer();
+		private int stanGry = 1; // 1 - gra trwa // 2 - gra zapauzowana // 0 - koniec gry
+		private readonly DispatcherTimer zegar = new DispatcherTimer();
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -73,19 +73,21 @@ namespace the_forest_game
 				}
 				else if (wybranyPrzedmiotWSklepie > 10)
 				{
-					
+
 					if (Sklep.Sprzedaj(wybranyPrzedmiotWSklepie))
 					{
 						komunikat.Text = "Rozebrałeś " + Sklep.NazwaPrzedmiotuBiernik(wybranyPrzedmiotWSklepie) + ".";
 					}
 					else
 					{
-						if(wybranyPrzedmiotWSklepie == 11)
+						if (wybranyPrzedmiotWSklepie == 11)
 						{
 							komunikat.Text = "Nie możesz rozebrać klepiska. Jest ono podstawowym miejscem zamieszkania.";
 						}
 						else
+						{
 							komunikat.Text = "Nie możesz rozebrać " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ", ponieważ jej/go nie posiadasz.";
+						}
 					}
 				}
 			}
@@ -93,17 +95,17 @@ namespace the_forest_game
 			{
 				komunikat.Text = "Wybierz przedmiot, który chcesz sprzedać.";
 			}
-				AktualizujWartości();
-			
+			AktualizujWartości();
+
 		}
 		private void Poluj(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Las.Poluj();
-			if(dane[0] == 1)
+			if (dane[0] == 1)
 			{
 				komunikat.Text = "Upolowane jedzenie: " + dane[1] + ". Strata energii: " + dane[2] + ". Strata życia: " + dane[3] + ". Czas polowania " + dane[5] + " min.";
 			}
-			else if(dane[0] == 0)
+			else if (dane[0] == 0)
 			{
 				komunikat.Text = "Nie masz wystarczającej energii, aby udać się na polowanie. Odpocznij nad jeziorem lub idź spać.";
 			}
@@ -116,11 +118,11 @@ namespace the_forest_game
 		private void Zbieraj(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Las.Zbieraj();
-			if(dane[0] == 1)
+			if (dane[0] == 1)
 			{
-				komunikat.Text = "Zebrane drewno: " + dane[1] + ", kamień: " + dane[2] + ", skóra: " + dane[3] + ", metal: " + dane[4] + ". Stracona energia: " + dane[5] + ". Czas zbierania: " + dane[6] + " min."; 
+				komunikat.Text = "Zebrane drewno: " + dane[1] + ", kamień: " + dane[2] + ", skóra: " + dane[3] + ", metal: " + dane[4] + ". Stracona energia: " + dane[5] + ". Czas zbierania: " + dane[6] + " min.";
 			}
-			else if(dane[0] == 0)
+			else if (dane[0] == 0)
 			{
 				komunikat.Text = "Nie masz wystarczającej energii, aby zbierać surowce. Odpocznij nad jeziorem lub idź spać.";
 			}
@@ -133,11 +135,11 @@ namespace the_forest_game
 		private void Odpoczywaj(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Jezioro.Odpoczywaj();
-			if(dane[0] == 1)
+			if (dane[0] == 1)
 			{
 				komunikat.Text = "Odpoczynek udany. Zdobyłeś " + dane[1] + " punktów energii, a zajęło Ci to " + dane[2] + " min.";
 			}
-			else if(dane[0] == 0)
+			else if (dane[0] == 0)
 			{
 				komunikat.Text = "Jesteś pełen energii. Nie musisz odpoczywać.";
 			}
@@ -149,10 +151,10 @@ namespace the_forest_game
 		}
 		private void Low(object sender, RoutedEventArgs e)
 		{
-			int[] dane =  Jezioro.Low();
-			if(dane[0] == 1)
+			int[] dane = Jezioro.Low();
+			if (dane[0] == 1)
 			{
-				if(dane[1] == 0)
+				if (dane[1] == 0)
 				{
 					komunikat.Text = "Niestey nie udało ci się złowić ryby. Stacona energia: " + dane[4] + " ,czas wędkowania: " + dane[2] + " min. Zyskane doświadczenie: " + dane[3];
 				}
@@ -162,7 +164,7 @@ namespace the_forest_game
 
 				}
 			}
-			else if(dane[0] == 0)
+			else if (dane[0] == 0)
 			{
 				komunikat.Text = "Nie masz wystarczającej energii, aby łowić ryby. Odpocznij nad jeziorem lub idź spać.";
 			}
@@ -175,15 +177,15 @@ namespace the_forest_game
 		private void Jedz(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Obozowisko.Jedz();
-			if(dane[0] == 0)
+			if (dane[0] == 0)
 			{
 				komunikat.Text = "Jesteś zdrowy i najedzony. Nie potrzebujesz jeść.";
 			}
-			else if(dane[0] == 1)
+			else if (dane[0] == 1)
 			{
 				komunikat.Text = "Zajdłeś jedzenie. Dostałeś " + dane[1] + " punktów życia i " + dane[2] + " punktów energii. Jedzenie zajęło " + dane[3] + " min.";
 			}
-			else if(dane[0] == 2)
+			else if (dane[0] == 2)
 			{
 				komunikat.Text = "Nie masz jedzenia. Kup je w sklepie, złów rybę lub udaj się na polowanie.";
 			}
@@ -196,11 +198,11 @@ namespace the_forest_game
 		private void Spij(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Obozowisko.Spij();
-			if(dane[0] == 0)
+			if (dane[0] == 0)
 			{
 				komunikat.Text = "Nie możesz spać teraz. Połóż się wieczorem w godzinach 19:00 - 2:00";
 			}
-			else if(dane[0] == 1)
+			else if (dane[0] == 1)
 			{
 				komunikat.Text = "Wyspałeś się. Spałeś " + dane[3] + " godzin i " + dane[4] + " minut. Dostałeś " + dane[1] + " punktów energii i " + dane[2] + " punktów życia.";
 			}
@@ -230,7 +232,7 @@ namespace the_forest_game
 			dzien.Text = Convert.ToString(Convert.ToInt32((Gracz.czas - Gracz.czasPoczątkowy).TotalDays + 1));
 			nazwa_domu.Text = Obozowisko.Dom.posiadany_dom.Nazwa();
 			wytrzymalosc_domu.Text = Convert.ToString(Obozowisko.Dom.posiadany_dom.Wytrzymalosc());
-			if (!Gracz.CzyZyje()) 
+			if (!Gracz.CzyZyje())
 			{
 				KoniecGry();
 			}
@@ -279,10 +281,10 @@ namespace the_forest_game
 		{
 			double szerokoscEkranu = System.Windows.SystemParameters.PrimaryScreenWidth;
 			double wyskokoscEkranu = System.Windows.SystemParameters.PrimaryScreenHeight;
-			double szerokoscOkna = this.Width;
-			double wysokoscOkna = this.Height;
-			this.Left = (szerokoscEkranu / 2) - (szerokoscOkna / 2);
-			this.Top = (wyskokoscEkranu / 2) - (wysokoscOkna / 2);
+			double szerokoscOkna = Width;
+			double wysokoscOkna = Height;
+			Left = (szerokoscEkranu / 2) - (szerokoscOkna / 2);
+			Top = (wyskokoscEkranu / 2) - (wysokoscOkna / 2);
 		}
 		protected void UruchomZegar()
 		{
@@ -292,11 +294,13 @@ namespace the_forest_game
 		}
 		private void AktualizujZegar(object sender, EventArgs e)
 		{
-			
+
 			godzina.Text = String.Format("{0:t}", Gracz.Czas());
 			dzien.Text = Convert.ToString(Convert.ToInt32((Gracz.czas - Gracz.czasPoczątkowy).TotalDays + 1));
-			if(Gracz.CzyZyje())
-			Gracz.czas = Gracz.czas.AddMinutes(1);
+			if (Gracz.CzyZyje())
+			{
+				Gracz.czas = Gracz.czas.AddMinutes(1);
+			}
 		}
 		private void Zapisz(object sender, RoutedEventArgs e)
 		{
@@ -305,48 +309,48 @@ namespace the_forest_game
 			plik.Seek(0, SeekOrigin.End);
 			StreamWriter strumienZapisu = new StreamWriter(plik);
 
-			strumienZapisu.WriteLine("pieniadze=" + Convert.ToString(Gracz.Pieniadze()));													//0 pieniadze
-			strumienZapisu.WriteLine("jedzenie=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[0]));										//1 jedzenie
+			strumienZapisu.WriteLine("pieniadze=" + Convert.ToString(Gracz.Pieniadze()));                                                   //0 pieniadze
+			strumienZapisu.WriteLine("jedzenie=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[0]));                                        //1 jedzenie
 			strumienZapisu.WriteLine("drewno=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[1]));                                          //2 drewno
-			strumienZapisu.WriteLine("kamien=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[2]));											//3	kamień
-			strumienZapisu.WriteLine("skora=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[3]));											//4	skóra
-			strumienZapisu.WriteLine("metal=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[4]));											//5	metal
+			strumienZapisu.WriteLine("kamien=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[2]));                                          //3	kamień
+			strumienZapisu.WriteLine("skora=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[3]));                                           //4	skóra
+			strumienZapisu.WriteLine("metal=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[4]));                                           //5	metal
 																																			//	
 			strumienZapisu.WriteLine("bronNazwa=" + Convert.ToString(Ekwipunek.posiadanaBron.Nazwa()));                                     //6	nazwa broni
-			strumienZapisu.WriteLine("bronAtak=" + Convert.ToString(Ekwipunek.posiadanaBron.Atak()));										//7	atak broni
-			strumienZapisu.WriteLine("bronCena=" + Convert.ToString(Ekwipunek.posiadanaBron.Cena()));										//8	cena broni
-			strumienZapisu.WriteLine("bronDrewno=" + Convert.ToString(Ekwipunek.posiadanaBron.Drewno()));									//9 drewno broni
-			strumienZapisu.WriteLine("bronKamien=" + Convert.ToString(Ekwipunek.posiadanaBron.Kamien()));									//10 kamien broni
-			strumienZapisu.WriteLine("bronSkora=" + Convert.ToString(Ekwipunek.posiadanaBron.Skora()));										//11 skora broni
-			strumienZapisu.WriteLine("bronMetal=" + Convert.ToString(Ekwipunek.posiadanaBron.Metal()));										//12 metal broni
+			strumienZapisu.WriteLine("bronAtak=" + Convert.ToString(Ekwipunek.posiadanaBron.Atak()));                                       //7	atak broni
+			strumienZapisu.WriteLine("bronCena=" + Convert.ToString(Ekwipunek.posiadanaBron.Cena()));                                       //8	cena broni
+			strumienZapisu.WriteLine("bronDrewno=" + Convert.ToString(Ekwipunek.posiadanaBron.Drewno()));                                   //9 drewno broni
+			strumienZapisu.WriteLine("bronKamien=" + Convert.ToString(Ekwipunek.posiadanaBron.Kamien()));                                   //10 kamien broni
+			strumienZapisu.WriteLine("bronSkora=" + Convert.ToString(Ekwipunek.posiadanaBron.Skora()));                                     //11 skora broni
+			strumienZapisu.WriteLine("bronMetal=" + Convert.ToString(Ekwipunek.posiadanaBron.Metal()));                                     //12 metal broni
 																																			//
-			strumienZapisu.WriteLine("zbrojaNazwa=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Nazwa()));									//13 nazwa zbroji
-			strumienZapisu.WriteLine("zbrojaObrona=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Obrona()));								//14 atak zbroji
-			strumienZapisu.WriteLine("zbrojaCena=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Cena()));									//15 cena zbroji
-			strumienZapisu.WriteLine("zbrojaDrewno=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Drewno()));								//16 drewno zbroji
-			strumienZapisu.WriteLine("zbrojaKamien=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Kamien()));								//17 kamien zbroji
-			strumienZapisu.WriteLine("zbrojaSkora=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Skora()));									//18 skora zbroji
-			strumienZapisu.WriteLine("zbrojaMetal=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Metal()));									//19 metal zbroji
+			strumienZapisu.WriteLine("zbrojaNazwa=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Nazwa()));                                 //13 nazwa zbroji
+			strumienZapisu.WriteLine("zbrojaObrona=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Obrona()));                               //14 atak zbroji
+			strumienZapisu.WriteLine("zbrojaCena=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Cena()));                                   //15 cena zbroji
+			strumienZapisu.WriteLine("zbrojaDrewno=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Drewno()));                               //16 drewno zbroji
+			strumienZapisu.WriteLine("zbrojaKamien=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Kamien()));                               //17 kamien zbroji
+			strumienZapisu.WriteLine("zbrojaSkora=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Skora()));                                 //18 skora zbroji
+			strumienZapisu.WriteLine("zbrojaMetal=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Metal()));                                 //19 metal zbroji
 																																			//
-			strumienZapisu.WriteLine("domNazwa=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Nazwa()));									//20 nazwa domu
-			strumienZapisu.WriteLine("domWytrzymalosc=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Wytrzymalosc()));					//21 wytrzymalosc domu
-			strumienZapisu.WriteLine("domCena=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Cena()));									//22 cena domu
-			strumienZapisu.WriteLine("domDrewno=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Drewno()));								//23 drewno domu
-			strumienZapisu.WriteLine("domKamien=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Kamien()));								//24 kamien domu
-			strumienZapisu.WriteLine("domSkora=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Skora()));									//25 skora domu
-			strumienZapisu.WriteLine("domMetal=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Metal()));									//26 metal domu
+			strumienZapisu.WriteLine("domNazwa=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Nazwa()));                                 //20 nazwa domu
+			strumienZapisu.WriteLine("domWytrzymalosc=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Wytrzymalosc()));                   //21 wytrzymalosc domu
+			strumienZapisu.WriteLine("domCena=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Cena()));                                   //22 cena domu
+			strumienZapisu.WriteLine("domDrewno=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Drewno()));                               //23 drewno domu
+			strumienZapisu.WriteLine("domKamien=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Kamien()));                               //24 kamien domu
+			strumienZapisu.WriteLine("domSkora=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Skora()));                                 //25 skora domu
+			strumienZapisu.WriteLine("domMetal=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Metal()));                                 //26 metal domu
 																																			//
-			strumienZapisu.WriteLine("zycie=" + Convert.ToString(Gracz.Zycie()));															//27 zycie
-			strumienZapisu.WriteLine("energia=" + Convert.ToString(Gracz.Energia()));														//28 energia
-			strumienZapisu.WriteLine("atak=" + Convert.ToString(Gracz.Atak()));																//29 atak
-			strumienZapisu.WriteLine("obrona=" + Convert.ToString(Gracz.Obrona()));															//30 obrona
+			strumienZapisu.WriteLine("zycie=" + Convert.ToString(Gracz.Zycie()));                                                           //27 zycie
+			strumienZapisu.WriteLine("energia=" + Convert.ToString(Gracz.Energia()));                                                       //28 energia
+			strumienZapisu.WriteLine("atak=" + Convert.ToString(Gracz.Atak()));                                                             //29 atak
+			strumienZapisu.WriteLine("obrona=" + Convert.ToString(Gracz.Obrona()));                                                         //30 obrona
 			strumienZapisu.WriteLine("doswiadczenie=" + Convert.ToString(Gracz.Doswiadczenie()));                                           //31 doswiadczenie
-			strumienZapisu.WriteLine("czas=" + Convert.ToString(Gracz.czas));																//32 czas
+			strumienZapisu.WriteLine("czas=" + Convert.ToString(Gracz.czas));                                                               //32 czas
 
 
 			strumienZapisu.Close();
 			plik.Close();
-			komunikat.Text = "Zapisano stan gry." ;
+			komunikat.Text = "Zapisano stan gry.";
 		}
 		private void Wczytaj(object sender, RoutedEventArgs e)
 		{
@@ -360,7 +364,7 @@ namespace the_forest_game
 				{
 					int znak = linijki[i].IndexOf('=');
 					dane[i] = linijki[i].Substring(znak + 1);
-					dane[i] = Regex.Replace(dane[i],"\r",string.Empty);
+					dane[i] = Regex.Replace(dane[i], "\r", string.Empty);
 				}
 				Gracz.UstawWartosciGracza(Convert.ToInt32(dane[27]), Convert.ToInt32(dane[28]), Convert.ToInt32(dane[0]), Convert.ToInt32(dane[29]), Convert.ToInt32(dane[30]), Convert.ToInt32(dane[31]));
 				Ekwipunek.ekwipunek_ilosci[0] = Convert.ToInt32(dane[1]);
@@ -388,7 +392,7 @@ namespace the_forest_game
 		}
 		private void Pauza(object sender, RoutedEventArgs e)
 		{
-			if(stanGry == 1)
+			if (stanGry == 1)
 			{
 				//pauzowanie gry
 				przycisk_pauza_tekst.Text = "Wznów";
@@ -406,7 +410,7 @@ namespace the_forest_game
 				komunikat.Text = "Gra zapauzowana.";
 				zegar.Stop();
 			}
-			else if(stanGry == 2)
+			else if (stanGry == 2)
 			{
 				//odpauzuj
 				przycisk_pauza_tekst.Text = "Pauza";

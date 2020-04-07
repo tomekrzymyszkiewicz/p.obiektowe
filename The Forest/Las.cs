@@ -2,7 +2,7 @@
 
 namespace the_forest_game
 {
-    class Las
+    internal class Las
     {
         public static int[] Poluj()
         {

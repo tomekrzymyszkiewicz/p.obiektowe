@@ -7,7 +7,7 @@ namespace the_forest_game
         public static int[] Odpoczywaj()
         {
             int[] dane = new int[3];
-            if(Gracz.Energia() == 100)
+            if (Gracz.Energia() == 100)
             {
                 dane[0] = 0; //wypoczęty - energia 100
             }
@@ -16,8 +16,8 @@ namespace the_forest_game
                 dane[0] = 1;
                 Random los = new Random();
                 //czas odpoczynku musi być wprost proporcjonalny do uzyskanej energii
-                dane[1] = los.Next(5, 20); 
-                if(dane[1] + Gracz.Energia() > 100)
+                dane[1] = los.Next(5, 20);
+                if (dane[1] + Gracz.Energia() > 100)
                 {
                     dane[1] -= dane[1] + Gracz.Energia() - 100;
                 }
@@ -30,7 +30,7 @@ namespace the_forest_game
         public static int[] Low()
         {
             int[] dane = new int[5];
-            if(Gracz.Energia() > 0)
+            if (Gracz.Energia() > 0)
             {
                 dane[0] = 1;
                 Random los = new Random();
