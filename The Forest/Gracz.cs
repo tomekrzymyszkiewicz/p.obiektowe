@@ -23,7 +23,7 @@ namespace the_forest_game
             zyje = true;
             doswiadczenie = 0;
         }
-        public static void UstawWartosciGracza(int _dzien, int _zycie, int _energia, int _pieniadze, int _atak, int _obrona, int _doswiadczenie)
+        public static void UstawWartosciGracza(int _zycie, int _energia, int _pieniadze, int _atak, int _obrona, int _doswiadczenie)
         {
             zycie = _zycie;
             energia = _energia;
@@ -115,11 +115,6 @@ namespace the_forest_game
         public static void ZmienDoswiadczenie(int oIle)
         {
             doswiadczenie += oIle;
-        }
-        public static void UstawCzas(int godzina, int minuta)
-        {
-            TimeSpan temp = new TimeSpan(godzina, minuta, 0);
-            czas = czas.Date + temp;
         }
     }
 }

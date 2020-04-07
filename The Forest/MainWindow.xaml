@@ -6,7 +6,8 @@
 		xmlns:local="clr-namespace:the_forest_game"
 		mc:Ignorable="d"
 		Title="The Forest" MinHeight="600" MinWidth="1067"  Height="600" Width="1067" ResizeMode="CanResize" Background="LightSlateGray"
-		Icon="Resources/windowicon.ico">
+		WindowState="Maximized"
+        Icon="Resources/windowicon.ico">
     <!-- DEFINICJE GRAFIK -->
 	<Window.Resources>
 		<BitmapImage x:Key="Rozbitek" >Resources/rozbitek.jpg</BitmapImage>

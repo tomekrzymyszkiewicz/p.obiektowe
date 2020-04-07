@@ -261,16 +261,16 @@ namespace the_forest_game
 			listaPrzedmiotow.Add("Kamień " + Ekwipunek.ekwipunek_ceny[2] + " $");
 			listaPrzedmiotow.Add("Skóra " + Ekwipunek.ekwipunek_ceny[3] + " $");
 			listaPrzedmiotow.Add("Metal " + Ekwipunek.ekwipunek_ceny[4] + " $");
-			listaPrzedmiotow.Add(Ekwipunek.noz.Nazwa() + " Atak(" + Ekwipunek.noz.Atak() + ") " + Ekwipunek.noz.Cena() + " $");
-			listaPrzedmiotow.Add(Ekwipunek.miecz.Nazwa() + " Atak(" + Ekwipunek.miecz.Atak() + ") " + Ekwipunek.miecz.Cena() + " $");
-			listaPrzedmiotow.Add(Ekwipunek.katana.Nazwa() + " Atak(" + Ekwipunek.katana.Atak() + ") " + Ekwipunek.katana.Cena() + " $");
-			listaPrzedmiotow.Add(Ekwipunek.kurtka.Nazwa() + " Obrona(" + Ekwipunek.kurtka.Obrona() + ") " + Ekwipunek.kurtka.Cena() + " $");
-			listaPrzedmiotow.Add(Ekwipunek.kolczuga.Nazwa() + " Obrona(" + Ekwipunek.kolczuga.Obrona() + ") " + Ekwipunek.kolczuga.Cena() + " $");
-			listaPrzedmiotow.Add(Ekwipunek.strojSamuraja.Nazwa() + " Obrona(" + Ekwipunek.strojSamuraja.Obrona() + ") " + Ekwipunek.strojSamuraja.Cena() + " $");
-			listaPrzedmiotow.Add(Obozowisko.Dom.klepisko.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.klepisko.Wytrzymalosc() + ") \n" + Obozowisko.Dom.klepisko.Cena() + " $| " + Obozowisko.Dom.klepisko.Drewno() + " drewna| " + Obozowisko.Dom.klepisko.Kamien() + " kamienia| " + Obozowisko.Dom.klepisko.Skora() + " skóry| " + Obozowisko.Dom.klepisko.Metal() + " metalu");
-			listaPrzedmiotow.Add(Obozowisko.Dom.szalas.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.szalas.Wytrzymalosc() + ") \n" + Obozowisko.Dom.szalas.Cena() + " $| " + Obozowisko.Dom.szalas.Drewno() + " drewna| " + Obozowisko.Dom.szalas.Kamien() + " kamienia| " + Obozowisko.Dom.szalas.Skora() + " skóry| " + Obozowisko.Dom.szalas.Metal() + " metalu");
-			listaPrzedmiotow.Add(Obozowisko.Dom.ziemianka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.ziemianka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.ziemianka.Cena() + " $| " + Obozowisko.Dom.ziemianka.Drewno() + " drewna| " + Obozowisko.Dom.ziemianka.Kamien() + " kamienia| " + Obozowisko.Dom.ziemianka.Skora() + " skóry| " + Obozowisko.Dom.ziemianka.Metal() + " metalu");
-			listaPrzedmiotow.Add(Obozowisko.Dom.chatka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.chatka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.chatka.Cena() + " $| " + Obozowisko.Dom.chatka.Drewno() + " drewna| " + Obozowisko.Dom.chatka.Kamien() + " kamienia| " + Obozowisko.Dom.chatka.Skora() + " skóry| " + Obozowisko.Dom.chatka.Metal() + " metalu");
+			listaPrzedmiotow.Add(Ekwipunek.noz.Nazwa() + " Atak(" + Ekwipunek.noz.Atak() + ") \n" + Ekwipunek.noz.Cena() + " $ | " + Ekwipunek.noz.Drewno() + " drewna | " + Ekwipunek.noz.Kamien() + " kamienia | " + Ekwipunek.noz.Skora() + " skóry | " + Ekwipunek.noz.Metal() + " metalu");
+			listaPrzedmiotow.Add(Ekwipunek.miecz.Nazwa() + " Atak(" + Ekwipunek.miecz.Atak() + ") \n" + Ekwipunek.miecz.Cena() + " $ | " + Ekwipunek.miecz.Drewno() + " drewna | " + Ekwipunek.miecz.Kamien() + " kamienia | " + Ekwipunek.miecz.Skora() + " skóry | " + Ekwipunek.miecz.Metal() + " metalu");
+			listaPrzedmiotow.Add(Ekwipunek.katana.Nazwa() + " Atak(" + Ekwipunek.katana.Atak() + ") \n" + Ekwipunek.katana.Cena() + " $ | " + Ekwipunek.katana.Drewno() + " drewna | " + Ekwipunek.katana.Kamien() + " kamienia | " + Ekwipunek.katana.Skora() + " skóry | " + Ekwipunek.katana.Metal() + " metalu");
+			listaPrzedmiotow.Add(Ekwipunek.kurtka.Nazwa() + " Obrona(" + Ekwipunek.kurtka.Obrona() + ") \n" + Ekwipunek.kurtka.Cena() + " $ | " + Ekwipunek.kurtka.Drewno() + " drewna | " + Ekwipunek.kurtka.Kamien() + " kamienia | " + Ekwipunek.kurtka.Skora() + " skóry | " + Ekwipunek.kurtka.Metal() + " metalu");
+			listaPrzedmiotow.Add(Ekwipunek.kolczuga.Nazwa() + " Obrona(" + Ekwipunek.kolczuga.Obrona() + ") \n" + Ekwipunek.kolczuga.Cena() + " $ | " + Ekwipunek.kolczuga.Drewno() + " drewna | " + Ekwipunek.kolczuga.Kamien() + " kamienia | " + Ekwipunek.kolczuga.Skora() + " skóry | " + Ekwipunek.kolczuga.Metal() + " metalu");
+			listaPrzedmiotow.Add(Ekwipunek.pancerz.Nazwa() + " Obrona(" + Ekwipunek.pancerz.Obrona() + ") \n" + Ekwipunek.pancerz.Cena() + " $ | " + Ekwipunek.pancerz.Drewno() + " drewna | " + Ekwipunek.pancerz.Kamien() + " kamienia | " + Ekwipunek.pancerz.Skora() + " skóry | " + Ekwipunek.pancerz.Metal() + " metalu");
+			listaPrzedmiotow.Add(Obozowisko.Dom.klepisko.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.klepisko.Wytrzymalosc() + ") \n" + Obozowisko.Dom.klepisko.Cena() + " $ | " + Obozowisko.Dom.klepisko.Drewno() + " drewna | " + Obozowisko.Dom.klepisko.Kamien() + " kamienia | " + Obozowisko.Dom.klepisko.Skora() + " skóry | " + Obozowisko.Dom.klepisko.Metal() + " metalu");
+			listaPrzedmiotow.Add(Obozowisko.Dom.szalas.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.szalas.Wytrzymalosc() + ") \n" + Obozowisko.Dom.szalas.Cena() + " $ | " + Obozowisko.Dom.szalas.Drewno() + " drewna | " + Obozowisko.Dom.szalas.Kamien() + " kamienia | " + Obozowisko.Dom.szalas.Skora() + " skóry | " + Obozowisko.Dom.szalas.Metal() + " metalu");
+			listaPrzedmiotow.Add(Obozowisko.Dom.ziemianka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.ziemianka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.ziemianka.Cena() + " $ | " + Obozowisko.Dom.ziemianka.Drewno() + " drewna | " + Obozowisko.Dom.ziemianka.Kamien() + " kamienia | " + Obozowisko.Dom.ziemianka.Skora() + " skóry | " + Obozowisko.Dom.ziemianka.Metal() + " metalu");
+			listaPrzedmiotow.Add(Obozowisko.Dom.chatka.Nazwa() + " Wytrzymałość(" + Obozowisko.Dom.chatka.Wytrzymalosc() + ") \n" + Obozowisko.Dom.chatka.Cena() + " $ | " + Obozowisko.Dom.chatka.Drewno() + " drewna | " + Obozowisko.Dom.chatka.Kamien() + " kamienia | " + Obozowisko.Dom.chatka.Skora() + " skóry | " + Obozowisko.Dom.chatka.Metal() + " metalu");
 
 			sklep.ItemsSource = listaPrzedmiotow;
 		}
@@ -304,26 +304,44 @@ namespace the_forest_game
 			plik.Seek(0, SeekOrigin.End);
 			StreamWriter strumienZapisu = new StreamWriter(plik);
 
-			strumienZapisu.WriteLine("pieniadze=" + Convert.ToString(Gracz.Pieniadze()));                     //1
-			strumienZapisu.WriteLine("jedzenie=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[0]));          //2
-			strumienZapisu.WriteLine("drewno=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[1]));            //3
-			strumienZapisu.WriteLine("kamien=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[2]));            //4
-			strumienZapisu.WriteLine("skora=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[3]));             //5
-			strumienZapisu.WriteLine("metal=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[4]));             //6
-			strumienZapisu.WriteLine("bronNazwa=" + Convert.ToString(Ekwipunek.posiadanaBron.Nazwa()));       //7
-			strumienZapisu.WriteLine("bronAtak=" + Convert.ToString(Ekwipunek.posiadanaBron.Atak()));         //8
-			strumienZapisu.WriteLine("bronCena=" + Convert.ToString(Ekwipunek.posiadanaBron.Cena()));         //9
-			strumienZapisu.WriteLine("zbrojaNazwa=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Nazwa()));   //10
-			strumienZapisu.WriteLine("zbrojaObrona=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Obrona())); //11
-			strumienZapisu.WriteLine("zbrojaCena=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Cena()));     //12
-			strumienZapisu.WriteLine("zycie=" + Convert.ToString(Gracz.Zycie()));                             //13
-			strumienZapisu.WriteLine("energia=" + Convert.ToString(Gracz.Energia()));                         //14
-			strumienZapisu.WriteLine("atak=" + Convert.ToString(Gracz.Atak()));                               //15
-			strumienZapisu.WriteLine("obrona=" + Convert.ToString(Gracz.Obrona()));                           //16
-			strumienZapisu.WriteLine("doswiadczenie=" + Convert.ToString(Gracz.Doswiadczenie()));             //17
-			strumienZapisu.WriteLine("dzien=" + Convert.ToString(Convert.ToInt32((Gracz.czas - Gracz.czasPoczątkowy).TotalDays + 1)));                             //18
-			strumienZapisu.WriteLine("godzina=" + Convert.ToString(Gracz.Czas().Hour));                       //19
-			strumienZapisu.WriteLine("minuta=" + Convert.ToString(Gracz.Czas().Minute));                      //20
+			strumienZapisu.WriteLine("pieniadze=" + Convert.ToString(Gracz.Pieniadze()));													//0 pieniadze
+			strumienZapisu.WriteLine("jedzenie=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[0]));										//1 jedzenie
+			strumienZapisu.WriteLine("drewno=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[1]));                                          //2 drewno
+			strumienZapisu.WriteLine("kamien=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[2]));											//3	kamień
+			strumienZapisu.WriteLine("skora=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[3]));											//4	skóra
+			strumienZapisu.WriteLine("metal=" + Convert.ToString(Ekwipunek.ekwipunek_ilosci[4]));											//5	metal
+																																			//	
+			strumienZapisu.WriteLine("bronNazwa=" + Convert.ToString(Ekwipunek.posiadanaBron.Nazwa()));                                     //6	nazwa broni
+			strumienZapisu.WriteLine("bronAtak=" + Convert.ToString(Ekwipunek.posiadanaBron.Atak()));										//7	atak broni
+			strumienZapisu.WriteLine("bronCena=" + Convert.ToString(Ekwipunek.posiadanaBron.Cena()));										//8	cena broni
+			strumienZapisu.WriteLine("bronDrewno=" + Convert.ToString(Ekwipunek.posiadanaBron.Drewno()));									//9 drewno broni
+			strumienZapisu.WriteLine("bronKamien=" + Convert.ToString(Ekwipunek.posiadanaBron.Kamien()));									//10 kamien broni
+			strumienZapisu.WriteLine("bronSkora=" + Convert.ToString(Ekwipunek.posiadanaBron.Skora()));										//11 skora broni
+			strumienZapisu.WriteLine("bronMetal=" + Convert.ToString(Ekwipunek.posiadanaBron.Metal()));										//12 metal broni
+																																			//
+			strumienZapisu.WriteLine("zbrojaNazwa=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Nazwa()));									//13 nazwa zbroji
+			strumienZapisu.WriteLine("zbrojaObrona=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Obrona()));								//14 atak zbroji
+			strumienZapisu.WriteLine("zbrojaCena=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Cena()));									//15 cena zbroji
+			strumienZapisu.WriteLine("zbrojaDrewno=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Drewno()));								//16 drewno zbroji
+			strumienZapisu.WriteLine("zbrojaKamien=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Kamien()));								//17 kamien zbroji
+			strumienZapisu.WriteLine("zbrojaSkora=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Skora()));									//18 skora zbroji
+			strumienZapisu.WriteLine("zbrojaMetal=" + Convert.ToString(Ekwipunek.posiadanaZbroja.Metal()));									//19 metal zbroji
+																																			//
+			strumienZapisu.WriteLine("domNazwa=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Nazwa()));									//20 nazwa domu
+			strumienZapisu.WriteLine("domWytrzymalosc=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Wytrzymalosc()));					//21 wytrzymalosc domu
+			strumienZapisu.WriteLine("domCena=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Cena()));									//22 cena domu
+			strumienZapisu.WriteLine("domDrewno=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Drewno()));								//23 drewno domu
+			strumienZapisu.WriteLine("domKamien=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Kamien()));								//24 kamien domu
+			strumienZapisu.WriteLine("domSkora=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Skora()));									//25 skora domu
+			strumienZapisu.WriteLine("domMetal=" + Convert.ToString(Obozowisko.Dom.posiadany_dom.Metal()));									//26 metal domu
+																																			//
+			strumienZapisu.WriteLine("zycie=" + Convert.ToString(Gracz.Zycie()));															//27 zycie
+			strumienZapisu.WriteLine("energia=" + Convert.ToString(Gracz.Energia()));														//28 energia
+			strumienZapisu.WriteLine("atak=" + Convert.ToString(Gracz.Atak()));																//29 atak
+			strumienZapisu.WriteLine("obrona=" + Convert.ToString(Gracz.Obrona()));															//30 obrona
+			strumienZapisu.WriteLine("doswiadczenie=" + Convert.ToString(Gracz.Doswiadczenie()));                                           //31 doswiadczenie
+			strumienZapisu.WriteLine("czas=" + Convert.ToString(Gracz.czas));																//32 czas
+
 
 			strumienZapisu.Close();
 			plik.Close();
@@ -343,15 +361,23 @@ namespace the_forest_game
 					dane[i] = linijki[i].Substring(znak + 1);
 					dane[i] = Regex.Replace(dane[i],"\r",string.Empty);
 				}
-				Gracz.UstawWartosciGracza(Convert.ToInt32(dane[17]), Convert.ToInt32(dane[12]), Convert.ToInt32(dane[13]), Convert.ToInt32(dane[0]), Convert.ToInt32(dane[14]), Convert.ToInt32(dane[15]), Convert.ToInt32(dane[16]));
+				Gracz.UstawWartosciGracza(Convert.ToInt32(dane[27]), Convert.ToInt32(dane[28]), Convert.ToInt32(dane[0]), Convert.ToInt32(dane[29]), Convert.ToInt32(dane[30]), Convert.ToInt32(dane[31]));
 				Ekwipunek.ekwipunek_ilosci[0] = Convert.ToInt32(dane[1]);
 				Ekwipunek.ekwipunek_ilosci[1] = Convert.ToInt32(dane[2]);
 				Ekwipunek.ekwipunek_ilosci[2] = Convert.ToInt32(dane[3]);
 				Ekwipunek.ekwipunek_ilosci[3] = Convert.ToInt32(dane[4]);
 				Ekwipunek.ekwipunek_ilosci[4] = Convert.ToInt32(dane[5]);
-				Ekwipunek.posiadanaBron.UstawWartosci(dane[6],Convert.ToInt32(dane[7]),Convert.ToInt32(dane[8]));
-				Ekwipunek.posiadanaZbroja.UstawWartosci(dane[9],Convert.ToInt32(dane[10]),Convert.ToInt32(dane[11]));
-				Gracz.UstawCzas(Convert.ToInt32(dane[18]),Convert.ToInt32(dane[19]));
+
+				Ekwipunek.Bron wczytanaBron = new Ekwipunek.Bron(Convert.ToString(dane[6]), Convert.ToInt32(dane[7]), Convert.ToInt32(dane[8]), Convert.ToInt32(dane[9]), Convert.ToInt32(dane[10]), Convert.ToInt32(dane[11]), Convert.ToInt32(dane[12]));
+				Ekwipunek.posiadanaBron = wczytanaBron;
+
+				Ekwipunek.Zbroja wczytanaZbroja = new Ekwipunek.Zbroja(Convert.ToString(dane[13]), Convert.ToInt32(dane[14]), Convert.ToInt32(dane[15]), Convert.ToInt32(dane[16]), Convert.ToInt32(dane[17]), Convert.ToInt32(dane[18]), Convert.ToInt32(dane[19]));
+				Ekwipunek.posiadanaZbroja = wczytanaZbroja;
+
+				Obozowisko.Dom wczytanyDom = new Obozowisko.Dom(Convert.ToString(dane[20]), Convert.ToInt32(dane[21]), Convert.ToInt32(dane[22]), Convert.ToInt32(dane[23]), Convert.ToInt32(dane[24]), Convert.ToInt32(dane[25]), Convert.ToInt32(dane[26]));
+				Obozowisko.Dom.posiadany_dom = wczytanyDom;
+
+				Gracz.czas = Convert.ToDateTime(dane[32]);
 
 				strumienOdczytu.Close();
 				plik.Close();
@@ -409,7 +435,7 @@ namespace the_forest_game
 			Ekwipunek.ekwipunek_ilosci[2] = 0;
 			Ekwipunek.ekwipunek_ilosci[3] = 0;
 			Ekwipunek.ekwipunek_ilosci[4] = 0;
-			Gracz.UstawCzas(12,00);
+			Gracz.czas = Gracz.czasPoczątkowy;
 			przycisk_wczytaj.IsEnabled = true;
 			przycisk_zapisz.IsEnabled = true;
 			przycisk_kup.IsEnabled = true;

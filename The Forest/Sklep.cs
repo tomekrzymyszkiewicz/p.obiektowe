@@ -2,12 +2,8 @@
 {
     public class Sklep
     {
-        /// <summary>
         /// true - zakup udany
         /// false - nie udało się kupić przedmiotu
-        /// </summary>
-        /// <param name="wybranyPrzedmiotWSklepie"></param>
-        /// <returns></returns>
         public static bool Kup(int wybranyPrzedmiotWSklepie)
         {
             switch (wybranyPrzedmiotWSklepie)
@@ -25,80 +21,128 @@
                     }
                     return false;
                 case 5:
-                    if(Ekwipunek.noz.Cena() <= Gracz.Pieniadze())
+                    if(Ekwipunek.noz.Cena() <= Gracz.Pieniadze() && Ekwipunek.noz.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Ekwipunek.noz.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Ekwipunek.noz.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Ekwipunek.noz.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
                     {
                         if(Ekwipunek.posiadanaBron.Nazwa() != "Brak")
                         {
                             Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
-                            Ekwipunek.posiadanaBron.ResetujWartosci();
+                            Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaBron.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Ekwipunek.posiadanaBron.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Ekwipunek.posiadanaBron.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Ekwipunek.posiadanaBron.Metal();
+                            Ekwipunek.posiadanaBron = Ekwipunek.brakBroni;
                         }
-                        Ekwipunek.posiadanaBron.UstawWartosci(Ekwipunek.noz.Nazwa(),Ekwipunek.noz.Atak(),Ekwipunek.noz.Cena());
+                        Ekwipunek.posiadanaBron = Ekwipunek.noz;
                         Gracz.ZmienPieniadze(-Ekwipunek.noz.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] -= Ekwipunek.noz.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] -= Ekwipunek.noz.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] -= Ekwipunek.noz.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] -= Ekwipunek.noz.Metal();
                         return true;
                     }
                     return false;
                 case 6:
-                    if (Ekwipunek.miecz.Cena() <= Gracz.Pieniadze())
+                    if (Ekwipunek.miecz.Cena() <= Gracz.Pieniadze() && Ekwipunek.miecz.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Ekwipunek.miecz.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Ekwipunek.miecz.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Ekwipunek.miecz.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
                     {
                         if (Ekwipunek.posiadanaBron.Nazwa() != "Brak")
                         {
                             Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
-                            Ekwipunek.posiadanaBron.ResetujWartosci();
+                            Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaBron.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Ekwipunek.posiadanaBron.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Ekwipunek.posiadanaBron.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Ekwipunek.posiadanaBron.Metal();
+                            Ekwipunek.posiadanaBron = Ekwipunek.brakBroni;
                         }
-                        Ekwipunek.posiadanaBron.UstawWartosci(Ekwipunek.miecz.Nazwa(), Ekwipunek.miecz.Atak(), Ekwipunek.miecz.Cena());
+                        Ekwipunek.posiadanaBron = Ekwipunek.miecz;
                         Gracz.ZmienPieniadze(-Ekwipunek.miecz.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] -= Ekwipunek.miecz.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] -= Ekwipunek.miecz.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] -= Ekwipunek.miecz.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] -= Ekwipunek.miecz.Metal();
                         return true;
                     }
                     return false;
                 case 7:
-                    if (Ekwipunek.katana.Cena() <= Gracz.Pieniadze())
+                    if (Ekwipunek.katana.Cena() <= Gracz.Pieniadze() && Ekwipunek.katana.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Ekwipunek.katana.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Ekwipunek.katana.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Ekwipunek.katana.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
                     {
                         if (Ekwipunek.posiadanaBron.Nazwa() != "Brak")
                         {
                             Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
-                            Ekwipunek.posiadanaBron.ResetujWartosci();
+                            Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaBron.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Ekwipunek.posiadanaBron.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Ekwipunek.posiadanaBron.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Ekwipunek.posiadanaBron.Metal();
+                            Ekwipunek.posiadanaBron = Ekwipunek.brakBroni;
                         }
-                        Ekwipunek.posiadanaBron.UstawWartosci(Ekwipunek.katana.Nazwa(), Ekwipunek.katana.Atak(), Ekwipunek.katana.Cena());
+                        Ekwipunek.posiadanaBron = Ekwipunek.katana;
                         Gracz.ZmienPieniadze(-Ekwipunek.katana.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] -= Ekwipunek.katana.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] -= Ekwipunek.katana.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] -= Ekwipunek.katana.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] -= Ekwipunek.katana.Metal();
                         return true;
                     }
                     return false;
                 case 8:
-                    if (Ekwipunek.kurtka.Cena() <= Gracz.Pieniadze())
+                    if (Ekwipunek.kurtka.Cena() <= Gracz.Pieniadze() && Ekwipunek.kurtka.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Ekwipunek.kurtka.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Ekwipunek.kurtka.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Ekwipunek.kurtka.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
                     {
                         if (Ekwipunek.posiadanaZbroja.Nazwa() != "Brak")
                         {
                             Gracz.ZmienPieniadze(Ekwipunek.posiadanaZbroja.Cena());
-                            Ekwipunek.posiadanaZbroja.ResetujWartosci();
+                            Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaZbroja.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Ekwipunek.posiadanaZbroja.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Ekwipunek.posiadanaZbroja.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Ekwipunek.posiadanaZbroja.Metal();
+                            Ekwipunek.posiadanaZbroja = Ekwipunek.brakZbroji;
                         }
-                        Ekwipunek.posiadanaZbroja.UstawWartosci(Ekwipunek.kurtka.Nazwa(), Ekwipunek.kurtka.Obrona(), Ekwipunek.kurtka.Cena());
+                        Ekwipunek.posiadanaZbroja = Ekwipunek.kurtka;
                         Gracz.ZmienPieniadze(-Ekwipunek.kurtka.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] -= Ekwipunek.kurtka.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] -= Ekwipunek.kurtka.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] -= Ekwipunek.kurtka.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] -= Ekwipunek.kurtka.Metal();
                         return true;
                     }
                     return false;
                 case 9:
-                    if (Ekwipunek.kolczuga.Cena() <= Gracz.Pieniadze())
+                    if (Ekwipunek.kolczuga.Cena() <= Gracz.Pieniadze() && Ekwipunek.kolczuga.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Ekwipunek.kolczuga.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Ekwipunek.kolczuga.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Ekwipunek.kolczuga.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
                     {
                         if (Ekwipunek.posiadanaZbroja.Nazwa() != "Brak")
                         {
                             Gracz.ZmienPieniadze(Ekwipunek.posiadanaZbroja.Cena());
-                            Ekwipunek.posiadanaZbroja.ResetujWartosci();
+                            Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaZbroja.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Ekwipunek.posiadanaZbroja.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Ekwipunek.posiadanaZbroja.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Ekwipunek.posiadanaZbroja.Metal();
+                            Ekwipunek.posiadanaZbroja = Ekwipunek.brakZbroji;
                         }
-                        Ekwipunek.posiadanaZbroja.UstawWartosci(Ekwipunek.kolczuga.Nazwa(), Ekwipunek.kolczuga.Obrona(), Ekwipunek.kolczuga.Cena());
+                        Ekwipunek.posiadanaZbroja = Ekwipunek.kolczuga;
                         Gracz.ZmienPieniadze(-Ekwipunek.kolczuga.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] -= Ekwipunek.kolczuga.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] -= Ekwipunek.kolczuga.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] -= Ekwipunek.kolczuga.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] -= Ekwipunek.kolczuga.Metal();
                         return true;
                     }
                     return false;
                 case 10:
-                    if (Ekwipunek.strojSamuraja.Cena() <= Gracz.Pieniadze())
+                    if (Ekwipunek.pancerz.Cena() <= Gracz.Pieniadze() && Ekwipunek.pancerz.Drewno() <= Ekwipunek.ekwipunek_ilosci[1] && Ekwipunek.pancerz.Kamien() <= Ekwipunek.ekwipunek_ilosci[2] && Ekwipunek.pancerz.Skora() <= Ekwipunek.ekwipunek_ilosci[3] && Ekwipunek.pancerz.Metal() <= Ekwipunek.ekwipunek_ilosci[4])
                     {
                         if (Ekwipunek.posiadanaZbroja.Nazwa() != "Brak")
                         {
                             Gracz.ZmienPieniadze(Ekwipunek.posiadanaZbroja.Cena());
-                            Ekwipunek.posiadanaZbroja.ResetujWartosci();
+                            Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaZbroja.Drewno();
+                            Ekwipunek.ekwipunek_ilosci[2] += Ekwipunek.posiadanaZbroja.Kamien();
+                            Ekwipunek.ekwipunek_ilosci[3] += Ekwipunek.posiadanaZbroja.Skora();
+                            Ekwipunek.ekwipunek_ilosci[4] += Ekwipunek.posiadanaZbroja.Metal();
+                            Ekwipunek.posiadanaZbroja = Ekwipunek.brakZbroji;
                         }
-                        Ekwipunek.posiadanaZbroja.UstawWartosci(Ekwipunek.strojSamuraja.Nazwa(), Ekwipunek.strojSamuraja.Obrona(), Ekwipunek.strojSamuraja.Cena());
-                        Gracz.ZmienPieniadze(-Ekwipunek.strojSamuraja.Cena());
+                        Ekwipunek.posiadanaZbroja = Ekwipunek.pancerz;
+                        Gracz.ZmienPieniadze(-Ekwipunek.pancerz.Cena());
+                        Ekwipunek.ekwipunek_ilosci[1] -= Ekwipunek.pancerz.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] -= Ekwipunek.pancerz.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] -= Ekwipunek.pancerz.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] -= Ekwipunek.pancerz.Metal();
                         return true;
                     }
                     return false;
@@ -206,7 +250,11 @@
                     if(Ekwipunek.posiadanaBron.Cena() > 0)
                     {
                         Gracz.ZmienPieniadze(Ekwipunek.posiadanaBron.Cena());
-                        Ekwipunek.posiadanaBron.ResetujWartosci();
+                        Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaBron.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] += Ekwipunek.posiadanaBron.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] += Ekwipunek.posiadanaBron.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] += Ekwipunek.posiadanaBron.Metal();
+                        Ekwipunek.posiadanaBron = Ekwipunek.brakBroni;
                         return true;
                     }
                     return false;
@@ -216,7 +264,11 @@
                     if (Ekwipunek.posiadanaZbroja.Cena() > 0)
                     {
                         Gracz.ZmienPieniadze(Ekwipunek.posiadanaZbroja.Cena());
-                        Ekwipunek.posiadanaZbroja.ResetujWartosci();
+                        Ekwipunek.ekwipunek_ilosci[1] += Ekwipunek.posiadanaZbroja.Drewno();
+                        Ekwipunek.ekwipunek_ilosci[2] += Ekwipunek.posiadanaZbroja.Kamien();
+                        Ekwipunek.ekwipunek_ilosci[3] += Ekwipunek.posiadanaZbroja.Skora();
+                        Ekwipunek.ekwipunek_ilosci[4] += Ekwipunek.posiadanaZbroja.Metal();
+                        Ekwipunek.posiadanaZbroja = Ekwipunek.brakZbroji;
                         return true;
                     }
                     return false;

@@ -87,11 +87,11 @@ namespace the_forest_game
             public static Dom klepisko = new Dom("Klepisko", 0, 0, 0, 0, 0, 0);
             public static Dom szalas = new Dom("Szałas", 10, 100, 50, 100, 2, 2);
             public static Dom ziemianka = new Dom("Ziemianka", 20, 1000, 1000, 500, 20, 20);
-            public static Dom chatka = new Dom("Cchatka", 30, 10000, 5000, 2000, 100, 200);
+            public static Dom chatka = new Dom("Chatka", 30, 10000, 5000, 2000, 100, 200);
 
             public static Dom posiadany_dom = new Dom();
 
-            Dom()
+            public Dom()
             {
                 nazwa = "Klepisko";
                 wytrzymalosc = 0;
@@ -101,7 +101,7 @@ namespace the_forest_game
                 koszty[3] = 0; //skóra
                 koszty[4] = 0; //metal
             }
-            Dom(string _nazwa, int _wytrzymalosc, int _cena, int _drewno, int _kamien, int _skora, int _metal)
+            public Dom(string _nazwa, int _wytrzymalosc, int _cena, int _drewno, int _kamien, int _skora, int _metal)
             {
                 nazwa = _nazwa;
                 wytrzymalosc = _wytrzymalosc;
@@ -120,16 +120,6 @@ namespace the_forest_game
                 koszty[2] = 0; //kamień
                 koszty[3] = 0; //skóra
                 koszty[4] = 0; //metal
-            }
-            public void UstawWartosci(string _nazwa, int _wytrzymalosc, int _cena, int _drewno, int _kamien, int _skora, int _metal)
-            {
-                nazwa = _nazwa;
-                wytrzymalosc = _wytrzymalosc;
-                koszty[0] = _cena;
-                koszty[1] = _drewno;
-                koszty[2] = _kamien;
-                koszty[3] = _skora;
-                koszty[4] = _metal;
             }
             public string Nazwa()
             {
