@@ -8,9 +8,9 @@ namespace the_forest_game
 {
 	public partial class MainWindow : Window
 	{
-		private string nazwaPliku = "save.txt"; //nazwa pliku z zapisem stanu gry
+		private readonly string nazwaPliku = "save.txt"; //nazwa pliku z zapisem stanu gry
 		int stanGry = 1; // 1 - gra trwa // 2 - gra zapauzowana // 0 - koniec gry
-		DispatcherTimer zegar = new DispatcherTimer();
+		readonly DispatcherTimer zegar = new DispatcherTimer();
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -21,7 +21,7 @@ namespace the_forest_game
 			AktualizujWartości();
 			komunikat.Text = "Witaj w grze The Forest!";
 		}
-		private void kup(object sender, RoutedEventArgs e)
+		private void Kup(object sender, RoutedEventArgs e)
 		{
 			int wybranyPrzedmiotWSklepie = sklep.SelectedIndex;
 			if (wybranyPrzedmiotWSklepie != -1)
@@ -55,7 +55,7 @@ namespace the_forest_game
 			}
 			AktualizujWartości();
 		}
-		private void sprzedaj(object sender, RoutedEventArgs e)
+		private void Sprzedaj(object sender, RoutedEventArgs e)
 		{
 			int wybranyPrzedmiotWSklepie = sklep.SelectedIndex;
 			if (wybranyPrzedmiotWSklepie != -1)
@@ -96,7 +96,7 @@ namespace the_forest_game
 				AktualizujWartości();
 			
 		}
-		private void poluj(object sender, RoutedEventArgs e)
+		private void Poluj(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Las.Poluj();
 			if(dane[0] == 1)
@@ -113,7 +113,7 @@ namespace the_forest_game
 			}
 			AktualizujWartości();
 		}
-		private void zbieraj(object sender, RoutedEventArgs e)
+		private void Zbieraj(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Las.Zbieraj();
 			if(dane[0] == 1)
@@ -130,7 +130,7 @@ namespace the_forest_game
 			}
 			AktualizujWartości();
 		}
-		private void odpoczywaj(object sender, RoutedEventArgs e)
+		private void Odpoczywaj(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Jezioro.Odpoczywaj();
 			if(dane[0] == 1)
@@ -147,7 +147,7 @@ namespace the_forest_game
 			}
 			AktualizujWartości();
 		}
-		private void low(object sender, RoutedEventArgs e)
+		private void Low(object sender, RoutedEventArgs e)
 		{
 			int[] dane =  Jezioro.Low();
 			if(dane[0] == 1)
@@ -172,7 +172,7 @@ namespace the_forest_game
 			}
 			AktualizujWartości();
 		}
-		private void jedz(object sender, RoutedEventArgs e)
+		private void Jedz(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Obozowisko.Jedz();
 			if(dane[0] == 0)
@@ -193,7 +193,7 @@ namespace the_forest_game
 			}
 			AktualizujWartości();
 		}
-		private void spij(object sender, RoutedEventArgs e)
+		private void Spij(object sender, RoutedEventArgs e)
 		{
 			int[] dane = Obozowisko.Spij();
 			if(dane[0] == 0)
@@ -297,7 +297,7 @@ namespace the_forest_game
 			if(Gracz.CzyZyje())
 			Gracz.czas = Gracz.czas.AddMinutes(1);
 		}
-		private void zapisz(object sender, RoutedEventArgs e)
+		private void Zapisz(object sender, RoutedEventArgs e)
 		{
 			File.Delete(nazwaPliku);
 			FileStream plik = new FileStream(nazwaPliku, FileMode.OpenOrCreate, FileAccess.ReadWrite);
@@ -347,7 +347,7 @@ namespace the_forest_game
 			plik.Close();
 			komunikat.Text = "Zapisano stan gry." ;
 		}
-		private void wczytaj(object sender, RoutedEventArgs e)
+		private void Wczytaj(object sender, RoutedEventArgs e)
 		{
 			if (File.Exists(nazwaPliku))
 			{
@@ -385,7 +385,7 @@ namespace the_forest_game
 				komunikat.Text = "Wczytano stan gry.";
 			}
 		}
-		private void pauza(object sender, RoutedEventArgs e)
+		private void Pauza(object sender, RoutedEventArgs e)
 		{
 			if(stanGry == 1)
 			{
@@ -425,7 +425,7 @@ namespace the_forest_game
 			}
 			AktualizujWartości();
 		}
-		private void reset(object sender, RoutedEventArgs e)
+		private void Reset(object sender, RoutedEventArgs e)
 		{
 			Ekwipunek.posiadanaBron.ResetujWartosci();
 			Ekwipunek.posiadanaZbroja.ResetujWartosci();

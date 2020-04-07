@@ -82,7 +82,7 @@ namespace the_forest_game
         {
             private string nazwa;
             private int wytrzymalosc;
-            private int[] koszty = new int[5]; // 0 - pieniadze // 1 - drewno // 2 - kamień // 3 - skóra // 4 - metal
+            private readonly int[] koszty = new int[5]; // 0 - pieniadze // 1 - drewno // 2 - kamień // 3 - skóra // 4 - metal
 
             public static Dom klepisko = new Dom("Klepisko", 0, 0, 0, 0, 0, 0);
             public static Dom szalas = new Dom("Szałas", 10, 100, 50, 100, 2, 2);

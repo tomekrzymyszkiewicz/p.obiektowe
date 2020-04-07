@@ -4,13 +4,7 @@ namespace the_forest_game
 {
     class Gracz
     {
-        private static bool zyje { get; set; }
-        private static int zycie { get; set; }
-        private static int energia { get; set; }
-        private static int pieniadze { get; set; }
-        private static int atak { get; set; }
-        private static int obrona { get; set; }
-        private static int doswiadczenie { get; set; }
+        private static int zycie, energia, pieniadze, atak, obrona, doswiadczenie;
         public static DateTime czas = new DateTime(2020, 1, 1, 12, 0, 0);
         public static DateTime czasPoczątkowy = new DateTime(2020, 1, 1, 12, 0, 0);
         public static void InicjalizacjaGracza()
@@ -20,7 +14,6 @@ namespace the_forest_game
             pieniadze = 10;
             atak = Ekwipunek.posiadanaBron.Atak();
             obrona = Ekwipunek.posiadanaZbroja.Obrona();
-            zyje = true;
             doswiadczenie = 0;
         }
         public static void UstawWartosciGracza(int _zycie, int _energia, int _pieniadze, int _atak, int _obrona, int _doswiadczenie)
@@ -58,7 +51,7 @@ namespace the_forest_game
         }
         public static void ZmienPieniadze(int ileZmienic)
         {
-            pieniadze = pieniadze + ileZmienic;
+            pieniadze += ileZmienic;
         }
         public static void ZmienZycie(int ileZmienic)
         {
@@ -69,7 +62,6 @@ namespace the_forest_game
             else if(zycie + ileZmienic <= 0)
             {
                 zycie = 0;
-                zyje = false;
             }
             else
             {
@@ -102,14 +94,12 @@ namespace the_forest_game
         {
             if (zycie == 0)
             {
-                zyje = false;
                 return false;
             }
             else return true;
         }
         public static DateTime Czas()
         {
-            DateTime _czas = new DateTime(2020,1,1,czas.Hour,czas.Minute,1);
             return czas;
         }
         public static void ZmienDoswiadczenie(int oIle)

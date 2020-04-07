@@ -67,7 +67,7 @@
 					<ColumnDefinition/>
 				</Grid.ColumnDefinitions>
 				<Image Grid.ColumnSpan="2" Margin="10" Source="{DynamicResource ResetIkona}"/>
-				<Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10" FontSize="30" x:Name="przycisk_odnowa" Click="reset" Content="Zacznij od nowa"/>
+				<Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10" FontSize="30" x:Name="przycisk_odnowa" Click="Reset" Content="Zacznij od nowa"/>
 			</Grid>
 		</Border>
 		<!-- STATUS GRACZA -->
@@ -152,21 +152,21 @@
 				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0">
 					<Image Margin="70" Source="{DynamicResource ZapiszIkona}"/>
 				</Viewbox>
-				<Button Grid.Column="1" Grid.Row="0" x:Name="przycisk_zapisz" Click="zapisz" Padding="1" Margin="15">
+				<Button Grid.Column="1" Grid.Row="0" x:Name="przycisk_zapisz" Click="Zapisz" Padding="1" Margin="15">
 					<Viewbox StretchDirection="Both" Stretch="Uniform">
 						<TextBlock Margin="4">
 							Zapisz
 						</TextBlock>
 					</Viewbox>
 				</Button>
-				<Button Grid.Column="1" Grid.Row="1" x:Name="przycisk_wczytaj" Click="wczytaj" Padding="1" Margin="15">
+				<Button Grid.Column="1" Grid.Row="1" x:Name="przycisk_wczytaj" Click="Wczytaj" Padding="1" Margin="15">
 					<Viewbox StretchDirection="Both" Stretch="Uniform">
 						<TextBlock Margin="4">
 							Wczytaj
 						</TextBlock>
 					</Viewbox>
 				</Button>
-				<Button Grid.Column="0" Grid.Row="1" x:Name="przycisk_pauza" Click="pauza" Padding="1" Margin="15">
+				<Button Grid.Column="0" Grid.Row="1" x:Name="przycisk_pauza" Click="Pauza" Padding="1" Margin="15">
 					<Viewbox StretchDirection="Both" Stretch="Uniform">
 						<TextBlock Margin="4" x:Name="przycisk_pauza_tekst">
 							Pauza
@@ -326,14 +326,14 @@
 					</ListBox.ItemTemplate>
 				</ListBox>
 				
-				<Button Grid.Row="2" Grid.Column="0" FontSize="15" Margin="10,0,10,0" x:Name="przycisk_kup" Click="kup" VerticalAlignment="Top">
+				<Button Grid.Row="2" Grid.Column="0" FontSize="15" Margin="10,0,10,0" x:Name="przycisk_kup" Click="Kup" VerticalAlignment="Top">
 					<Viewbox StretchDirection="Both" Stretch="Uniform">
 						<TextBlock>
 							Kup
 						</TextBlock>
 					</Viewbox>    
 				</Button>
-				<Button Grid.Row="2" Grid.Column="1" FontSize="15" Margin="10,0,10,0" x:Name="przycisk_sprzedaj" Click="sprzedaj">
+				<Button Grid.Row="2" Grid.Column="1" FontSize="15" Margin="10,0,10,0" x:Name="przycisk_sprzedaj" Click="Sprzedaj">
 					<Viewbox StretchDirection="Both" Stretch="Uniform">
 						<TextBlock>
 							Sprzedaj
@@ -479,14 +479,14 @@
 						Las
 					</TextBlock>
 				</Viewbox>
-				<Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_poluj" Click="poluj">
+				<Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_poluj" Click="Poluj">
 				<Viewbox StretchDirection="Both" Stretch="Uniform">
 					<TextBlock Margin="4">
 						Poluj
 					</TextBlock>
 				</Viewbox>
 				</Button>
-				<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_zbieraj" Click="zbieraj">
+				<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_zbieraj" Click="Zbieraj">
 				<Viewbox StretchDirection="Both" Stretch="Uniform">
 					<TextBlock Margin="4">
 						Zbieraj surowce
@@ -515,14 +515,14 @@
 						Jezioro
 					</TextBlock>
 				</Viewbox>
-				<Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_odpoczywaj" Click="odpoczywaj">
+				<Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_odpoczywaj" Click="Odpoczywaj">
 					<Viewbox StretchDirection="Both" Stretch="Uniform">
 						<TextBlock Margin="4">
 							Poluj
 						</TextBlock>
 					</Viewbox>
 				</Button>
-				<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_low" Click="low">
+				<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_low" Click="Low">
                     <Viewbox StretchDirection="Both" Stretch="Uniform">
 						<TextBlock Margin="4">
 							Łów
@@ -552,14 +552,14 @@
 						Dom
                         </TextBlock>
                     </Viewbox>
-					<Button Grid.Row="1" Grid.Column="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_jedz" Click="jedz">
+					<Button Grid.Row="1" Grid.Column="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_jedz" Click="Jedz">
                         <Viewbox StretchDirection="Both" Stretch="Uniform">
                             <TextBlock Margin="4">
 								Jedz
                             </TextBlock>
                         </Viewbox>
                     </Button>
-					<Button Grid.Row="2" Grid.Column="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_spij" Click="spij">
+					<Button Grid.Row="2" Grid.Column="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_spij" Click="Spij">
                         <Viewbox StretchDirection="Both" Stretch="Uniform">
                             <TextBlock Margin="4">
 								Śpij
