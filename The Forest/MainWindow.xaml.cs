@@ -453,4 +453,3 @@ namespace the_forest_game
 		}
 	}
 }
- 

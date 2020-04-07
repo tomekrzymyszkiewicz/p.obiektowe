@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="the_forest_game.Obozowisko" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Dom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="the_forest_game.Ekwipunek" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAKAggAAAAAAAoBAAAIAAAAAAAgJAAAAAAAA=</HashCode>
+      <FileName>Ekwpiunek.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="the_forest_game.Gracz" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAABCAAAQQoUAEAClABEAAwAAAAAABIBAAAABSA=</HashCode>
+      <FileName>Gracz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="the_forest_game.Jezioro" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Jezioro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="the_forest_game.Las" Collapsed="true">
+    <Position X="3.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Las.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="the_forest_game.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBAAARUEAAAAgAAAAAiACgAAAAACAQAAQAAKACAAAoA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="the_forest_game.Sklep" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAIAAAAAAIAAAAAAAAAACA=</HashCode>
+      <FileName>Sklep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -11,8 +11,6 @@
         /// </summary>
         public static int[] ekwipunek_ilosci = new int[5] {3, 0, 0, 0, 0};
         public static int[] ekwipunek_ceny = new int[5] {10, 3, 5, 100, 50};
-        public static Bron posiadanaBron = new Bron();
-        public static Zbroja posiadanaZbroja = new Zbroja();
 
         public static Bron brakBroni = new Bron();
         public static Bron noz = new Bron("Nóż", 15, 100, 100, 100, 100, 100);
@@ -23,6 +21,8 @@
         public static Zbroja kolczuga = new Zbroja("Kolczuga", 60, 450, 220, 220, 220, 220);
         public static Zbroja pancerz = new Zbroja("Pancerz", 100, 900, 330, 330, 330, 330);
 
+        public static Bron posiadanaBron = brakBroni;
+        public static Zbroja posiadanaZbroja = brakZbroji;
 
         public abstract class Przedmiot
         {
@@ -130,5 +130,4 @@
             }
         }
     }
-
 }
