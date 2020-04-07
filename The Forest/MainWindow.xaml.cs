@@ -425,12 +425,6 @@ namespace the_forest_game
 			pole_konca_gry.Visibility = Visibility.Hidden;
 			AktualizujWartości();
 		}
-		protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
-		{
-
-			if (sizeInfo.WidthChanged) this.Width = Convert.ToDouble(sizeInfo.NewSize.Height) * 0.2;
-			else this.Height = Convert.ToDouble(sizeInfo.NewSize.Width) / 0.2;
-		}
 	}
 }
  
