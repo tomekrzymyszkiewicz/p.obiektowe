@@ -290,13 +290,17 @@ namespace the_forest_game
 		}
 		protected void UruchomZegar()
 		{
-			zegar.Interval = TimeSpan.FromMilliseconds(300);
+			zegar.Interval = TimeSpan.FromMilliseconds(0.1);
 			zegar.Tick += AktualizujZegar;
 			zegar.Start();
 		}
 		private void AktualizujZegar(object sender, EventArgs e)
 		{
 
+			if(Gracz.czas.Hour == 3 && Gracz.czas.Minute == 0)
+			{
+				AtakNaObozowisko();
+			}
 			godzina.Text = String.Format("{0:t}", Gracz.Czas());
 			dzien.Text = Convert.ToString(Convert.ToInt32((Gracz.czas - Gracz.czasPoczątkowy).TotalDays + 1));
 			if (Gracz.CzyZyje())
@@ -465,7 +469,6 @@ namespace the_forest_game
 		}
 		private void CzyZapisac(object sender, RoutedEventArgs e)
 		{
-			
 			Button przyciskTakNie = sender as Button;
 			if(przyciskTakNie.Name == "zapis_tak")
 			{
@@ -474,6 +477,23 @@ namespace the_forest_game
 			}
 			pole_czy_zapisac_stan_gry.Visibility = Visibility.Hidden;
 			System.Environment.Exit(1);
+		}
+		private void AtakNaObozowisko()
+		{
+			int[] dane = Potwory.AtakNaObozowisko.Atak();
+			if(dane[0] == 1)
+			{
+				komunikat.Text = "Zostałeś zaatakowany przez nocnych rabusiów. Twoje starty: " + dane[1] + " życia, " + dane[2] + " energii, " + dane[3] + " drewna, " + dane[4] + " kamienia, " + dane[5] + " skóry, " + dane[6] + " metalu. Zyskane punkty doświadczenia " + dane[7] + "."; 
+			}
+			else if(dane[0] == 0)
+			{
+				//brak ataku
+			}
+			else
+			{
+				komunikat.Text = "błąd ataku";
+			}
+			AktualizujWartości();
 		}
 	}
 }

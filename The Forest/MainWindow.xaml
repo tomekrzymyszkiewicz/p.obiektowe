@@ -654,7 +654,17 @@
                             <Image Margin="100" Source="{DynamicResource InfoIkona}"/>
                         </Viewbox>
                         <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="1">
-                            <TextBlock Margin="0,2,0,2" x:Name="komunikat" TextWrapping="Wrap" >
+                            <TextBlock Margin="0,2,0,2" x:Name="komunikat" TextWrapping="Wrap">
+								Komunikat tekstowy
+								Komunikat tekstowy
+								Komunikat tekstowy
+								Komunikat tekstowy
+								Komunikat tekstowy
+								Komunikat tekstowy
+								Komunikat tekstowy
+								Komunikat tekstowy
+								Komunikat tekstowy
+								Komunikat tekstowy
 								Komunikat tekstowy
                             </TextBlock>
                         </Viewbox>

@@ -84,7 +84,7 @@ namespace the_forest_game
             private int wytrzymalosc;
             private readonly int[] koszty = new int[5]; // 0 - pieniadze // 1 - drewno // 2 - kamień // 3 - skóra // 4 - metal
 
-            public static Dom klepisko = new Dom("Klepisko", 0, 0, 0, 0, 0, 0);
+            public static Dom klepisko = new Dom("Klepisko", 5, 0, 0, 0, 0, 0);
             public static Dom szalas = new Dom("Szałas", 10, 100, 50, 100, 2, 2);
             public static Dom ziemianka = new Dom("Ziemianka", 20, 1000, 1000, 500, 20, 20);
             public static Dom chatka = new Dom("Chatka", 30, 10000, 5000, 2000, 100, 200);
@@ -94,7 +94,7 @@ namespace the_forest_game
             public Dom()
             {
                 nazwa = "Klepisko";
-                wytrzymalosc = 0;
+                wytrzymalosc = 5;
                 koszty[0] = 0; //pieniadze
                 koszty[1] = 0; //drewno
                 koszty[2] = 0; //kamień
@@ -114,7 +114,7 @@ namespace the_forest_game
             public void RestetujWartosci()
             {
                 nazwa = "Klepisko";
-                wytrzymalosc = 10;
+                wytrzymalosc = 5;
                 koszty[0] = 0; //pieniadze
                 koszty[1] = 0; //drewno
                 koszty[2] = 0; //kamień
