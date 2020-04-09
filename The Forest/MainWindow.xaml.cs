@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace the_forest_game
@@ -160,7 +162,7 @@ namespace the_forest_game
 				}
 				else
 				{
-					komunikat.Text = "Brawo, wędkowanie udane. Złowione ryby: " + dane[1] + ". Stacona energia: " + dane[4] + " ,czas wędkowania: " + dane[2] + " min. Zyskane doświadczenie: " + dane[3];
+					komunikat.Text = "Brawo, wędkowanie udane. Złowione ryby: " + dane[1] + ". Stacona energia: " + dane[4] + ", czas wędkowania: " + dane[2] + " min. Zyskane doświadczenie: " + dane[3];
 
 				}
 			}
@@ -212,7 +214,7 @@ namespace the_forest_game
 			}
 			AktualizujWartości();
 		}
-		public void AktualizujWartości()
+		private void AktualizujWartości()
 		{
 			Gracz.AktualizujAtakIObrone(Ekwipunek.posiadanaBron.Atak(), Ekwipunek.posiadanaZbroja.Obrona());
 			pieniadze.Text = Convert.ToString(Gracz.Pieniadze());
@@ -455,6 +457,23 @@ namespace the_forest_game
 			komunikat.Text = "Może tym razem pójdzie ci lepiej.";
 			pole_konca_gry.Visibility = Visibility.Hidden;
 			AktualizujWartości();
+		}
+		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			e.Cancel = true;
+			pole_czy_zapisac_stan_gry.Visibility = Visibility.Visible;
+		}
+		private void CzyZapisac(object sender, RoutedEventArgs e)
+		{
+			
+			Button przyciskTakNie = sender as Button;
+			if(przyciskTakNie.Name == "zapis_tak")
+			{
+				Zapisz(sender, e);
+				komunikat.Text = "Zapisano stan gry.";
+			}
+			pole_czy_zapisac_stan_gry.Visibility = Visibility.Hidden;
+			System.Environment.Exit(1);
 		}
 	}
 }

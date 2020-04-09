@@ -7,542 +7,595 @@
 		mc:Ignorable="d"
 		Title="The Forest" MinHeight="600" MinWidth="1067"  Height="600" Width="1067" ResizeMode="CanResize" Background="LightSlateGray"
 		WindowState="Maximized"
+        Closing="Window_Closing"
         Icon="Resources/windowicon.ico">
     <!-- DEFINICJE GRAFIK -->
-	<Window.Resources>
-		<BitmapImage x:Key="Rozbitek" >Resources/rozbitek.jpg</BitmapImage>
-		<BitmapImage x:Key="Ognisko" >Resources/ognisko.jpg</BitmapImage>
-		<BitmapImage x:Key="SklepIkona">Resources/price.png</BitmapImage>
-		<BitmapImage x:Key="PieniadzeIkona">Resources/money.png</BitmapImage>
-		<BitmapImage x:Key="GraczIkona">Resources/tourist color.png</BitmapImage>
-		<BitmapImage x:Key="ZegarIkona">Resources/clock.png</BitmapImage>
-		<BitmapImage x:Key="KalendarzIkona">Resources/calendar.png</BitmapImage>
-		<BitmapImage x:Key="ZycieIkona">Resources/heart.png</BitmapImage>
-		<BitmapImage x:Key="EnergiaIkona">Resources/energy.png</BitmapImage>
-		<BitmapImage x:Key="AtakIkona">Resources/sword.png</BitmapImage>
-		<BitmapImage x:Key="ObronaIkona">Resources/shield.png</BitmapImage>
-		<BitmapImage x:Key="ZapiszIkona">Resources/save-file.png</BitmapImage>
-		<BitmapImage x:Key="OgniskoIkona">Resources/bonfire.png</BitmapImage>
-		<BitmapImage x:Key="LatarkaIkona">Resources/flashlight.png</BitmapImage>
-		<BitmapImage x:Key="KsiazkaIkona">Resources/guide.png</BitmapImage>
-		<BitmapImage x:Key="NozIkona">Resources/knife.png</BitmapImage>
-		<BitmapImage x:Key="LasIkona">Resources/tree.png</BitmapImage>
-		<BitmapImage x:Key="JezioroIkona">Resources/natural-resources.png</BitmapImage>
-		<BitmapImage x:Key="DomIkona">Resources/tent.png</BitmapImage>
-		<BitmapImage x:Key="JedzenieIkona">Resources/meat.png</BitmapImage>
-		<BitmapImage x:Key="DrewnoIkona">Resources/trunk.png</BitmapImage>
-		<BitmapImage x:Key="SkoraIkona">Resources/leather.png</BitmapImage>
-		<BitmapImage x:Key="MetalIkona">Resources/hammer.png</BitmapImage>
-		<BitmapImage x:Key="KamienIkona">Resources/stone.png</BitmapImage>
-		<BitmapImage x:Key="BronIkona">Resources/sword (1).png</BitmapImage>
-		<BitmapImage x:Key="ZbrojaIkona">Resources/knight.png</BitmapImage>
-		<BitmapImage x:Key="InfoIkona">Resources\info.png</BitmapImage>
-		<BitmapImage x:Key="ResetIkona">Resources\loop.png</BitmapImage>
-	</Window.Resources>
-	<Grid Background="#FF7BA6C8">
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="1.1*"/>
-			<ColumnDefinition Width="1.5*"/>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="1.1*"/>
-		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="1.2*"/>
-			<RowDefinition Height="*"/>
-			<RowDefinition Height="*"/>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
+    <Window.Resources>
+        <BitmapImage x:Key="Rozbitek" >Resources/rozbitek.jpg</BitmapImage>
+        <BitmapImage x:Key="Ognisko" >Resources/ognisko.jpg</BitmapImage>
+        <BitmapImage x:Key="SklepIkona">Resources/price.png</BitmapImage>
+        <BitmapImage x:Key="PieniadzeIkona">Resources/money.png</BitmapImage>
+        <BitmapImage x:Key="GraczIkona">Resources/tourist color.png</BitmapImage>
+        <BitmapImage x:Key="ZegarIkona">Resources/clock.png</BitmapImage>
+        <BitmapImage x:Key="KalendarzIkona">Resources/calendar.png</BitmapImage>
+        <BitmapImage x:Key="ZycieIkona">Resources/heart.png</BitmapImage>
+        <BitmapImage x:Key="EnergiaIkona">Resources/energy.png</BitmapImage>
+        <BitmapImage x:Key="AtakIkona">Resources/sword.png</BitmapImage>
+        <BitmapImage x:Key="ObronaIkona">Resources/shield.png</BitmapImage>
+        <BitmapImage x:Key="ZapiszIkona">Resources/save-file.png</BitmapImage>
+        <BitmapImage x:Key="OgniskoIkona">Resources/bonfire.png</BitmapImage>
+        <BitmapImage x:Key="LatarkaIkona">Resources/flashlight.png</BitmapImage>
+        <BitmapImage x:Key="KsiazkaIkona">Resources/guide.png</BitmapImage>
+        <BitmapImage x:Key="NozIkona">Resources/knife.png</BitmapImage>
+        <BitmapImage x:Key="LasIkona">Resources/tree.png</BitmapImage>
+        <BitmapImage x:Key="JezioroIkona">Resources/natural-resources.png</BitmapImage>
+        <BitmapImage x:Key="DomIkona">Resources/tent.png</BitmapImage>
+        <BitmapImage x:Key="JedzenieIkona">Resources/meat.png</BitmapImage>
+        <BitmapImage x:Key="DrewnoIkona">Resources/trunk.png</BitmapImage>
+        <BitmapImage x:Key="SkoraIkona">Resources/leather.png</BitmapImage>
+        <BitmapImage x:Key="MetalIkona">Resources/hammer.png</BitmapImage>
+        <BitmapImage x:Key="KamienIkona">Resources/stone.png</BitmapImage>
+        <BitmapImage x:Key="BronIkona">Resources/sword (1).png</BitmapImage>
+        <BitmapImage x:Key="ZbrojaIkona">Resources/knight.png</BitmapImage>
+        <BitmapImage x:Key="InfoIkona">Resources\info.png</BitmapImage>
+        <BitmapImage x:Key="ResetIkona">Resources\loop.png</BitmapImage>
+    </Window.Resources>
+    <Grid Background="#FF7BA6C8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.1*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <!-- GRAFIKA -->
-		<Image Source="{DynamicResource Ognisko}" Stretch="Fill" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4"></Image>
-		<!-- KONIEC GRY -->
-        <Border Grid.Row="2" Grid.Column="2" Background="#1c9a44" CornerRadius="20" Margin="5" Visibility="Hidden" x:Name="pole_konca_gry">
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-				</Grid.ColumnDefinitions>
-				<Image Grid.ColumnSpan="2" Margin="10" Source="{DynamicResource ResetIkona}"/>
-				<Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10" FontSize="30" x:Name="przycisk_odnowa" Click="Reset" Content="Zacznij od nowa"/>
-			</Grid>
-		</Border>
-		<!-- STATUS GRACZA -->
-		<Border Background="#e0d03c" CornerRadius="20" Grid.Column="0" Grid.Row="0" Margin="5">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="4*"/>
-					<ColumnDefinition Width="2*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" Margin="5,0,0,0">
-					<Image Source="{DynamicResource PieniadzeIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="1" Margin="5,0,0,0">
-					<Image Source="{DynamicResource ZegarIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="2" Margin="5,0,0,0">
-					<Image Source="{DynamicResource KalendarzIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="3" Margin="5,0,0,0">
-					<Image Source="{DynamicResource GraczIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="0">
-					<TextBlock Padding="3">
+        <Image Source="{DynamicResource Ognisko}" Stretch="Fill" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4"></Image>
+        <!-- KOMUNIKATY NA ŚRODKU EKRANU -->
+        <Grid Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!-- KONIEC GRY -->
+            <Border Grid.Row="1" Grid.Column="1" Background="#1c9a44" CornerRadius="20" Margin="5" x:Name="pole_konca_gry" Visibility="Hidden">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+                        <Image Margin="75" Source="{DynamicResource ResetIkona}"/>
+                    </Viewbox>
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="10" FontSize="30" Click="Reset">
+                        <Viewbox StretchDirection="Both" Stretch="Uniform">
+                            <TextBlock Margin="10">
+                                Zacznij od nowa
+                            </TextBlock>
+                        </Viewbox>
+                    </Button>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" Background="#1c9a44" CornerRadius="20" Margin="5" x:Name="pole_czy_zapisac_stan_gry" Visibility="Hidden">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+                        <TextBlock Margin="10">
+                            Czy zapisać stan gry?
+                        </TextBlock>
+                    </Viewbox>
+                    <Button Grid.Column="0" Grid.Row="1" Margin="15" x:Name="zapis_tak" Click="CzyZapisac">
+                        <Viewbox StretchDirection="Both" Stretch="Uniform">
+                            <TextBlock Margin="3">
+                                Tak
+                            </TextBlock>
+                        </Viewbox>
+                    </Button>
+                    <Button Grid.Column="1"  Grid.Row="1" Margin="15" x:Name="zapis_nie" Click="CzyZapisac">
+                        <Viewbox StretchDirection="Both" Stretch="Uniform">
+                            <TextBlock Margin="3">
+                                Nie
+                            </TextBlock>
+                        </Viewbox>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+        <!-- STATUS GRACZA -->
+        <Border Background="#e0d03c" CornerRadius="20" Grid.Column="0" Grid.Row="0" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" Margin="5,0,0,0">
+                    <Image Source="{DynamicResource PieniadzeIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="1" Margin="5,0,0,0">
+                    <Image Source="{DynamicResource ZegarIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="2" Margin="5,0,0,0">
+                    <Image Source="{DynamicResource KalendarzIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="3" Margin="5,0,0,0">
+                    <Image Source="{DynamicResource GraczIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="0">
+                    <TextBlock Padding="3">
 						Pieniądze
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="3" Grid.Row="0">
-					<TextBlock Padding="3" x:Name="pieniadze">
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="3" Grid.Row="0">
+                    <TextBlock Padding="3" x:Name="pieniadze">
 						123
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="1">
-					<TextBlock Padding="3">
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="1">
+                    <TextBlock Padding="3">
 						Czas
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="2">
-					<TextBlock Padding="3" x:Name="godzina" > 
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="2">
+                    <TextBlock Padding="3" x:Name="godzina" > 
 						00:00
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="2">
-					<TextBlock Padding="3">
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="2">
+                    <TextBlock Padding="3">
 						Dzień
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="2" Grid.Column="3">
-					<TextBlock Padding="3" x:Name="dzien"> 
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="2" Grid.Column="3">
+                    <TextBlock Padding="3" x:Name="dzien"> 
 						123
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="3">
-					<TextBlock Padding="3">
-						Dzień
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="3">
-					<TextBlock Padding="3" x:Name="doswiadczenie">
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="3">
+                    <TextBlock Padding="3">
+						Doświadczenie
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="3">
+                    <TextBlock Padding="3" x:Name="doswiadczenie">
 						1
-					</TextBlock>
-				</Viewbox>
-			</Grid>
-		</Border>
-		<!-- STAN GRY -->
-		<Border Grid.Column="0" Grid.Row="3" Background="#8cd7f4" CornerRadius="20" Margin="5">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0">
-					<Image Margin="70" Source="{DynamicResource ZapiszIkona}"/>
-				</Viewbox>
-				<Button Grid.Column="1" Grid.Row="0" x:Name="przycisk_zapisz" Click="Zapisz" Padding="1" Margin="15">
-					<Viewbox StretchDirection="Both" Stretch="Uniform">
-						<TextBlock Margin="4">
-							Zapisz
-						</TextBlock>
-					</Viewbox>
-				</Button>
-				<Button Grid.Column="1" Grid.Row="1" x:Name="przycisk_wczytaj" Click="Wczytaj" Padding="1" Margin="15">
-					<Viewbox StretchDirection="Both" Stretch="Uniform">
-						<TextBlock Margin="4">
-							Wczytaj
-						</TextBlock>
-					</Viewbox>
-				</Button>
-				<Button Grid.Column="0" Grid.Row="1" x:Name="przycisk_pauza" Click="Pauza" Padding="1" Margin="15">
-					<Viewbox StretchDirection="Both" Stretch="Uniform">
-						<TextBlock Margin="4" x:Name="przycisk_pauza_tekst">
-							Pauza
-						</TextBlock>
-					</Viewbox>
-				</Button>
-			</Grid>
-		</Border>
-		<!-- EKWIPUNEK -->
-		<Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="#5f8847" CornerRadius="20" Margin="5">
-			<Grid Margin="0,0,0,3">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="3*"/>
-					<ColumnDefinition Width="2*"/>
-					<ColumnDefinition Width="2*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.ColumnSpan="4">
-					<TextBlock Padding="1" FontWeight="DemiBold">
-					EKWIPUNEK
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="1" Margin="3,0,0,0">
-					<Image Source="{DynamicResource JedzenieIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="2" Margin="3,0,0,0">
-					<Image Source="{DynamicResource DrewnoIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="3" Margin="3,0,0,0">
-					<Image Source="{DynamicResource KamienIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="4" Margin="3,0,0,0">
-					<Image Source="{DynamicResource SkoraIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="5" Margin="3,0,0,0">
-					<Image Source="{DynamicResource MetalIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="6" Margin="3,0,0,0">
-					<Image Source="{DynamicResource BronIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="7" Margin="3,0,0,0">
-					<Image Source="{DynamicResource ZbrojaIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-					<TextBlock Padding="3">
-						Jedzenie
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-					<TextBlock Padding="3">
-						Drewno
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
-					<TextBlock Padding="3">
-						Kamień
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-					<TextBlock Padding="3">
-						Skóra
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
-					<TextBlock Padding="3">
-						Metal
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="6" Grid.Column="1">
-					<TextBlock Padding="3">
-						Broń
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="7" Grid.Column="1">
-					<TextBlock Padding="3">
-						Zbroja
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="3">
-					<TextBlock Padding="3" x:Name="jedzenie">
-						1
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="2" Grid.Column="3">
-					<TextBlock Padding="3" x:Name="drewno">
-						1
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="3" Grid.Column="3">
-					<TextBlock Padding="3" x:Name="kamien">
-						1
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="4" Grid.Column="3">
-					<TextBlock Padding="3" x:Name="skora">
-						1
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="5" Grid.Column="3">
-					<TextBlock Padding="3" x:Name="metal">
-						1
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2">
-					<TextBlock Padding="3" x:Name="bron">
-						1
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" >
-					<TextBlock Padding="3" x:Name="zbroja">
-						1
-					</TextBlock>
-				</Viewbox>
-			</Grid>
-		</Border>
-		<!-- SKLEP -->
-		<Border Grid.Column="1" Grid.Row="0" Background="#4682b4" CornerRadius="20" Padding="7,0,7,10" Margin="5">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="1.5*"/>
-					<RowDefinition Height="5*"/>
-					<RowDefinition Height="*"/>
-				</Grid.RowDefinitions>
-				<Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="4*"/>
-						<ColumnDefinition Width="*"/>
-					</Grid.ColumnDefinitions>
-					<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-						<TextBlock FontWeight="DemiBold">
-							SKLEP
-						</TextBlock>
-					</Viewbox>
-					<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="1" Margin="3">
-						<Image Source="{DynamicResource SklepIkona}"/>
-					</Viewbox>
-				</Grid>
-				<ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="sklep" Margin="5" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
-				
-				<Button Grid.Row="2" Grid.Column="0" FontSize="15" Margin="10,0,10,0" x:Name="przycisk_kup" Click="Kup" VerticalAlignment="Top">
-					<Viewbox StretchDirection="Both" Stretch="Uniform">
-						<TextBlock>
-							Kup
-						</TextBlock>
-					</Viewbox>    
-				</Button>
-				<Button Grid.Row="2" Grid.Column="1" FontSize="15" Margin="10,0,10,0" x:Name="przycisk_sprzedaj" Click="Sprzedaj">
-					<Viewbox StretchDirection="Both" Stretch="Uniform">
-						<TextBlock>
-							Sprzedaj
-						</TextBlock>
-					</Viewbox>
-				</Button>
-			</Grid>
-		</Border>
-		<!-- ATAK I OBRONA -->
-		<Border Grid.Row="0" Grid.Column="3" Background="#a3a3a3" CornerRadius="20" Margin="5">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Margin="10">
-					<Image Source="{DynamicResource AtakIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="0" Margin="10">
-					<Image Source="{DynamicResource ObronaIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform"  Grid.Column="1" Grid.Row="1">
-					<TextBlock Margin="3">
-						Obrona
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="1">
-					<TextBlock Margin="7" x:Name="obrona">
-						10
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="0">
-					<TextBlock Margin="6">
-						Atak
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="0">
-					<TextBlock Margin="7" x:Name="atak">
-						10
-					</TextBlock>
-				</Viewbox>
-			</Grid>
-		</Border>
-		<!-- ŻYCIE I ENERGIA -->
-		<Border Grid.Row="0" Grid.Column="2" Background="#e9473f" CornerRadius="20" Margin="5">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Margin="10">
-					<Image Source="{DynamicResource ZycieIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="0" Margin="10">
-					<Image Source="{DynamicResource EnergiaIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform"  Grid.Column="1" Grid.Row="0">
-					<TextBlock Margin="8">
-						Życie
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform"  Grid.Column="1" Grid.Row="1">
-					<TextBlock Margin="3">
-						Energia
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="1">
-					<TextBlock Margin="7" x:Name="energia">
-						10
-					</TextBlock>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="0">
-					<TextBlock Margin="7" x:Name="zycie">
-						10
-					</TextBlock>
-				</Viewbox>
-			</Grid>
-		</Border>
-		<!-- LOGO GRY -->
-		<Border Grid.Column="4" Grid.Row="0" Background="#3c8336" CornerRadius="20" Margin="5">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" >
-					<Image Margin="0,75,0,250" Source="{DynamicResource NozIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="1" >
-					<Image Margin="0,250,0,75" Source="{DynamicResource LatarkaIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="0" >
-					<Image Margin="0,75,0,250" Source="{DynamicResource KsiazkaIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="1" >
-					<Image Margin="0,250,0,75" Source="{DynamicResource OgniskoIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-					<TextBlock Padding="3" FontWeight="DemiBold" >
-						THE FOREST
-					</TextBlock>
-				</Viewbox>
-			</Grid>
-		</Border>
-		<!-- PRAWA KOLUMNA -->
-		<Grid Grid.Column="4" Grid.Row="1" Grid.RowSpan="3">
-			<Grid.RowDefinitions>
-				<RowDefinition/>
-				<RowDefinition/>
-				<RowDefinition/>
-			</Grid.RowDefinitions>
-            <!-- LAS -->
-			<Border Grid.Row="0" Background="#82b446" CornerRadius="20" Margin="5">
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="3*"/>
-				</Grid.ColumnDefinitions>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" >
-						<Image Margin="50" Source="{DynamicResource LasIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-					<TextBlock Margin="3">
-						Las
-					</TextBlock>
-				</Viewbox>
-				<Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_poluj" Click="Poluj">
-				<Viewbox StretchDirection="Both" Stretch="Uniform">
-					<TextBlock Margin="4">
-						Poluj
-					</TextBlock>
-				</Viewbox>
-				</Button>
-				<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_zbieraj" Click="Zbieraj">
-				<Viewbox StretchDirection="Both" Stretch="Uniform">
-					<TextBlock Margin="4">
-						Zbieraj surowce
-					</TextBlock>
-				</Viewbox>
-				</Button>
-			</Grid>
-		</Border>
-			<!-- JEZIORO -->
-			<Border Grid.Row="1" Background="#009999" CornerRadius="20" Margin="5">
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="3*"/>
-				</Grid.ColumnDefinitions>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" >
-					<Image Margin="50" Source="{DynamicResource JezioroIkona}"/>
-				</Viewbox>
-				<Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-					<TextBlock Margin="3">
-						Jezioro
-					</TextBlock>
-				</Viewbox>
-				<Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_odpoczywaj" Click="Odpoczywaj">
-					<Viewbox StretchDirection="Both" Stretch="Uniform">
-						<TextBlock Margin="4">
-							Poluj
-						</TextBlock>
-					</Viewbox>
-				</Button>
-				<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_low" Click="Low">
+                    </TextBlock>
+                </Viewbox>
+            </Grid>
+        </Border>
+        <!-- STAN GRY -->
+        <Border Grid.Column="0" Grid.Row="3" Background="#8cd7f4" CornerRadius="20" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0">
+                    <Image Margin="70" Source="{DynamicResource ZapiszIkona}"/>
+                </Viewbox>
+                <Button Grid.Column="1" Grid.Row="0" x:Name="przycisk_zapisz" Click="Zapisz" Padding="1" Margin="15">
                     <Viewbox StretchDirection="Both" Stretch="Uniform">
-						<TextBlock Margin="4">
-							Łów
-						</TextBlock>
-					</Viewbox>
+                        <TextBlock Margin="4">
+							Zapisz
+                        </TextBlock>
+                    </Viewbox>
                 </Button>
-			</Grid>
-		</Border>
-			<!-- DOM -->
-			<Border Grid.Column="4" Grid.Row="3" Background="#adad32" CornerRadius="20" Margin="5">
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="2*"/>
+                <Button Grid.Column="1" Grid.Row="1" x:Name="przycisk_wczytaj" Click="Wczytaj" Padding="1" Margin="15">
+                    <Viewbox StretchDirection="Both" Stretch="Uniform">
+                        <TextBlock Margin="4">
+							Wczytaj
+                        </TextBlock>
+                    </Viewbox>
+                </Button>
+                <Button Grid.Column="0" Grid.Row="1" x:Name="przycisk_pauza" Click="Pauza" Padding="1" Margin="15">
+                    <Viewbox StretchDirection="Both" Stretch="Uniform">
+                        <TextBlock Margin="4" x:Name="przycisk_pauza_tekst">
+							Pauza
+                        </TextBlock>
+                    </Viewbox>
+                </Button>
+            </Grid>
+        </Border>
+        <!-- EKWIPUNEK -->
+        <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="#5f8847" CornerRadius="20" Margin="5">
+            <Grid Margin="0,0,0,3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.ColumnSpan="4">
+                    <TextBlock Padding="1" FontWeight="DemiBold">
+					EKWIPUNEK
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="1" Margin="3,0,0,0">
+                    <Image Source="{DynamicResource JedzenieIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="2" Margin="3,0,0,0">
+                    <Image Source="{DynamicResource DrewnoIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="3" Margin="3,0,0,0">
+                    <Image Source="{DynamicResource KamienIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="4" Margin="3,0,0,0">
+                    <Image Source="{DynamicResource SkoraIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="5" Margin="3,0,0,0">
+                    <Image Source="{DynamicResource MetalIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="6" Margin="3,0,0,0">
+                    <Image Source="{DynamicResource BronIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="7" Margin="3,0,0,0">
+                    <Image Source="{DynamicResource ZbrojaIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                    <TextBlock Padding="3">
+						Jedzenie
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                    <TextBlock Padding="3">
+						Drewno
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+                    <TextBlock Padding="3">
+						Kamień
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+                    <TextBlock Padding="3">
+						Skóra
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+                    <TextBlock Padding="3">
+						Metal
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="6" Grid.Column="1">
+                    <TextBlock Padding="3">
+						Broń
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="7" Grid.Column="1">
+                    <TextBlock Padding="3">
+						Zbroja
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="3">
+                    <TextBlock Padding="3" x:Name="jedzenie">
+						1
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="2" Grid.Column="3">
+                    <TextBlock Padding="3" x:Name="drewno">
+						1
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="3" Grid.Column="3">
+                    <TextBlock Padding="3" x:Name="kamien">
+						1
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="4" Grid.Column="3">
+                    <TextBlock Padding="3" x:Name="skora">
+						1
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="5" Grid.Column="3">
+                    <TextBlock Padding="3" x:Name="metal">
+						1
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2">
+                    <TextBlock Padding="3" x:Name="bron">
+						1
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" >
+                    <TextBlock Padding="3" x:Name="zbroja">
+						1
+                    </TextBlock>
+                </Viewbox>
+            </Grid>
+        </Border>
+        <!-- SKLEP -->
+        <Border Grid.Column="1" Grid.Row="0" Background="#4682b4" CornerRadius="20" Padding="7,0,7,10" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                        <TextBlock FontWeight="DemiBold">
+							SKLEP
+                        </TextBlock>
+                    </Viewbox>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="1" Margin="3">
+                        <Image Source="{DynamicResource SklepIkona}"/>
+                    </Viewbox>
+                </Grid>
+                <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="sklep" Margin="5" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Button Grid.Row="2" Grid.Column="0" FontSize="15" Margin="10,0,10,0" x:Name="przycisk_kup" Click="Kup" VerticalAlignment="Top">
+                    <Viewbox StretchDirection="Both" Stretch="Uniform">
+                        <TextBlock>
+							Kup
+                        </TextBlock>
+                    </Viewbox>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="1" FontSize="15" Margin="10,0,10,0" x:Name="przycisk_sprzedaj" Click="Sprzedaj">
+                    <Viewbox StretchDirection="Both" Stretch="Uniform">
+                        <TextBlock>
+							Sprzedaj
+                        </TextBlock>
+                    </Viewbox>
+                </Button>
+            </Grid>
+        </Border>
+        <!-- ATAK I OBRONA -->
+        <Border Grid.Row="0" Grid.Column="3" Background="#a3a3a3" CornerRadius="20" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Margin="10">
+                    <Image Source="{DynamicResource AtakIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="0" Margin="10">
+                    <Image Source="{DynamicResource ObronaIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform"  Grid.Column="1" Grid.Row="1">
+                    <TextBlock Margin="3">
+						Obrona
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="1">
+                    <TextBlock Margin="7" x:Name="obrona">
+						10
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="0">
+                    <TextBlock Margin="6">
+						Atak
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="0">
+                    <TextBlock Margin="7" x:Name="atak">
+						10
+                    </TextBlock>
+                </Viewbox>
+            </Grid>
+        </Border>
+        <!-- ŻYCIE I ENERGIA -->
+        <Border Grid.Row="0" Grid.Column="2" Background="#e9473f" CornerRadius="20" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Margin="10">
+                    <Image Source="{DynamicResource ZycieIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="1" Grid.Column="0" Margin="10">
+                    <Image Source="{DynamicResource EnergiaIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform"  Grid.Column="1" Grid.Row="0">
+                    <TextBlock Margin="8">
+						Życie
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform"  Grid.Column="1" Grid.Row="1">
+                    <TextBlock Margin="3">
+						Energia
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="1">
+                    <TextBlock Margin="7" x:Name="energia">
+						10
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="2" Grid.Row="0">
+                    <TextBlock Margin="7" x:Name="zycie">
+						10
+                    </TextBlock>
+                </Viewbox>
+            </Grid>
+        </Border>
+        <!-- LOGO GRY -->
+        <Border Grid.Column="4" Grid.Row="0" Background="#3c8336" CornerRadius="20" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" >
+                    <Image Margin="0,75,0,250" Source="{DynamicResource NozIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="1" >
+                    <Image Margin="0,250,0,75" Source="{DynamicResource LatarkaIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="0" >
+                    <Image Margin="0,75,0,250" Source="{DynamicResource KsiazkaIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="1" Grid.Row="1" >
+                    <Image Margin="0,250,0,75" Source="{DynamicResource OgniskoIkona}"/>
+                </Viewbox>
+                <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <TextBlock Padding="3" FontWeight="DemiBold" >
+						THE FOREST
+                    </TextBlock>
+                </Viewbox>
+            </Grid>
+        </Border>
+        <!-- PRAWA KOLUMNA -->
+        <Grid Grid.Column="4" Grid.Row="1" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!-- LAS -->
+            <Border Grid.Row="0" Background="#82b446" CornerRadius="20" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" >
+                        <Image Margin="50" Source="{DynamicResource LasIkona}"/>
+                    </Viewbox>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                        <TextBlock Margin="3">
+						Las
+                        </TextBlock>
+                    </Viewbox>
+                    <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_poluj" Click="Poluj">
+                        <Viewbox StretchDirection="Both" Stretch="Uniform">
+                            <TextBlock Margin="4">
+						Poluj
+                            </TextBlock>
+                        </Viewbox>
+                    </Button>
+                    <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_zbieraj" Click="Zbieraj">
+                        <Viewbox StretchDirection="Both" Stretch="Uniform">
+                            <TextBlock Margin="4">
+						Zbieraj surowce
+                            </TextBlock>
+                        </Viewbox>
+                    </Button>
+                </Grid>
+            </Border>
+            <!-- JEZIORO -->
+            <Border Grid.Row="1" Background="#009999" CornerRadius="20" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" >
+                        <Image Margin="50" Source="{DynamicResource JezioroIkona}"/>
+                    </Viewbox>
+                    <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                        <TextBlock Margin="3">
+						Jezioro
+                        </TextBlock>
+                    </Viewbox>
+                    <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_odpoczywaj" Click="Odpoczywaj">
+                        <Viewbox StretchDirection="Both" Stretch="Uniform">
+                            <TextBlock Margin="4">
+							Odpoczywaj
+                            </TextBlock>
+                        </Viewbox>
+                    </Button>
+                    <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_low" Click="Low">
+                        <Viewbox StretchDirection="Both" Stretch="Uniform">
+                            <TextBlock Margin="4">
+							Łów
+                            </TextBlock>
+                        </Viewbox>
+                    </Button>
+                </Grid>
+            </Border>
+            <!-- DOM -->
+            <Border Grid.Column="4" Grid.Row="3" Background="#adad32" CornerRadius="20" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" >
                         <Image Margin="50" Source="{DynamicResource DomIkona}"/>
@@ -552,14 +605,14 @@
 						Dom
                         </TextBlock>
                     </Viewbox>
-					<Button Grid.Row="1" Grid.Column="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_jedz" Click="Jedz">
+                    <Button Grid.Row="1" Grid.Column="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_jedz" Click="Jedz">
                         <Viewbox StretchDirection="Both" Stretch="Uniform">
                             <TextBlock Margin="4">
 								Jedz
                             </TextBlock>
                         </Viewbox>
                     </Button>
-					<Button Grid.Row="2" Grid.Column="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_spij" Click="Spij">
+                    <Button Grid.Row="2" Grid.Column="2" Margin="10,0,10,10" FontSize="24" x:Name="przycisk_spij" Click="Spij">
                         <Viewbox StretchDirection="Both" Stretch="Uniform">
                             <TextBlock Margin="4">
 								Śpij
@@ -576,24 +629,24 @@
 						10
                         </TextBlock>
                     </Viewbox>
-				</Grid>
-		</Border>
-		</Grid>
+                </Grid>
+            </Border>
+        </Grid>
         <!-- KOMUNIKAT -->
-		<Border Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1">
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="2*"/>
-				</Grid.RowDefinitions>
-				<Border Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Background="#cfbda3" CornerRadius="20" Margin="5">
-					<Grid>
+        <Border Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Background="#cfbda3" CornerRadius="20" Margin="5">
+                    <Grid>
 
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*"/>
-							<ColumnDefinition Width="10*"/>
-							<ColumnDefinition Width="*"/>
-						</Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
                         <Viewbox StretchDirection="Both" Stretch="Uniform" Grid.Column="0" Grid.Row="0" >
                             <Image Margin="100" Source="{DynamicResource InfoIkona}"/>
                         </Viewbox>
@@ -605,9 +658,9 @@
 								Komunikat tekstowy
                             </TextBlock>
                         </Viewbox>
-					</Grid>
-				</Border>
-			</Grid>
-		</Border>
-	</Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
 </Window>
