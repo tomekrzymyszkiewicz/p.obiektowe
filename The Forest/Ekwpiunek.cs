@@ -7,19 +7,19 @@
         /// 1 Drewno
         /// 2 Kamień
         /// 3 Skóra
-        /// 4Metal
+        /// 4 Metal
         /// </summary>
         public static int[] ekwipunek_ilosci = new int[5] { 3, 0, 0, 0, 0 };
         public static int[] ekwipunek_ceny = new int[5] { 10, 3, 5, 100, 50 };
 
         public static Bron brakBroni = new Bron();
-        public static Bron noz = new Bron("Nóż", 15, 100, 100, 100, 100, 100);
-        public static Bron miecz = new Bron("Miecz", 45, 5000, 110, 110, 110, 110);
-        public static Bron katana = new Bron("Katana", 100, 1000, 220, 220, 220, 220);
+        public static Bron noz = new Bron("Nóż", 15, 100, 20, 30, 2, 5);
+        public static Bron miecz = new Bron("Miecz", 45, 500, 45, 30, 10, 25);
+        public static Bron katana = new Bron("Katana", 100, 1000, 100, 50, 20, 50);
         public static Zbroja brakZbroji = new Zbroja();
-        public static Zbroja kurtka = new Zbroja("Kurtka", 100, 100, 110, 110, 110, 110);
-        public static Zbroja kolczuga = new Zbroja("Kolczuga", 60, 450, 220, 220, 220, 220);
-        public static Zbroja pancerz = new Zbroja("Pancerz", 100, 900, 330, 330, 330, 330);
+        public static Zbroja kurtka = new Zbroja("Kurtka", 10, 100, 0, 0, 10, 5);
+        public static Zbroja kolczuga = new Zbroja("Kolczuga", 60, 450, 20, 10, 20, 50);
+        public static Zbroja pancerz = new Zbroja("Pancerz", 100, 900, 100, 100, 40, 100);
 
         public static Bron posiadanaBron = brakBroni;
         public static Zbroja posiadanaZbroja = brakZbroji;

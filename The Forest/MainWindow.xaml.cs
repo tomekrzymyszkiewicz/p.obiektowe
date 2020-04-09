@@ -290,7 +290,7 @@ namespace the_forest_game
 		}
 		protected void UruchomZegar()
 		{
-			zegar.Interval = TimeSpan.FromMilliseconds(0.1);
+			zegar.Interval = TimeSpan.FromMilliseconds(300);
 			zegar.Tick += AktualizujZegar;
 			zegar.Start();
 		}
@@ -413,6 +413,7 @@ namespace the_forest_game
 				przycisk_low.IsEnabled = false;
 				przycisk_jedz.IsEnabled = false;
 				przycisk_spij.IsEnabled = false;
+				przycisk_boss.IsEnabled = false;
 				komunikat.Text = "Gra zapauzowana.";
 				zegar.Stop();
 			}
@@ -466,6 +467,18 @@ namespace the_forest_game
 		{
 			e.Cancel = true;
 			pole_czy_zapisac_stan_gry.Visibility = Visibility.Visible;
+			przycisk_wczytaj.IsEnabled = false;
+			przycisk_zapisz.IsEnabled = false;
+			przycisk_kup.IsEnabled = false;
+			przycisk_sprzedaj.IsEnabled = false;
+			przycisk_poluj.IsEnabled = false;
+			przycisk_zbieraj.IsEnabled = false;
+			przycisk_odpoczywaj.IsEnabled = false;
+			przycisk_low.IsEnabled = false;
+			przycisk_jedz.IsEnabled = false;
+			przycisk_boss.IsEnabled = false;
+			przycisk_spij.IsEnabled = false;
+			przycisk_pauza.IsEnabled = false;
 		}
 		private void CzyZapisac(object sender, RoutedEventArgs e)
 		{
@@ -492,6 +505,19 @@ namespace the_forest_game
 			else
 			{
 				komunikat.Text = "błąd ataku";
+			}
+			AktualizujWartości();
+		}
+		private void PokonajFinalnegoPotwora(object sender, RoutedEventArgs e)
+		{
+			if (Gracz.Obrona() > 90 && Gracz.Atak() > 90 && Obozowisko.Dom.posiadany_dom.Wytrzymalosc() > 25)
+			{
+				komunikat.Text = "Udało ci się pokonać końcowego potwora!";
+			}
+			else 
+			{
+				Gracz.ZmienZycie(-(Gracz.Zycie() - 1));
+				komunikat.Text = "Nie udało ci się pokonać potwora. Następnym razem przygotuj się lepiej.";
 			}
 			AktualizujWartości();
 		}

@@ -21,7 +21,7 @@ namespace the_forest_game
                 Ekwipunek.ekwipunek_ilosci[0] += dane[1];
                 dane[2] = los.Next(1, 10);
                 Gracz.ZmienEnergie(-dane[2]);
-                dane[3] = los.Next(1, 10);
+                dane[3] = los.Next(1, 10 - Gracz.Obrona()/10);
                 Gracz.ZmienZycie(-dane[3]);
                 dane[4] = los.Next(2, 4);
                 Gracz.ZmienDoswiadczenie(dane[4]);

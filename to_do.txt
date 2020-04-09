@@ -1,4 +1,1 @@
-- dodać nocne ataki wrogów na obozowisko (strata energii, życia i surowców)
-- dodać skalowanie wielkości gry w stałej proporcji
-- im lepsza obrona tym mniej traci się życia
 - dodać kilka bosów
