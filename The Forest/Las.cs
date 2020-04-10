@@ -21,7 +21,7 @@ namespace the_forest_game
                 Ekwipunek.ekwipunek_ilosci[0] += dane[1];
                 dane[2] = los.Next(1, 10);
                 Gracz.ZmienEnergie(-dane[2]);
-                dane[3] = los.Next(1, 10 - Gracz.Obrona()/10);
+                dane[3] = los.Next(1, 12 - (Gracz.Obrona()/10));
                 Gracz.ZmienZycie(-dane[3]);
                 dane[4] = los.Next(2, 4);
                 Gracz.ZmienDoswiadczenie(dane[4]);
@@ -50,8 +50,8 @@ namespace the_forest_game
                 Random los = new Random();
                 dane[1] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie()) / 20) + 2);
                 dane[2] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie()) / 10) + 2);
-                dane[3] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie()) / 1000) + 2);
-                dane[4] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie()) / 500) + 2);
+                dane[3] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie()) / 5000) + 2);
+                dane[4] = los.Next(0, ((Gracz.Atak() + Gracz.Obrona() + Gracz.Doswiadczenie()) / 3000) + 2);
                 Ekwipunek.ekwipunek_ilosci[1] += dane[1];
                 Ekwipunek.ekwipunek_ilosci[2] += dane[2];
                 Ekwipunek.ekwipunek_ilosci[3] += dane[3];

@@ -36,7 +36,7 @@ namespace the_forest_game
 					}
 					else
 					{
-						komunikat.Text = "Nie możesz kupić " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ". Masz za mało pieniędzy.";
+						komunikat.Text = "Nie możesz kupić " + Sklep.NazwaPrzedmiotuDopelniacz(wybranyPrzedmiotWSklepie) + ". Masz za mało środków.";
 					}
 				}
 				else if (wybranyPrzedmiotWSklepie > 10)
@@ -252,6 +252,7 @@ namespace the_forest_game
 			przycisk_jedz.IsEnabled = false;
 			przycisk_spij.IsEnabled = false;
 			przycisk_pauza.IsEnabled = false;
+			przycisk_boss.IsEnabled = false;
 			komunikat.Text = "Przegrałeś! Koniec gry!";
 			pole_konca_gry.Visibility = Visibility.Visible;
 		}
@@ -297,9 +298,10 @@ namespace the_forest_game
 		private void AktualizujZegar(object sender, EventArgs e)
 		{
 
-			if(Gracz.czas.Hour == 3 && Gracz.czas.Minute == 0)
+			if(Gracz.czas.Hour > 3 && Gracz.czas.Hour < 6)
 			{
 				AtakNaObozowisko();
+				Gracz.czas = Gracz.czas.AddHours(3);
 			}
 			godzina.Text = String.Format("{0:t}", Gracz.Czas());
 			dzien.Text = Convert.ToString(Convert.ToInt32((Gracz.czas - Gracz.czasPoczątkowy).TotalDays + 1));
@@ -459,6 +461,7 @@ namespace the_forest_game
 			przycisk_jedz.IsEnabled = true;
 			przycisk_spij.IsEnabled = true;
 			przycisk_pauza.IsEnabled = true;
+			przycisk_boss.IsEnabled = true;
 			komunikat.Text = "Może tym razem pójdzie ci lepiej.";
 			pole_konca_gry.Visibility = Visibility.Hidden;
 			AktualizujWartości();
