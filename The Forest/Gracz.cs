@@ -78,7 +78,7 @@ namespace the_forest_game
             {
                 energia = 100;
             }
-            else if (zycie + ileZmienic <= 0)
+            else if (energia + ileZmienic <= 0)
             {
                 energia = 0;
             }

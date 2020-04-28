@@ -84,7 +84,7 @@ namespace the_forest_game
             private int wytrzymalosc;
             private readonly int[] koszty = new int[5]; // 0 - pieniadze // 1 - drewno // 2 - kamień // 3 - skóra // 4 - metal
 
-            public static Dom klepisko = new Dom("Klepisko", 5, 0, 0, 0, 0, 0);
+            public readonly static Dom klepisko = new Dom("Klepisko", 5, 0, 0, 0, 0, 0);
             public static Dom szalas = new Dom("Szałas", 10, 100, 50, 100, 2, 2);
             public static Dom ziemianka = new Dom("Ziemianka", 20, 1000, 1000, 500, 20, 20);
             public static Dom chatka = new Dom("Chatka", 30, 10000, 5000, 2000, 100, 200);

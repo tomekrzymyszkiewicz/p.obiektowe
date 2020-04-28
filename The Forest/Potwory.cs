@@ -78,9 +78,5 @@ namespace the_forest_game
                 return dane;
             }
         }
-        class Boss
-        {
-
-        }
     }
 }

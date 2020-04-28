@@ -10,8 +10,16 @@ namespace the_forest_game
 {
 	public partial class MainWindow : Window
 	{
-		private readonly string nazwaPliku = "save.txt"; //nazwa pliku z zapisem stanu gry
-		private int stanGry = 1; // 1 - gra trwa // 2 - gra zapauzowana // 0 - koniec gry
+		/// <summary>
+		/// nazwa pliku z zapisem stanu gry
+		/// </summary>
+		private readonly string nazwaPliku = "save.txt";
+		/// <summary>
+		/// 1 - gra trwa
+		/// 2 - gra zapauzowa
+		/// 0 - koniec gry
+		/// </summary>
+		private int stanGry = 1;
 		private readonly DispatcherTimer zegar = new DispatcherTimer();
 		public MainWindow()
 		{

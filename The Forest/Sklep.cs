@@ -2,8 +2,11 @@
 {
     public class Sklep
     {
+        /// <summary>
         /// true - zakup udany
         /// false - nie udało się kupić przedmiotu
+        /// </summary>
+        /// <returns></returns>
         public static bool Kup(int wybranyPrzedmiotWSklepie)
         {
             switch (wybranyPrzedmiotWSklepie)
@@ -228,6 +231,11 @@
                     return false;
             }
         }
+        /// <summary>
+        /// true - sprzedaż udana
+        /// false - nie udało się sprzedać przedmiotu
+        /// </summary>
+        /// <returns></returns>
         public static bool Sprzedaj(int wybranyPrzedmiotWSklepie)
         {
             switch (wybranyPrzedmiotWSklepie)
